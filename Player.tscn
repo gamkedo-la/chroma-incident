@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://mkymf5bum4dg"]
+
+[ext_resource type="Script" path="res://Player.gd" id="1_3u88k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_egjqc"]
+size = Vector2(16, 16)
+
+[sub_resource type="Gradient" id="Gradient_rdgse"]
+colors = PackedColorArray(0.38251, 0.54281, 0.748529, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_syn6a"]
+gradient = SubResource("Gradient_rdgse")
+width = 16
+height = 16
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_3u88k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_egjqc")
+
+[node name="Body" type="Sprite2D" parent="."]
+texture = SubResource("GradientTexture2D_syn6a")
+
+[node name="Gun" type="Sprite2D" parent="Body"]
+position = Vector2(7, 0)
+scale = Vector2(1.5, 0.125)
+texture = SubResource("GradientTexture2D_syn6a")
