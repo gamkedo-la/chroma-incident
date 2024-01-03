@@ -1,12 +1,15 @@
 (function (document, window) {
     mapRNG = Math.random;
-    for(let i = 0 ; i < 800 ; i++) {
+    for(let i = 0 ; i < 400 ; i++) {
         var div = document.createElement("div");
-        div.style.width = "200px";
-        div.style.height = "200px";
-        const r = Math.floor(mapRNG()*50);
+        div.style.width = "600px";
+        div.style.height = "600px";
+        div.style.borderRadius = "50%";
+        div.style.mixBlendMode = "add";
+        const r = Math.floor(mapRNG()*255);
+        const g = Math.floor(mapRNG()*255);
 
-        div.style.background = `rgba(${r}, 20, ${r}, 1)`;
+        div.style.background = `rgba(${r}, ${g}, ${100}, 0.3)`;
         div.style.position = "absolute";
         //move these around in z for some fun parallax effect
         const x = -6000 + mapRNG()*25000;
@@ -20,7 +23,7 @@
     stepDivs = document.getElementsByClassName("step");
     stepIndex = 0;
     [].forEach.call(stepDivs, function(step){
-        const z = mapRNG()*500;
+        const z = mapRNG()*600;
         const y = mapRNG()*2000 - 1000;
         const x = stepIndex * 1000;
         stepIndex++;

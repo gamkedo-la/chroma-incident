@@ -47,9 +47,14 @@ table {
 body {
     font-family: 'PT Sans', sans-serif;
     min-height: 740px;
-    background: radial-gradient(rgb(43, 31, 63), rgb(25, 13, 32));
-    color: rgb(255, 225, 106);
+    background: linear-gradient(to right, rgba(0,0,0,0), teal), linear-gradient(to right, rgba(255,0,100,.3), rgba(255,100,127,.2)), linear-gradient(to top right, yellow, rgba(0,0,0,0)), radial-gradient(closest-corner at 20% 80%, yellow, red);
+    background-attachment: fixed;
+    color: white;
 }
+
+body {
+
+  }
 
 /*
     Now let's bring some text styles back ...
