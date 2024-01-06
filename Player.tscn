@@ -14,6 +14,7 @@ width = 16
 height = 16
 
 [node name="Player" type="CharacterBody2D"]
+position = Vector2(0, -8)
 script = ExtResource("1_3u88k")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -23,6 +24,8 @@ shape = SubResource("RectangleShape2D_egjqc")
 texture = SubResource("GradientTexture2D_syn6a")
 
 [node name="Gun" type="Sprite2D" parent="Body"]
-position = Vector2(7, 0)
+position = Vector2(10, -4)
 scale = Vector2(1.5, 0.125)
 texture = SubResource("GradientTexture2D_syn6a")
+
+[node name="Camera2D" type="Camera2D" parent="."]
