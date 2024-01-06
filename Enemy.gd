@@ -3,7 +3,7 @@ extends CharacterBody2D
 @export var max_speed = 100
 @export var min_speed = 10
 
-@onready var player:Node2D = get_node("/root/main/Player")
+@export var player:Node2D
 
 func _physics_process(delta):
 	var direction = global_position.direction_to(player.global_position)

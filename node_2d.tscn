@@ -1,25 +1,23 @@
 [gd_scene load_steps=5 format=3 uid="uid://boc60874gf3sc"]
 
-[ext_resource type="Script" path="res://Player.gd" id="1_km4wt"]
+[ext_resource type="Texture2D" uid="uid://db34hmoq3drni" path="res://icon.svg" id="1_iloee"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_egjqc"]
-size = Vector2(16, 16)
+[sub_resource type="Gradient" id="Gradient_iuvne"]
 
-[sub_resource type="Gradient" id="Gradient_rdgse"]
-colors = PackedColorArray(0.38251, 0.54281, 0.748529, 1, 1, 1, 1, 1)
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_rffkt"]
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_syn6a"]
-gradient = SubResource("Gradient_rdgse")
-width = 16
-height = 16
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_md3g8"]
+width = 64
+height = 64
+invert = true
+color_ramp = SubResource("Gradient_iuvne")
+noise = SubResource("FastNoiseLite_rffkt")
 
-[node name="Player" type="Node2D"]
+[node name="Node2D" type="Node2D"]
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-script = ExtResource("1_km4wt")
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("NoiseTexture2D_md3g8")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-shape = SubResource("RectangleShape2D_egjqc")
-
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
-texture = SubResource("GradientTexture2D_syn6a")
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(-73, 50)
+texture = ExtResource("1_iloee")

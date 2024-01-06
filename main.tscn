@@ -1,7 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://cuw7kaaihq701"]
+[gd_scene load_steps=7 format=3 uid="uid://cuw7kaaihq701"]
 
 [ext_resource type="PackedScene" uid="uid://mkymf5bum4dg" path="res://Player.tscn" id="1_6up4f"]
 [ext_resource type="PackedScene" uid="uid://by7wal4lga0a2" path="res://Enemy.tscn" id="2_sk85a"]
+[ext_resource type="PackedScene" uid="uid://dn0udrbxyfodh" path="res://tile01.tscn" id="3_f12ii"]
+[ext_resource type="PackedScene" uid="uid://ddrwi16iekn6n" path="res://tile02.tscn" id="4_ht2sf"]
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_rois7"]
+scenes/1/scene = ExtResource("3_f12ii")
+scenes/2/scene = ExtResource("4_ht2sf")
+
+[sub_resource type="TileSet" id="TileSet_wci73"]
+sources/0 = SubResource("TileSetScenesCollectionSource_rois7")
 
 [node name="main" type="Node2D"]
 
@@ -10,11 +19,26 @@ offset_right = 1152.0
 offset_bottom = 649.0
 color = Color(0.184314, 0.0823529, 0.203922, 1)
 
-[node name="Player" parent="." instance=ExtResource("1_6up4f")]
+[node name="TileMap" type="TileMap" parent="."]
+z_index = 1
+y_sort_enabled = true
+tile_set = SubResource("TileSet_wci73")
+format = 2
+layer_0/name = "ground"
+layer_0/y_sort_enabled = true
+layer_0/z_index = 1
+layer_0/tile_data = PackedInt32Array(917523, 0, 131072, 917524, 0, 65536, 917555, 0, 65536, 917554, 0, 65536, 917525, 0, 65536, 917526, 0, 65536, 917527, 0, 65536, 917528, 0, 65536, 917529, 0, 65536, 917530, 0, 65536, 917531, 0, 131072, 917532, 0, 65536, 917533, 0, 65536, 917534, 0, 65536, 917535, 0, 65536, 917536, 0, 65536, 917537, 0, 65536, 917538, 0, 65536, 917539, 0, 65536, 917540, 0, 65536, 917541, 0, 65536, 917542, 0, 65536, 917543, 0, 65536, 917544, 0, 65536, 917545, 0, 65536, 917546, 0, 65536, 917547, 0, 65536, 917548, 0, 65536, 917549, 0, 65536, 917550, 0, 65536, 917551, 0, 65536, 917552, 0, 65536, 917553, 0, 65536, 983084, 0, 65536, 1048620, 0, 65536, 1114156, 0, 65536, 1179692, 0, 65536, 1245228, 0, 65536, 1310764, 0, 65536, 1376300, 0, 65536, 1441836, 0, 65536, 1507372, 0, 65536, 1572908, 0, 65536, 1638444, 0, 65536, 1703980, 0, 65536, 1769516, 0, 65536, 1835052, 0, 65536, 1900588, 0, 131072, 1966124, 0, 65536, 2031660, 0, 65536, 2097196, 0, 65536, 2162732, 0, 65536, 983061, 0, 65536, 1048597, 0, 65536, 1114133, 0, 65536, 1179669, 0, 65536, 1245205, 0, 65536, 1310741, 0, 65536, 1376277, 0, 65536, 1441813, 0, 65536, 1507349, 0, 65536, 1572885, 0, 65536, 1638421, 0, 65536, 1703957, 0, 65536, 1769493, 0, 65536, 1835029, 0, 65536, 1900565, 0, 131072, 852012, 0, 131072, 1900567, 0, 131072, 1900570, 0, 131072, 1900575, 0, 131072, 1900581, 0, 131072, 1900585, 0, 131072)
+
+[node name="Player" parent="TileMap" instance=ExtResource("1_6up4f")]
+y_sort_enabled = true
 position = Vector2(932, 404)
 
-[node name="Enemy" parent="." instance=ExtResource("2_sk85a")]
+[node name="Enemy" parent="TileMap" node_paths=PackedStringArray("player") instance=ExtResource("2_sk85a")]
+y_sort_enabled = true
 position = Vector2(565, 249)
+player = NodePath("../Player")
 
-[node name="Enemy2" parent="." instance=ExtResource("2_sk85a")]
+[node name="Enemy2" parent="TileMap" node_paths=PackedStringArray("player") instance=ExtResource("2_sk85a")]
+y_sort_enabled = true
 position = Vector2(162, 162)
+player = NodePath("../Player")
