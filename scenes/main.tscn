@@ -1,10 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://cuw7kaaihq701"]
+[gd_scene load_steps=11 format=3 uid="uid://cuw7kaaihq701"]
 
-[ext_resource type="PackedScene" uid="uid://mkymf5bum4dg" path="res://Player.tscn" id="1_6up4f"]
-[ext_resource type="PackedScene" uid="uid://by7wal4lga0a2" path="res://Enemy.tscn" id="2_sk85a"]
-[ext_resource type="PackedScene" uid="uid://dn0udrbxyfodh" path="res://tile01.tscn" id="3_f12ii"]
-[ext_resource type="PackedScene" uid="uid://8fykog2x6ejn" path="res://tile03.tscn" id="3_s5djo"]
-[ext_resource type="PackedScene" uid="uid://ddrwi16iekn6n" path="res://tile02.tscn" id="4_ht2sf"]
+[ext_resource type="PackedScene" uid="uid://dn0udrbxyfodh" path="res://scenes/tiles/tile01.tscn" id="1_ee2y8"]
+[ext_resource type="PackedScene" uid="uid://ddrwi16iekn6n" path="res://scenes/tiles/tile02.tscn" id="2_6x8rp"]
+[ext_resource type="PackedScene" uid="uid://8fykog2x6ejn" path="res://scenes/tiles/tile03.tscn" id="3_lk3es"]
+[ext_resource type="PackedScene" uid="uid://mkymf5bum4dg" path="res://scenes/Player.tscn" id="4_e3jxg"]
+[ext_resource type="PackedScene" uid="uid://by7wal4lga0a2" path="res://scenes/Enemy.tscn" id="5_xujob"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_iuj3x"]
 vertices = PackedVector2Array(650, 586, 710, 554, 1114, 554, 1555, 776, 1078, 342, 1078, 502, 758, 502, 618, 426, 618, 390, 1238, 522, 1274, 522, 506, 154, 506, 118, 678, 106, 714, 106, 666, 294, 630, 294, 282, 362, 282, 326, 406, 134, 406, 650, 1579, -114, 1306, 346, 1306, 310, 1274, 486, 1146, 26, 1146, -10, 1162, 166, 650, 550, 710, 518, -78, -94, 38, -10, -59, 740, 38, 26, 714, 70, 982, 26, 982, 294, 966, 294, 678, 70, 1162, 426, 1162, 346, 1238, 486, 1018, 330, 442, 390, 570, 362, 966, 330, 534, 362, 534, 326, 442, 134, 470, 154, 442, 650, 442, 426, 614, 550, 758, 518, 614, 586, 666, 330, 1018, 26, 1126, 166, 1162, 310, 470, 118, 1126, 426, 1114, 342, 630, 330, 570, 326, 246, 326, 246, 362)
@@ -13,19 +13,39 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-89, -104, 1590, -125, 
 source_geometry_group_name = &"navigation_polygon_source_group"
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_rois7"]
-scenes/1/scene = ExtResource("3_f12ii")
-scenes/2/scene = ExtResource("4_ht2sf")
-scenes/3/scene = ExtResource("3_s5djo")
+scenes/1/scene = ExtResource("1_ee2y8")
+scenes/2/scene = ExtResource("2_6x8rp")
+scenes/3/scene = ExtResource("3_lk3es")
 
 [sub_resource type="TileSet" id="TileSet_wci73"]
 sources/0 = SubResource("TileSetScenesCollectionSource_rois7")
 
+[sub_resource type="Gradient" id="Gradient_dpltu"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_pfhui"]
+gradient = SubResource("Gradient_dpltu")
+fill = 1
+fill_from = Vector2(0.504274, 0.495726)
+fill_to = Vector2(0.764957, 0.141026)
+
 [node name="main" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -378.0
+offset_top = -257.0
+offset_right = -338.0
+offset_bottom = -217.0
+scale = Vector2(126.885, 55.9241)
+color = Color(0.150805, 0.118553, 0.172689, 1)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_iuj3x")
 
 [node name="TileMap" type="TileMap" parent="NavigationRegion2D"]
+modulate = Color(0.223529, 0.258824, 0.227451, 1)
+show_behind_parent = true
+top_level = true
 y_sort_enabled = true
 tile_set = SubResource("TileSet_wci73")
 format = 2
@@ -34,16 +54,31 @@ layer_0/y_sort_enabled = true
 layer_0/z_index = 1
 layer_0/tile_data = PackedInt32Array(2293799, 0, 131072, 3, 0, 65536, 4, 0, 65536, 5, 0, 65536, 6, 0, 65536, 7, 0, 65536, 8, 0, 65536, 9, 0, 65536, 10, 0, 65536, 11, 0, 65536, 12, 0, 65536, 13, 0, 65536, 14, 0, 65536, 15, 0, 65536, 16, 0, 65536, 17, 0, 65536, 18, 0, 65536, 19, 0, 65536, 20, 0, 65536, 21, 0, 65536, 22, 0, 131072, 23, 0, 131072, 24, 0, 131072, 25, 0, 131072, 26, 0, 131072, 27, 0, 131072, 28, 0, 131072, 29, 0, 131072, 30, 0, 131072, 31, 0, 131072, 32, 0, 131072, 33, 0, 131072, 34, 0, 131072, 35, 0, 131072, 36, 0, 131072, 37, 0, 131072, 38, 0, 131072, 39, 0, 131072, 40, 0, 131072, 41, 0, 131072, 42, 0, 131072, 43, 0, 131072, 44, 0, 131072, 45, 0, 131072, 46, 0, 131072, 47, 0, 131072, 48, 0, 131072, 49, 0, 131072, 50, 0, 65536, 51, 0, 65536, 52, 0, 65536, 53, 0, 65536, 54, 0, 65536, 55, 0, 65536, 56, 0, 65536, 57, 0, 65536, 58, 0, 65536, 59, 0, 65536, 60, 0, 65536, 61, 0, 65536, 62, 0, 65536, 65598, 0, 65536, 131134, 0, 65536, 196670, 0, 65536, 262206, 0, 65536, 327742, 0, 65536, 393278, 0, 65536, 458814, 0, 131072, 524350, 0, 65536, 589886, 0, 65536, 655422, 0, 65536, 720958, 0, 65536, 786494, 0, 65536, 852030, 0, 65536, 917566, 0, 65536, 983102, 0, 65536, 1048638, 0, 65536, 1114174, 0, 65536, 1179710, 0, 65536, 1245246, 0, 65536, 2162756, 0, 65536, 2097220, 0, 65536, 2031684, 0, 65536, 1966148, 0, 65536, 1900612, 0, 65536, 1835076, 0, 65536, 1769540, 0, 65536, 1704004, 0, 65536, 1638468, 0, 65536, 1572932, 0, 65536, 1507396, 0, 65536, 1441860, 0, 65536, 2162755, 0, 65536, 2162754, 0, 65536, 2162753, 0, 65536, 2162752, 0, 65536, 2162751, 0, 65536, 2162750, 0, 65536, 2162749, 0, 65536, 2162748, 0, 65536, 2162747, 0, 65536, 2162746, 0, 65536, 2162745, 0, 65536, 2162744, 0, 65536, 2162743, 0, 65536, 2162742, 0, 65536, 2162741, 0, 65536, 2162740, 0, 65536, 2162739, 0, 65536, 2162738, 0, 65536, 2162737, 0, 65536, 2162736, 0, 65536, 2162735, 0, 65536, 2162734, 0, 65536, 2162733, 0, 65536, 2097200, 0, 65536, 2097201, 0, 65536, 2097202, 0, 65536, 2097203, 0, 65536, 2097204, 0, 65536, 2097205, 0, 65536, 2097206, 0, 65536, 2097207, 0, 65536, 2097208, 0, 65536, 2097209, 0, 65536, 2097210, 0, 65536, 2097211, 0, 65536, 2097212, 0, 65536, 2097213, 0, 65536, 2097214, 0, 65536, 2097215, 0, 65536, 2097216, 0, 65536, 2097217, 0, 65536, 2097218, 0, 65536, 2097219, 0, 65536, 589850, 0, 65536, 655386, 0, 65536, 720922, 0, 65536, 786458, 0, 65536, 851994, 0, 65536, 917530, 0, 65536, 983066, 0, 65536, 1048602, 0, 65536, 1114138, 0, 65536, 1179674, 0, 65536, 1245210, 0, 65536, 1310746, 0, 65536, 1376282, 0, 65536, 1441818, 0, 65536, 1507354, 0, 65536, 1572890, 0, 65536, 1638426, 0, 65536, 1703962, 0, 65536, 1769498, 0, 65536, 1835034, 0, 65536, 1900570, 0, 65536, 1966106, 0, 65536, 2031642, 0, 65536, 2097178, 0, 65536, 2162714, 0, 65536, 2228250, 0, 65536, 2293786, 0, 65536, 2359322, 0, 65536, 2424858, 0, 65536, 2490394, 0, 65536, 2555930, 0, 65536, 1638427, 0, 65536, 1638428, 0, 65536, 1638429, 0, 65536, 1638430, 0, 65536, 1638431, 0, 65536, 1638432, 0, 65536, 1638433, 0, 65536, 1638434, 0, 65536, 1638435, 0, 65536, 1638436, 0, 65536, 1638437, 0, 65536, 70, 0, 65536, 69, 0, 65536, 68, 0, 65536, 67, 0, 65536, 66, 0, 65536, 65, 0, 65536, 64, 0, 65536, 63, 0, 65536, 720967, 0, 65536, 786503, 0, 65536, 852039, 0, 65536, 917575, 0, 65536, 983111, 0, 65536, 1048647, 0, 65536, 1114183, 0, 65536, 1179719, 0, 65536, 1245255, 0, 65536, 1310791, 0, 65536, 1376327, 0, 65536, 1441863, 0, 65536, 1507399, 0, 65536, 1572935, 0, 65536, 1638471, 0, 65536, 1310792, 0, 65536, 1310793, 0, 65536, 1310794, 0, 65536, 1310795, 0, 65536, 1310796, 0, 65536, 1310797, 0, 65536, 1310798, 0, 65536, 1310799, 0, 65536, 1310800, 0, 65536, 1245245, 0, 131072, 1245224, 0, 131072, 1376290, 0, 131072, 524318, 0, 131072, 327723, 0, 131072, 1376272, 0, 131072, 2031694, 0, 131072)
 
-[node name="Player" parent="NavigationRegion2D/TileMap" instance=ExtResource("1_6up4f")]
+[node name="Player" parent="NavigationRegion2D/TileMap" instance=ExtResource("4_e3jxg")]
 y_sort_enabled = true
 position = Vector2(932, 404)
 
-[node name="Enemy" parent="NavigationRegion2D/TileMap" node_paths=PackedStringArray("player") instance=ExtResource("2_sk85a")]
+[node name="Enemy" parent="NavigationRegion2D/TileMap" node_paths=PackedStringArray("player") instance=ExtResource("5_xujob")]
 y_sort_enabled = true
 position = Vector2(648, 270)
 player = NodePath("../Player")
 
-[node name="Enemy2" parent="NavigationRegion2D/TileMap" node_paths=PackedStringArray("player") instance=ExtResource("2_sk85a")]
+[node name="Enemy2" parent="NavigationRegion2D/TileMap" node_paths=PackedStringArray("player") instance=ExtResource("5_xujob")]
 y_sort_enabled = true
 position = Vector2(162, 162)
 player = NodePath("../Player")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(572, 268)
+scale = Vector2(4.625, 4.6875)
+color = Color(1, 0.52549, 1, 1)
+energy = 3.35
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_pfhui")
+height = 76.0
+
+[node name="PointLight2D2" type="PointLight2D" parent="."]
+position = Vector2(963, 24)
+scale = Vector2(3.67188, 3.78125)
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_pfhui")

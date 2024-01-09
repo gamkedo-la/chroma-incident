@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://mkymf5bum4dg"]
+[gd_scene load_steps=7 format=3 uid="uid://mkymf5bum4dg"]
 
-[ext_resource type="Script" path="res://Player.gd" id="1_3u88k"]
+[ext_resource type="Script" path="res://scripts/Player.gd" id="1_3u88k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_egjqc"]
 size = Vector2(16, 16)
@@ -12,6 +12,16 @@ colors = PackedColorArray(0.38251, 0.54281, 0.748529, 1, 1, 1, 1, 1)
 gradient = SubResource("Gradient_rdgse")
 width = 16
 height = 16
+
+[sub_resource type="Gradient" id="Gradient_lfkj6"]
+offsets = PackedFloat32Array(0, 0.785942)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1kwxw"]
+gradient = SubResource("Gradient_lfkj6")
+fill = 1
+fill_from = Vector2(0.521368, 0.495726)
+fill_to = Vector2(0.888889, 0.115385)
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(0, -8)
@@ -29,3 +39,11 @@ scale = Vector2(1.5, 0.125)
 texture = SubResource("GradientTexture2D_syn6a")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+scale = Vector2(6.34676, 6.25204)
+energy = 1.09
+shadow_enabled = true
+shadow_filter = 1
+shadow_filter_smooth = 3.2
+texture = SubResource("GradientTexture2D_1kwxw")

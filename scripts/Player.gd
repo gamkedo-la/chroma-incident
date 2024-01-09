@@ -10,7 +10,7 @@ var aim_vector:Vector2
 var rotation_target:float 
 var accelleration:Vector2
 var mouse_in_use:bool = true
-var bullet = preload("res://Bullet.tscn")
+var bullet = preload("res://scenes/Bullet.tscn")
 
 
 func _physics_process(delta):
@@ -22,7 +22,7 @@ func _physics_process(delta):
 	move_and_slide()
 	
 	
-func _process(delta):
+func _process(delta): 
 	if Input.is_action_just_pressed("shoot"):
 		fire()
 		
