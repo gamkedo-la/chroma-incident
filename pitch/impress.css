@@ -47,7 +47,7 @@ table {
 body {
     font-family: 'PT Sans', sans-serif;
     min-height: 740px;
-    background: linear-gradient(to right, rgba(0,0,0,0), teal), linear-gradient(to right, rgba(255,0,100,.3), rgba(255,100,127,.2)), linear-gradient(to top right, yellow, rgba(0,0,0,0)), radial-gradient(closest-corner at 20% 80%, yellow, red);
+    background: linear-gradient(to right, rgba(0,0,0,0), rgb(65, 0, 78)), linear-gradient(to right, rgba(0, 13, 73, 0.3), rgba(255,100,127,.2)), linear-gradient(to top right, rgb(0, 139, 133), rgba(0,0,0,0)), radial-gradient(closest-corner at 20% 80%, yellow, rgb(0, 0, 0));
     background-attachment: fixed;
     color: white;
 }

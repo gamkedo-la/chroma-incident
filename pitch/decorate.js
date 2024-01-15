@@ -9,11 +9,11 @@
         const r = Math.floor(mapRNG()*255);
         const g = Math.floor(mapRNG()*255);
 
-        div.style.background = `rgba(${r}, ${g}, ${100}, 0.3)`;
+        div.style.background = `rgba(${r}, ${20}, ${g}, 0.3)`;
         div.style.position = "absolute";
         //move these around in z for some fun parallax effect
-        const x = -6000 + mapRNG()*25000;
-        const y = mapRNG()*8000 - 4000;
+        const x = -5000 + mapRNG()*30000;
+        const y = mapRNG()*8000 - 7000;
         const z = -500-mapRNG()*4000;
         div.style.transform = `translate3d(${x}px, ${y}px, ${z}px)`;
         document.getElementById("impress").appendChild(div);
