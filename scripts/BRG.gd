@@ -2,7 +2,7 @@ class_name BRG
 extends CharacterBody2D
 
 @onready var fire_timer = $Timer
-@export var fire_rate: float = 0.5
+@export var fire_rate: float = 0.2
 @export var projectile_resource:ProjectileBase = null
 
 var can_fire: bool = true

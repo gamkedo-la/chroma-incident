@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://mkymf5bum4dg"]
+[gd_scene load_steps=7 format=3 uid="uid://mkymf5bum4dg"]
 
 [ext_resource type="Script" path="res://pitch/Player.gd" id="1_wnilg"]
 [ext_resource type="PackedScene" uid="uid://b1rjgpyrwxlvn" path="res://scenes/BRG.tscn" id="2_4s8e3"]
+[ext_resource type="Resource" uid="uid://d4guyol4i3gth" path="res://Resources/pink_bullet.tres" id="3_1bj3n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_egjqc"]
 size = Vector2(16, 16)
@@ -29,3 +30,4 @@ texture = SubResource("GradientTexture2D_syn6a")
 [node name="Brg" parent="." instance=ExtResource("2_4s8e3")]
 collision_layer = 128
 collision_mask = 0
+projectile_resource = ExtResource("3_1bj3n")

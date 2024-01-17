@@ -1,14 +1,16 @@
-[gd_resource type="Resource" script_class="ProjectileBase" load_steps=4 format=3 uid="uid://bpuh16aots8dv"]
+[gd_resource type="Resource" script_class="ProjectileBase" load_steps=4 format=3 uid="uid://hc3eoi1gisaa"]
 
 [ext_resource type="Script" path="res://Resources/ProjectileBase.gd" id="1_csbri"]
 
-[sub_resource type="Gradient" id="Gradient_r7x72"]
-colors = PackedColorArray(1, 0, 0, 1, 1, 1, 1, 1)
+[sub_resource type="Gradient" id="Gradient_tiic3"]
+offsets = PackedFloat32Array(0.00958466, 1)
+colors = PackedColorArray(1, 0.521569, 0, 1, 1, 1, 1, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_dh07p"]
-gradient = SubResource("Gradient_r7x72")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_3fqfo"]
+gradient = SubResource("Gradient_tiic3")
+height = 16
 
 [resource]
 script = ExtResource("1_csbri")
-projectile_sprite = SubResource("GradientTexture2D_dh07p")
-projectile_speed = 250.0
+projectile_texture = SubResource("GradientTexture2D_3fqfo")
+projectile_speed = 0.0

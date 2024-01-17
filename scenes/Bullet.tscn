@@ -6,11 +6,12 @@
 size = Vector2(16, 4)
 
 [sub_resource type="Gradient" id="Gradient_wikvu"]
+colors = PackedColorArray(0.102089, 0.639354, 5.77569e-07, 1, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_onogb"]
 gradient = SubResource("Gradient_wikvu")
 width = 16
-height = 16
+height = 4
 
 [node name="Bullet" type="CharacterBody2D"]
 collision_layer = 32
@@ -21,7 +22,6 @@ script = ExtResource("1_ejyy6")
 shape = SubResource("RectangleShape2D_bye8p")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(1, 0.25)
 texture = SubResource("GradientTexture2D_onogb")
 
 [node name="VisibileNotifier" type="VisibleOnScreenNotifier2D" parent="."]

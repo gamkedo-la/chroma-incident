@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ProjectileBase" load_steps=3 format=3 uid="uid://d4guyol4i3gth"]
+
+[ext_resource type="Script" path="res://Resources/ProjectileBase.gd" id="1_5sbjg"]
+[ext_resource type="Texture2D" uid="uid://s3my0n06w3ac" path="res://assets/whirly-test.png" id="1_mfg5b"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_5sbjg")
+projectile_texture = ExtResource("1_mfg5b")
+projectile_speed = 700.0
