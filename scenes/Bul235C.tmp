@@ -12,8 +12,8 @@ gradient = SubResource("Gradient_wikvu")
 width = 16
 height = 16
 
-[node name="Bullet" type="CharacterBody2D"]
-collision_layer = 32
+[node name="Bullet" type="RigidBody2D"]
+collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_ejyy6")
 
@@ -23,10 +23,3 @@ shape = SubResource("RectangleShape2D_bye8p")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(1, 0.25)
 texture = SubResource("GradientTexture2D_onogb")
-
-[node name="VisibileNotifier" type="VisibleOnScreenNotifier2D" parent="."]
-
-[node name="DeathTimer" type="Timer" parent="."]
-
-[connection signal="screen_exited" from="VisibileNotifier" to="." method="_on_visibile_notifier_screen_exited"]
-[connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]

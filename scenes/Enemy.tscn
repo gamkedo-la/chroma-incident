@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://by7wal4lga0a2"]
+[gd_scene load_steps=6 format=3 uid="uid://by7wal4lga0a2"]
 
 [ext_resource type="Script" path="res://scripts/Enemy.gd" id="1_uod5a"]
 
@@ -17,16 +17,6 @@ fill_from = Vector2(0.495413, 0.490826)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b5hoe"]
 size = Vector2(44, 46)
-
-[sub_resource type="Gradient" id="Gradient_137sr"]
-offsets = PackedFloat32Array(0, 0.792332)
-colors = PackedColorArray(0.892308, 0.892308, 0.892308, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_ah2we"]
-gradient = SubResource("Gradient_137sr")
-fill = 1
-fill_from = Vector2(0.512821, 0.491453)
-fill_to = Vector2(0.820513, 0.162393)
 
 [node name="Enemy" type="CharacterBody2D"]
 position = Vector2(0, -16)
@@ -54,14 +44,5 @@ debug_enabled = true
 [node name="Timer" type="Timer" parent="Navigation"]
 wait_time = 0.05
 autostart = true
-
-[node name="PointLight2D" type="PointLight2D" parent="."]
-scale = Vector2(3.25885, 3.07531)
-color = Color(0.854902, 0, 0, 1)
-energy = 1.96
-shadow_enabled = true
-shadow_filter = 1
-shadow_filter_smooth = 5.8
-texture = SubResource("GradientTexture2D_ah2we")
 
 [connection signal="timeout" from="Navigation/Timer" to="." method="_on_timer_timeout"]

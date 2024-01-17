@@ -1,0 +1,700 @@
+[gd_scene load_steps=9 format=3 uid="uid://33a644mkqq02"]
+
+[ext_resource type="PackedScene" uid="uid://dn0udrbxyfodh" path="res://scenes/tiles/tile01.tscn" id="1_o6jar"]
+[ext_resource type="PackedScene" uid="uid://ddrwi16iekn6n" path="res://scenes/tiles/tile02.tscn" id="2_wm64m"]
+[ext_resource type="PackedScene" uid="uid://8fykog2x6ejn" path="res://scenes/tiles/tile03.tscn" id="3_573f5"]
+[ext_resource type="PackedScene" uid="uid://mkymf5bum4dg" path="res://Player/Player.tscn" id="4_t5x4h"]
+[ext_resource type="PackedScene" uid="uid://by7wal4lga0a2" path="res://scenes/Enemy.tscn" id="5_ypf81"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_iuj3x"]
+vertices = PackedVector2Array(650, 409, 710, 387, 1114, 387, -59, 740, 570, 255, 966, 233, 1018, 233, 618, 263, 442, 263, 666, 233, 966, 197, 1078, 230, 1078, 340, 758, 340, 618, 299, 1238, 365, 1274, 365, 1555, 776, 506, 112, 678, 79, 714, 79, 666, 197, 630, 197, 630, 233, 1579, -114, 1306, 244, 1306, 208, 1274, 329, 282, 255, 282, 219, 406, 87, 406, 453, 1146, 24, 1146, -13, 1162, 109, 614, 409, 442, 453, 1162, 244, 1238, 329, 1162, 299, 650, 373, 710, 351, 570, 219, -78, -94, 38, -13, 38, 24, 714, 43, 982, 24, 982, 197, 678, 43, 506, 76, 470, 76, 442, 299, 614, 373, 758, 351, 246, 255, 534, 219, 470, 112, 1018, 24, 1126, 109, 1162, 208, 1126, 299, 1114, 230, 534, 255, 442, 87, 246, 219)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7, 8), PackedInt32Array(5, 4, 9, 10), PackedInt32Array(11, 12, 13, 14, 7, 6), PackedInt32Array(3, 2, 15, 16, 17), PackedInt32Array(18, 19, 20, 21, 22), PackedInt32Array(23, 9, 4), PackedInt32Array(24, 17, 25, 26), PackedInt32Array(25, 17, 16, 27), PackedInt32Array(28, 29, 30, 31), PackedInt32Array(32, 33, 24, 26, 34), PackedInt32Array(35, 0, 3, 36), PackedInt32Array(37, 25, 27, 38, 39), PackedInt32Array(1, 0, 40, 41), PackedInt32Array(23, 4, 42, 22), PackedInt32Array(43, 24, 33, 44), PackedInt32Array(3, 43, 44, 45), PackedInt32Array(20, 46, 47, 48, 10), PackedInt32Array(45, 47, 46, 49), PackedInt32Array(19, 18, 50, 49), PackedInt32Array(45, 49, 50, 51), PackedInt32Array(36, 52, 14, 53), PackedInt32Array(13, 54, 41, 14), PackedInt32Array(14, 41, 40, 53), PackedInt32Array(36, 53, 35), PackedInt32Array(31, 36, 3), PackedInt32Array(31, 3, 45, 55), PackedInt32Array(20, 10, 9, 21), PackedInt32Array(18, 22, 42, 56, 57), PackedInt32Array(6, 58, 32, 59, 11), PackedInt32Array(26, 60, 34), PackedInt32Array(32, 34, 59), PackedInt32Array(39, 38, 15, 2, 61), PackedInt32Array(61, 2, 62, 59), PackedInt32Array(59, 62, 11), PackedInt32Array(63, 4, 8), PackedInt32Array(56, 63, 8, 64, 57), PackedInt32Array(51, 57, 64), PackedInt32Array(45, 51, 64, 30), PackedInt32Array(45, 30, 29, 65), PackedInt32Array(55, 28, 31), PackedInt32Array(45, 65, 55)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-89, -104, 1590, -125, 1565, 787, -69, 750)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_rois7"]
+scenes/1/scene = ExtResource("1_o6jar")
+scenes/2/scene = ExtResource("2_wm64m")
+scenes/3/scene = ExtResource("3_573f5")
+
+[sub_resource type="TileSet" id="TileSet_wci73"]
+tile_offset_axis = 1
+tile_size = Vector2i(16, 11)
+occlusion_layer_0/light_mask = 1
+sources/0 = SubResource("TileSetScenesCollectionSource_rois7")
+
+[node name="NavigationRegion2D" type="NavigationRegion2D"]
+navigation_polygon = SubResource("NavigationPolygon_iuj3x")
+
+[node name="TileMap" type="TileMap" parent="."]
+show_behind_parent = true
+top_level = true
+y_sort_enabled = true
+tile_set = SubResource("TileSet_wci73")
+format = 2
+layer_0/name = "collide"
+layer_0/y_sort_enabled = true
+layer_0/z_index = 1
+layer_0/tile_data = PackedInt32Array(2293799, 0, 131072, 3, 0, 65536, 4, 0, 65536, 5, 0, 65536, 6, 0, 65536, 7, 0, 65536, 8, 0, 65536, 9, 0, 65536, 10, 0, 65536, 11, 0, 65536, 12, 0, 65536, 13, 0, 65536, 14, 0, 65536, 15, 0, 65536, 16, 0, 65536, 17, 0, 65536, 18, 0, 65536, 19, 0, 65536, 20, 0, 65536, 21, 0, 65536, 22, 0, 131072, 23, 0, 131072, 24, 0, 131072, 25, 0, 131072, 26, 0, 131072, 27, 0, 131072, 28, 0, 131072, 29, 0, 131072, 30, 0, 131072, 31, 0, 131072, 32, 0, 131072, 33, 0, 131072, 34, 0, 131072, 35, 0, 131072, 36, 0, 131072, 37, 0, 131072, 38, 0, 131072, 39, 0, 131072, 40, 0, 131072, 41, 0, 131072, 42, 0, 131072, 43, 0, 131072, 44, 0, 131072, 45, 0, 131072, 46, 0, 131072, 47, 0, 131072, 48, 0, 131072, 49, 0, 131072, 50, 0, 65536, 51, 0, 65536, 52, 0, 65536, 53, 0, 65536, 54, 0, 65536, 55, 0, 65536, 56, 0, 65536, 57, 0, 65536, 58, 0, 65536, 59, 0, 65536, 60, 0, 65536, 61, 0, 65536, 62, 0, 65536, 65598, 0, 65536, 131134, 0, 65536, 196670, 0, 65536, 262206, 0, 65536, 327742, 0, 65536, 393278, 0, 65536, 458814, 0, 131072, 524350, 0, 65536, 589886, 0, 65536, 655422, 0, 65536, 720958, 0, 65536, 786494, 0, 65536, 852030, 0, 65536, 917566, 0, 65536, 983102, 0, 65536, 1048638, 0, 65536, 1114174, 0, 65536, 1179710, 0, 65536, 1245246, 0, 65536, 2162756, 0, 65536, 2097220, 0, 65536, 2031684, 0, 65536, 1966148, 0, 65536, 1900612, 0, 65536, 1835076, 0, 65536, 1769540, 0, 65536, 1704004, 0, 65536, 1638468, 0, 65536, 1572932, 0, 65536, 1507396, 0, 65536, 1441860, 0, 65536, 2162755, 0, 65536, 2162754, 0, 65536, 2162753, 0, 65536, 2162752, 0, 65536, 2162751, 0, 65536, 2162750, 0, 65536, 2162749, 0, 65536, 2162748, 0, 65536, 2162747, 0, 65536, 2162746, 0, 65536, 2162745, 0, 65536, 2162744, 0, 65536, 2162743, 0, 65536, 2162742, 0, 65536, 2162741, 0, 65536, 2162740, 0, 65536, 2162739, 0, 65536, 2162738, 0, 65536, 2162737, 0, 65536, 2162736, 0, 65536, 2162735, 0, 65536, 2162734, 0, 65536, 2162733, 0, 65536, 2097200, 0, 65536, 2097201, 0, 65536, 2097202, 0, 65536, 2097203, 0, 65536, 2097204, 0, 65536, 2097205, 0, 65536, 2097206, 0, 65536, 2097207, 0, 65536, 2097208, 0, 65536, 2097209, 0, 65536, 2097210, 0, 65536, 2097211, 0, 65536, 2097212, 0, 65536, 2097213, 0, 65536, 2097214, 0, 65536, 2097215, 0, 65536, 2097216, 0, 65536, 2097217, 0, 65536, 2097218, 0, 65536, 2097219, 0, 65536, 589850, 0, 65536, 655386, 0, 65536, 720922, 0, 65536, 786458, 0, 65536, 851994, 0, 65536, 917530, 0, 65536, 983066, 0, 65536, 1048602, 0, 65536, 1114138, 0, 65536, 1179674, 0, 65536, 1245210, 0, 65536, 1310746, 0, 65536, 1376282, 0, 65536, 1441818, 0, 65536, 1507354, 0, 65536, 1572890, 0, 65536, 1638426, 0, 65536, 1703962, 0, 65536, 1769498, 0, 65536, 1835034, 0, 65536, 1900570, 0, 65536, 1966106, 0, 65536, 2031642, 0, 65536, 2097178, 0, 65536, 2162714, 0, 65536, 2228250, 0, 65536, 2293786, 0, 65536, 2359322, 0, 65536, 2424858, 0, 65536, 2490394, 0, 65536, 2555930, 0, 65536, 1638427, 0, 65536, 1638428, 0, 65536, 1638429, 0, 65536, 1638430, 0, 65536, 1638431, 0, 65536, 1638432, 0, 65536, 1638433, 0, 65536, 1638434, 0, 65536, 1638435, 0, 65536, 1638436, 0, 65536, 1638437, 0, 65536, 70, 0, 65536, 69, 0, 65536, 68, 0, 65536, 67, 0, 65536, 66, 0, 65536, 65, 0, 65536, 64, 0, 65536, 63, 0, 65536, 720967, 0, 65536, 786503, 0, 65536, 852039, 0, 65536, 917575, 0, 65536, 983111, 0, 65536, 1048647, 0, 65536, 1114183, 0, 65536, 1179719, 0, 65536, 1245255, 0, 65536, 1310791, 0, 65536, 1376327, 0, 65536, 1441863, 0, 65536, 1507399, 0, 65536, 1572935, 0, 65536, 1638471, 0, 65536, 1310792, 0, 65536, 1310793, 0, 65536, 1310794, 0, 65536, 1310795, 0, 65536, 1310796, 0, 65536, 1310797, 0, 65536, 1310798, 0, 65536, 1310799, 0, 65536, 1310800, 0, 65536, 1245245, 0, 131072, 1245224, 0, 131072, 1376290, 0, 131072, 524318, 0, 131072, 327723, 0, 131072, 1376272, 0, 131072, 2031694, 0, 131072)
+
+[node name="Player" parent="TileMap" instance=ExtResource("4_t5x4h")]
+y_sort_enabled = true
+position = Vector2(932, 404)
+
+[node name="Enemy" parent="TileMap" node_paths=PackedStringArray("player") instance=ExtResource("5_ypf81")]
+y_sort_enabled = true
+position = Vector2(648, 270)
+player = NodePath("")
+
+[node name="Enemy2" parent="TileMap" node_paths=PackedStringArray("player") instance=ExtResource("5_ypf81")]
+y_sort_enabled = true
+position = Vector2(162, 162)
+player = NodePath("")
+
+[node name="Node2D" parent="TileMap" instance=ExtResource("2_wm64m")]
+position = Vector2(632, 390.5)
+
+[node name="_Node2D_140764" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(56, 5.5)
+
+[node name="_Node2D_140765" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(72, 5.5)
+
+[node name="_Node2D_140766" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(88, 5.5)
+
+[node name="_Node2D_140767" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(104, 5.5)
+
+[node name="_Node2D_140768" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(120, 5.5)
+
+[node name="_Node2D_140769" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(136, 5.5)
+
+[node name="_Node2D_140770" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(152, 5.5)
+
+[node name="_Node2D_140771" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(168, 5.5)
+
+[node name="_Node2D_140772" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(184, 5.5)
+
+[node name="_Node2D_140773" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(200, 5.5)
+
+[node name="_Node2D_140774" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(216, 5.5)
+
+[node name="_Node2D_140775" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(232, 5.5)
+
+[node name="_Node2D_140776" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(248, 5.5)
+
+[node name="_Node2D_140777" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(264, 5.5)
+
+[node name="_Node2D_140778" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(280, 5.5)
+
+[node name="_Node2D_140779" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(296, 5.5)
+
+[node name="_Node2D_140780" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(312, 5.5)
+
+[node name="_Node2D_140781" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(328, 5.5)
+
+[node name="_Node2D_140782" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(344, 5.5)
+
+[node name="_Node2D_140783" parent="TileMap" instance=ExtResource("2_wm64m")]
+position = Vector2(360, 5.5)
+
+[node name="_Node2D_140784" parent="TileMap" instance=ExtResource("2_wm64m")]
+position = Vector2(376, 5.5)
+
+[node name="_Node2D_140785" parent="TileMap" instance=ExtResource("2_wm64m")]
+position = Vector2(392, 5.5)
+
+[node name="_Node2D_140786" parent="TileMap" instance=ExtResource("2_wm64m")]
+position = Vector2(408, 5.5)
+
+[node name="_Node2D_140787" parent="TileMap" instance=ExtResource("2_wm64m")]
+position = Vector2(424, 5.5)
+
+[node name="_Node2D_140788" parent="TileMap" instance=ExtResource("2_wm64m")]
+position = Vector2(440, 5.5)
+
+[node name="_Node2D_140789" parent="TileMap" instance=ExtResource("2_wm64m")]
+position = Vector2(456, 5.5)
+
+[node name="_Node2D_140790" parent="TileMap" instance=ExtResource("2_wm64m")]
+position = Vector2(472, 5.5)
+
+[node name="_Node2D_140791" parent="TileMap" instance=ExtResource("2_wm64m")]
+position = Vector2(488, 5.5)
+
+[node name="_Node2D_140792" parent="TileMap" instance=ExtResource("2_wm64m")]
+position = Vector2(504, 5.5)
+
+[node name="_Node2D_140793" parent="TileMap" instance=ExtResource("2_wm64m")]
+position = Vector2(520, 5.5)
+
+[node name="_Node2D_140794" parent="TileMap" instance=ExtResource("2_wm64m")]
+position = Vector2(536, 5.5)
+
+[node name="_Node2D_140795" parent="TileMap" instance=ExtResource("2_wm64m")]
+position = Vector2(552, 5.5)
+
+[node name="_Node2D_140796" parent="TileMap" instance=ExtResource("2_wm64m")]
+position = Vector2(568, 5.5)
+
+[node name="_Node2D_140797" parent="TileMap" instance=ExtResource("2_wm64m")]
+position = Vector2(584, 5.5)
+
+[node name="_Node2D_140798" parent="TileMap" instance=ExtResource("2_wm64m")]
+position = Vector2(600, 5.5)
+
+[node name="_Node2D_140799" parent="TileMap" instance=ExtResource("2_wm64m")]
+position = Vector2(616, 5.5)
+
+[node name="_Node2D_140800" parent="TileMap" instance=ExtResource("2_wm64m")]
+position = Vector2(632, 5.5)
+
+[node name="_Node2D_140801" parent="TileMap" instance=ExtResource("2_wm64m")]
+position = Vector2(648, 5.5)
+
+[node name="_Node2D_140802" parent="TileMap" instance=ExtResource("2_wm64m")]
+position = Vector2(664, 5.5)
+
+[node name="_Node2D_140803" parent="TileMap" instance=ExtResource("2_wm64m")]
+position = Vector2(680, 5.5)
+
+[node name="_Node2D_140804" parent="TileMap" instance=ExtResource("2_wm64m")]
+position = Vector2(696, 5.5)
+
+[node name="_Node2D_140805" parent="TileMap" instance=ExtResource("2_wm64m")]
+position = Vector2(712, 5.5)
+
+[node name="_Node2D_140806" parent="TileMap" instance=ExtResource("2_wm64m")]
+position = Vector2(728, 5.5)
+
+[node name="_Node2D_140807" parent="TileMap" instance=ExtResource("2_wm64m")]
+position = Vector2(744, 5.5)
+
+[node name="_Node2D_140808" parent="TileMap" instance=ExtResource("2_wm64m")]
+position = Vector2(760, 5.5)
+
+[node name="_Node2D_140809" parent="TileMap" instance=ExtResource("2_wm64m")]
+position = Vector2(776, 5.5)
+
+[node name="_Node2D_140810" parent="TileMap" instance=ExtResource("2_wm64m")]
+position = Vector2(792, 5.5)
+
+[node name="_Node2D_140811" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(808, 5.5)
+
+[node name="_Node2D_140812" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(824, 5.5)
+
+[node name="_Node2D_140813" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(840, 5.5)
+
+[node name="_Node2D_140814" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(856, 5.5)
+
+[node name="_Node2D_140815" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(872, 5.5)
+
+[node name="_Node2D_140816" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(888, 5.5)
+
+[node name="_Node2D_140817" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(904, 5.5)
+
+[node name="_Node2D_140818" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(920, 5.5)
+
+[node name="_Node2D_140819" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(936, 5.5)
+
+[node name="_Node2D_140820" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(952, 5.5)
+
+[node name="_Node2D_140821" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(968, 5.5)
+
+[node name="_Node2D_140822" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(984, 5.5)
+
+[node name="_Node2D_140823" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(1000, 5.5)
+
+[node name="_Node2D_140824" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(1000, 16.5)
+
+[node name="_Node2D_140825" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(1000, 27.5)
+
+[node name="_Node2D_140826" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(1000, 38.5)
+
+[node name="_Node2D_140827" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(1000, 49.5)
+
+[node name="_Node2D_140828" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(1000, 60.5)
+
+[node name="_Node2D_140829" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(1000, 71.5)
+
+[node name="_Node2D_140830" parent="TileMap" instance=ExtResource("2_wm64m")]
+position = Vector2(1000, 82.5)
+
+[node name="_Node2D_140831" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(1000, 93.5)
+
+[node name="_Node2D_140832" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(1000, 104.5)
+
+[node name="_Node2D_140833" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(1000, 115.5)
+
+[node name="_Node2D_140834" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(1000, 126.5)
+
+[node name="_Node2D_140835" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(1000, 137.5)
+
+[node name="_Node2D_140836" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(1000, 148.5)
+
+[node name="_Node2D_140837" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(1000, 159.5)
+
+[node name="_Node2D_140838" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(1000, 170.5)
+
+[node name="_Node2D_140839" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(1000, 181.5)
+
+[node name="_Node2D_140840" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(1000, 192.5)
+
+[node name="_Node2D_140841" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(1000, 203.5)
+
+[node name="_Node2D_140842" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(1000, 214.5)
+
+[node name="_Node2D_140843" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(1096, 368.5)
+
+[node name="_Node2D_140844" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(1096, 357.5)
+
+[node name="_Node2D_140845" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(1096, 346.5)
+
+[node name="_Node2D_140846" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(1096, 335.5)
+
+[node name="_Node2D_140847" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(1096, 324.5)
+
+[node name="_Node2D_140848" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(1096, 313.5)
+
+[node name="_Node2D_140849" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(1096, 302.5)
+
+[node name="_Node2D_140850" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(1096, 291.5)
+
+[node name="_Node2D_140851" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(1096, 280.5)
+
+[node name="_Node2D_140852" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(1096, 269.5)
+
+[node name="_Node2D_140853" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(1096, 258.5)
+
+[node name="_Node2D_140854" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(1096, 247.5)
+
+[node name="_Node2D_140855" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(1080, 368.5)
+
+[node name="_Node2D_140856" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(1064, 368.5)
+
+[node name="_Node2D_140857" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(1048, 368.5)
+
+[node name="_Node2D_140858" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(1032, 368.5)
+
+[node name="_Node2D_140859" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(1016, 368.5)
+
+[node name="_Node2D_140860" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(1000, 368.5)
+
+[node name="_Node2D_140861" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(984, 368.5)
+
+[node name="_Node2D_140862" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(968, 368.5)
+
+[node name="_Node2D_140863" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(952, 368.5)
+
+[node name="_Node2D_140864" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(936, 368.5)
+
+[node name="_Node2D_140865" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(920, 368.5)
+
+[node name="_Node2D_140866" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(904, 368.5)
+
+[node name="_Node2D_140867" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(888, 368.5)
+
+[node name="_Node2D_140868" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(872, 368.5)
+
+[node name="_Node2D_140869" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(856, 368.5)
+
+[node name="_Node2D_140870" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(840, 368.5)
+
+[node name="_Node2D_140871" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(824, 368.5)
+
+[node name="_Node2D_140872" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(808, 368.5)
+
+[node name="_Node2D_140873" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(792, 368.5)
+
+[node name="_Node2D_140874" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(776, 368.5)
+
+[node name="_Node2D_140875" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(760, 368.5)
+
+[node name="_Node2D_140876" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(744, 368.5)
+
+[node name="_Node2D_140877" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(728, 368.5)
+
+[node name="_Node2D_140878" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(776, 357.5)
+
+[node name="_Node2D_140879" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(792, 357.5)
+
+[node name="_Node2D_140880" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(808, 357.5)
+
+[node name="_Node2D_140881" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(824, 357.5)
+
+[node name="_Node2D_140882" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(840, 357.5)
+
+[node name="_Node2D_140883" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(856, 357.5)
+
+[node name="_Node2D_140884" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(872, 357.5)
+
+[node name="_Node2D_140885" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(888, 357.5)
+
+[node name="_Node2D_140886" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(904, 357.5)
+
+[node name="_Node2D_140887" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(920, 357.5)
+
+[node name="_Node2D_140888" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(936, 357.5)
+
+[node name="_Node2D_140889" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(952, 357.5)
+
+[node name="_Node2D_140890" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(968, 357.5)
+
+[node name="_Node2D_140891" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(984, 357.5)
+
+[node name="_Node2D_140892" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(1000, 357.5)
+
+[node name="_Node2D_140893" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(1016, 357.5)
+
+[node name="_Node2D_140894" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(1032, 357.5)
+
+[node name="_Node2D_140895" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(1048, 357.5)
+
+[node name="_Node2D_140896" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(1064, 357.5)
+
+[node name="_Node2D_140897" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(1080, 357.5)
+
+[node name="_Node2D_140898" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(424, 104.5)
+
+[node name="_Node2D_140899" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(424, 115.5)
+
+[node name="_Node2D_140900" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(424, 126.5)
+
+[node name="_Node2D_140901" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(424, 137.5)
+
+[node name="_Node2D_140902" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(424, 148.5)
+
+[node name="_Node2D_140903" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(424, 159.5)
+
+[node name="_Node2D_140904" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(424, 170.5)
+
+[node name="_Node2D_140905" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(424, 181.5)
+
+[node name="_Node2D_140906" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(424, 192.5)
+
+[node name="_Node2D_140907" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(424, 203.5)
+
+[node name="_Node2D_140908" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(424, 214.5)
+
+[node name="_Node2D_140909" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(424, 225.5)
+
+[node name="_Node2D_140910" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(424, 236.5)
+
+[node name="_Node2D_140911" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(424, 247.5)
+
+[node name="_Node2D_140912" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(424, 258.5)
+
+[node name="_Node2D_140913" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(424, 269.5)
+
+[node name="_Node2D_140914" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(424, 280.5)
+
+[node name="_Node2D_140915" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(424, 291.5)
+
+[node name="_Node2D_140916" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(424, 302.5)
+
+[node name="_Node2D_140917" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(424, 313.5)
+
+[node name="_Node2D_140918" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(424, 324.5)
+
+[node name="_Node2D_140919" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(424, 335.5)
+
+[node name="_Node2D_140920" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(424, 346.5)
+
+[node name="_Node2D_140921" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(424, 357.5)
+
+[node name="_Node2D_140922" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(424, 368.5)
+
+[node name="_Node2D_140923" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(424, 379.5)
+
+[node name="_Node2D_140924" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(424, 390.5)
+
+[node name="_Node2D_140925" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(424, 401.5)
+
+[node name="_Node2D_140926" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(424, 412.5)
+
+[node name="_Node2D_140927" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(424, 423.5)
+
+[node name="_Node2D_140928" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(424, 434.5)
+
+[node name="_Node2D_140929" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(440, 280.5)
+
+[node name="_Node2D_140930" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(456, 280.5)
+
+[node name="_Node2D_140931" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(472, 280.5)
+
+[node name="_Node2D_140932" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(488, 280.5)
+
+[node name="_Node2D_140933" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(504, 280.5)
+
+[node name="_Node2D_140934" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(520, 280.5)
+
+[node name="_Node2D_140935" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(536, 280.5)
+
+[node name="_Node2D_140936" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(552, 280.5)
+
+[node name="_Node2D_140937" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(568, 280.5)
+
+[node name="_Node2D_140938" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(584, 280.5)
+
+[node name="_Node2D_140939" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(600, 280.5)
+
+[node name="_Node2D_140940" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(1128, 5.5)
+
+[node name="_Node2D_140941" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(1112, 5.5)
+
+[node name="_Node2D_140942" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(1096, 5.5)
+
+[node name="_Node2D_140943" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(1080, 5.5)
+
+[node name="_Node2D_140944" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(1064, 5.5)
+
+[node name="_Node2D_140945" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(1048, 5.5)
+
+[node name="_Node2D_140946" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(1032, 5.5)
+
+[node name="_Node2D_140947" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(1016, 5.5)
+
+[node name="_Node2D_140948" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(1144, 126.5)
+
+[node name="_Node2D_140949" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(1144, 137.5)
+
+[node name="_Node2D_140950" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(1144, 148.5)
+
+[node name="_Node2D_140951" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(1144, 159.5)
+
+[node name="_Node2D_140952" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(1144, 170.5)
+
+[node name="_Node2D_140953" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(1144, 181.5)
+
+[node name="_Node2D_140954" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(1144, 192.5)
+
+[node name="_Node2D_140955" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(1144, 203.5)
+
+[node name="_Node2D_140956" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(1144, 214.5)
+
+[node name="_Node2D_140957" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(1144, 225.5)
+
+[node name="_Node2D_140958" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(1144, 236.5)
+
+[node name="_Node2D_140959" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(1144, 247.5)
+
+[node name="_Node2D_140960" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(1144, 258.5)
+
+[node name="_Node2D_140961" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(1144, 269.5)
+
+[node name="_Node2D_140962" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(1144, 280.5)
+
+[node name="_Node2D_140963" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(1160, 225.5)
+
+[node name="_Node2D_140964" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(1176, 225.5)
+
+[node name="_Node2D_140965" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(1192, 225.5)
+
+[node name="_Node2D_140966" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(1208, 225.5)
+
+[node name="_Node2D_140967" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(1224, 225.5)
+
+[node name="_Node2D_140968" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(1240, 225.5)
+
+[node name="_Node2D_140969" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(1256, 225.5)
+
+[node name="_Node2D_140970" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(1272, 225.5)
+
+[node name="_Node2D_140971" parent="TileMap" instance=ExtResource("1_o6jar")]
+position = Vector2(1288, 225.5)
+
+[node name="_Node2D_140972" parent="TileMap" instance=ExtResource("2_wm64m")]
+position = Vector2(984, 214.5)
+
+[node name="_Node2D_140973" parent="TileMap" instance=ExtResource("2_wm64m")]
+position = Vector2(648, 214.5)
+
+[node name="_Node2D_140974" parent="TileMap" instance=ExtResource("2_wm64m")]
+position = Vector2(552, 236.5)
+
+[node name="_Node2D_140975" parent="TileMap" instance=ExtResource("2_wm64m")]
+position = Vector2(488, 93.5)
+
+[node name="_Node2D_140976" parent="TileMap" instance=ExtResource("2_wm64m")]
+position = Vector2(696, 60.5)
+
+[node name="_Node2D_140977" parent="TileMap" instance=ExtResource("2_wm64m")]
+position = Vector2(264, 236.5)
+
+[node name="_Node2D_140978" parent="TileMap" instance=ExtResource("2_wm64m")]
+position = Vector2(1256, 346.5)

@@ -14,6 +14,11 @@ config/name="ChromaIncident"
 run/main_scene="res://scenes/main.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 
+[autoload]
+
+NodeExtensions="*res://autoloads/NodeExtensions.gd"
+SignalBus="*res://autoloads/SignalBus.gd"
+
 [display]
 
 window/size/viewport_width=1280
@@ -91,6 +96,13 @@ aim_down={
 "events": [Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":-1,"axis":3,"axis_value":1.0,"script":null)
 ]
 }
+
+[layer_names]
+
+2d_physics/layer_1="Tilemap"
+2d_physics/layer_2="Player"
+2d_physics/layer_3="Bullets"
+2d_physics/layer_4="Enemies"
 
 [rendering]
 

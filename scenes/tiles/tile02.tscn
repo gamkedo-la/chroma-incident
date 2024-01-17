@@ -1,30 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://ddrwi16iekn6n"]
-
-[ext_resource type="Texture2D" uid="uid://byet5kdlyjclr" path="res://assets/tile02.png" id="1_vhdmd"]
-[ext_resource type="Texture2D" uid="uid://bp5nhi36a0kod" path="res://assets/tile02-normal.png" id="2_hyy15"]
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_v6yf0"]
-polygon = PackedVector2Array(-1.76302, -54.9787, 1.9834, -54.9787, 1.9834, 54.9787, -1.76302, 54.9787)
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_u50p6"]
-diffuse_texture = ExtResource("1_vhdmd")
-normal_texture = ExtResource("2_hyy15")
-texture_filter = 1
+[gd_scene load_steps=2 format=3 uid="uid://ddrwi16iekn6n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gojdr"]
 size = Vector2(16, 16)
 
 [node name="Node2D" type="Node2D"]
 
-[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
-scale = Vector2(4.53766, 0.145511)
-occluder = SubResource("OccluderPolygon2D_v6yf0")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -26)
-texture = SubResource("CanvasTexture_u50p6")
-
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("RectangleShape2D_gojdr")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
