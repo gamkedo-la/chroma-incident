@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://budcn7nqg0mqx" path="res://scenes/projectile_manager.tscn" id="6_m545h"]
 [ext_resource type="PackedScene" uid="uid://b1rjgpyrwxlvn" path="res://scenes/BRG.tscn" id="7_sea81"]
 
-[sub_resource type="Resource" id="Resource_wyo2v"]
+[sub_resource type="Resource" id="Resource_lt3q0"]
 resource_local_to_scene = true
 script = ExtResource("4_6tyep")
 projectile_texture = ExtResource("5_mn2jv")
@@ -42,6 +42,6 @@ collision_mask = 0
 [node name="Brg" parent="Entity_Container" instance=ExtResource("7_sea81")]
 position = Vector2(405, 309)
 slide_on_ceiling = false
-projectile_resource = SubResource("Resource_wyo2v")
+projectile_resource = SubResource("Resource_lt3q0")
 
 [node name="Projectile_Container" type="Node2D" parent="."]

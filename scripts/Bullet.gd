@@ -10,6 +10,7 @@ func _set_texture(value):
 	# If the texture variable is modified externally,
 	# this callback is called.
 	sprite_texture = value  # Texture was changed.
+	$Sprite2D.set_texture(value) # tell godot to adjust the sprite
 	queue_redraw()  # Trigger a redraw of the node.
 
 var direction = Vector2.RIGHT
