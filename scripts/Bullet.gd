@@ -3,7 +3,14 @@ extends CharacterBody2D
 
 @onready var visibile_notifier = $VisibileNotifier as VisibleOnScreenNotifier2D
 @onready var death_timer = $DeathTimer as Timer	
-@onready var sprite_2d = $Sprite2D as Sprite2D
+@onready var sprite_texture = $Sprite2D.texture as Texture:
+							set = _set_texture
+
+func _set_texture(value):
+	# If the texture variable is modified externally,
+	# this callback is called.
+	sprite_texture = value  # Texture was changed.
+	queue_redraw()  # Trigger a redraw of the node.
 
 var direction = Vector2.RIGHT
 var speed:float = 0.0

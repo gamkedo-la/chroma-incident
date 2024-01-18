@@ -8,10 +8,8 @@ func _ready():
 
 func build_projectile(resource:ProjectileBase, location:Vector2, direction:Vector2) -> void:
 	var new_bullet = base_bullet_scene.instantiate() as Bullet
-	#this doesn't throw an error, but doesn't affect change, and doesn't seem right
-	# new_bullet.sprite_2d = resource.projectile_texture
-	# I should be able to do this but it throws an error
-	#new_bullet.sprite_2d.texture = resource.projectile_texture
+	#this doesn't throw an error, but doesn't affect change
+	new_bullet.sprite_texture = resource.projectile_texture
 	new_bullet.position = location
 	new_bullet.direction = (direction - global_position).normalized()
 	new_bullet.rotation = new_bullet.direction.angle()

@@ -1,27 +1,23 @@
-[gd_scene load_steps=6 format=3 uid="uid://cuw7kaaihq701"]
+[gd_scene load_steps=8 format=3 uid="uid://cuw7kaaihq701"]
 
+[ext_resource type="PackedScene" uid="uid://c381g8diwgkjs" path="res://scenes/checker.tscn" id="1_dqe58"]
 [ext_resource type="PackedScene" uid="uid://mkymf5bum4dg" path="res://Player/Player.tscn" id="3_uvd7n"]
 [ext_resource type="Script" path="res://Resources/ProjectileBase.gd" id="4_6tyep"]
+[ext_resource type="Texture2D" uid="uid://s3my0n06w3ac" path="res://assets/whirly-test.png" id="5_mn2jv"]
 [ext_resource type="PackedScene" uid="uid://budcn7nqg0mqx" path="res://scenes/projectile_manager.tscn" id="6_m545h"]
 [ext_resource type="PackedScene" uid="uid://b1rjgpyrwxlvn" path="res://scenes/BRG.tscn" id="7_sea81"]
 
-[sub_resource type="Resource" id="Resource_jvwl4"]
+[sub_resource type="Resource" id="Resource_wyo2v"]
 resource_local_to_scene = true
 script = ExtResource("4_6tyep")
-projectile_speed = 700.0
+projectile_texture = ExtResource("5_mn2jv")
+projectile_speed = 10.0
 
 [node name="main" type="Node2D"]
 
 [node name="Level_Container" type="Node2D" parent="."]
 
-[node name="ColorRect" type="ColorRect" parent="Level_Container"]
-visible = false
-offset_left = -378.0
-offset_top = -257.0
-offset_right = -338.0
-offset_bottom = -217.0
-scale = Vector2(126.885, 55.9241)
-color = Color(0.150805, 0.118553, 0.172689, 1)
+[node name="Checker" parent="Level_Container" instance=ExtResource("1_dqe58")]
 
 [node name="Manager_Container" type="Node2D" parent="."]
 
@@ -33,36 +29,19 @@ color = Color(0.150805, 0.118553, 0.172689, 1)
 position = Vector2(315, 193)
 collision_layer = 16
 
+[node name="Brg2" parent="Entity_Container/Player" instance=ExtResource("7_sea81")]
+collision_layer = 8
+collision_mask = 0
+
+[node name="Brg3" parent="Entity_Container/Player" instance=ExtResource("7_sea81")]
+position = Vector2(0, -8)
+rotation = -1.57079
+collision_layer = 8
+collision_mask = 0
+
 [node name="Brg" parent="Entity_Container" instance=ExtResource("7_sea81")]
-position = Vector2(154, 121)
-projectile_resource = SubResource("Resource_jvwl4")
-
-[node name="Brg2" parent="Entity_Container" instance=ExtResource("7_sea81")]
-position = Vector2(200, 120)
-projectile_resource = SubResource("Resource_jvwl4")
-
-[node name="Brg3" parent="Entity_Container" instance=ExtResource("7_sea81")]
-position = Vector2(256, 120)
-projectile_resource = SubResource("Resource_jvwl4")
-
-[node name="Brg4" parent="Entity_Container" instance=ExtResource("7_sea81")]
-position = Vector2(312, 120)
-projectile_resource = SubResource("Resource_jvwl4")
-
-[node name="Brg5" parent="Entity_Container" instance=ExtResource("7_sea81")]
-position = Vector2(360, 120)
-projectile_resource = SubResource("Resource_jvwl4")
-
-[node name="Brg6" parent="Entity_Container" instance=ExtResource("7_sea81")]
-position = Vector2(416, 120)
-projectile_resource = SubResource("Resource_jvwl4")
-
-[node name="Brg7" parent="Entity_Container" instance=ExtResource("7_sea81")]
-position = Vector2(184, 256)
-projectile_resource = SubResource("Resource_jvwl4")
-
-[node name="Brg8" parent="Entity_Container" instance=ExtResource("7_sea81")]
-position = Vector2(408, 256)
-projectile_resource = SubResource("Resource_jvwl4")
+position = Vector2(405, 309)
+slide_on_ceiling = false
+projectile_resource = SubResource("Resource_wyo2v")
 
 [node name="Projectile_Container" type="Node2D" parent="."]
