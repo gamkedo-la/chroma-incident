@@ -11,7 +11,7 @@ func _ready():
 	fire_timer.connect("timeout", set_can_fire)
 	fire_timer.wait_time = fire_rate
 	
-func _process(delta):
+func _process(_delta):
 	look_at(get_global_mouse_position())
 	fire_projectile()
 	

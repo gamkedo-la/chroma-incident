@@ -12,7 +12,7 @@ extends Node2D
 func _ready():
 	queue_redraw()
 	
-func _process(delta):
+func _process(_delta):
 	queue_redraw()
 	
 func _draw():
@@ -21,6 +21,6 @@ func _draw():
 		# Determine the color of the square based on its position
 			var color := color_1 if (x + y) % 2 == 0 else color_2
 			# Calculate the position of the square
-			var position := Vector2(x * square_size, y * square_size)
+			var draw_position := Vector2(x * square_size, y * square_size)
 			# Draw the square
-			draw_rect(Rect2(position, Vector2(square_size, square_size)), color)
+			draw_rect(Rect2(draw_position, Vector2(square_size, square_size)), color)

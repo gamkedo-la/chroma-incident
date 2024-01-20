@@ -11,9 +11,10 @@ var rotation_target:float
 var accelleration:Vector2
 var mouse_in_use:bool = true
 
+func _ready():
+	Global.register_player(self)
 
-
-func _physics_process(delta):
+func _physics_process(_delta):
 	move_vector = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	accelleration = move_vector * move_speed
 	velocity += accelleration 
@@ -22,7 +23,7 @@ func _physics_process(delta):
 	move_and_slide()
 	
 	
-func _process(delta): 
+func _process(_delta): 
 	pass
 func _input(event):
 	if event is InputEventMouse or event is InputEventMouseButton or event is InputEventMouseMotion:

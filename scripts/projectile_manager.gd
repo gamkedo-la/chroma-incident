@@ -17,7 +17,7 @@ func build_projectile(resource:ProjectileBase, location:Vector2, direction:Vecto
 	spawn_projectile(new_bullet)
 	
 func spawn_projectile(bullet:Bullet):
-	var projectile_container = NodeExtensions.get_projectile_container()
+	var projectile_container = Global.get_projectile_container()
 	if projectile_container == null:
 		print('projectile container null')
 		return

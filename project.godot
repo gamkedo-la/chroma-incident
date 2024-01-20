@@ -16,7 +16,7 @@ config/features=PackedStringArray("4.2", "GL Compatibility")
 
 [autoload]
 
-NodeExtensions="*res://autoloads/NodeExtensions.gd"
+Global="*res://autoloads/Global.gd"
 SignalBus="*res://autoloads/SignalBus.gd"
 
 [display]

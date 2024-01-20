@@ -1,10 +1,17 @@
-[gd_resource type="Resource" script_class="ProjectileBase" load_steps=3 format=3 uid="uid://d4guyol4i3gth"]
+[gd_resource type="Resource" script_class="ProjectileBase" load_steps=4 format=3 uid="uid://d4guyol4i3gth"]
 
 [ext_resource type="Script" path="res://Resources/ProjectileBase.gd" id="1_5sbjg"]
-[ext_resource type="Texture2D" uid="uid://s3my0n06w3ac" path="res://assets/whirly-test.png" id="1_mfg5b"]
+
+[sub_resource type="Gradient" id="Gradient_emw00"]
+colors = PackedColorArray(0.98242, 5.48691e-06, 0.605916, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_wunrl"]
+gradient = SubResource("Gradient_emw00")
+width = 16
+height = 4
 
 [resource]
 resource_local_to_scene = true
 script = ExtResource("1_5sbjg")
-projectile_texture = ExtResource("1_mfg5b")
+projectile_texture = SubResource("GradientTexture2D_wunrl")
 projectile_speed = 700.0
