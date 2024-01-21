@@ -17,7 +17,6 @@ func _process(_delta):
 	fire_projectile()
 	
 func gunswap(newgun:ProjectileBase) -> void:
-	print("gun swapped for: " + projectile_resource.to_string())
 	self.projectile_resource = newgun
 	
 func fire_projectile() -> void:

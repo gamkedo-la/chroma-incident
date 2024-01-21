@@ -19,8 +19,6 @@ func build_projectile(resource:ProjectileBase, location:Vector2, direction:Vecto
 func spawn_projectile(bullet:Bullet):
 	var projectile_container = Global.get_projectile_container()
 	if projectile_container == null:
-		print('projectile container null')
-		return
-	print('spawning projectile')
+				return
 	projectile_container.add_child(bullet)
 	

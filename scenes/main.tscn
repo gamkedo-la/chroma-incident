@@ -49,3 +49,6 @@ position = Vector2(137, 306)
 [node name="Beacon" parent="." instance=ExtResource("7_qxsht")]
 position = Vector2(604, 459)
 color = Color(0, 0.545098, 0.694118, 0.25098)
+
+[node name="Enemy" parent="." instance=ExtResource("6_ixea3")]
+position = Vector2(-250, 606)

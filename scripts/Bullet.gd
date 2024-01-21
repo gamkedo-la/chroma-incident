@@ -1,5 +1,5 @@
 class_name Bullet
-extends CharacterBody2D
+extends Area2D
 
 @onready var visibile_notifier = $VisibileNotifier as VisibleOnScreenNotifier2D
 @onready var death_timer = $DeathTimer as Timer	
@@ -20,8 +20,9 @@ func _physics_process(delta):
 	move(delta)
 
 func move(delta:float):
-	move_and_collide(direction * speed * delta)
-	
+	#var collision = move_and_collide(direction * speed * delta)
+	translate(direction * speed * delta)
+		
 
 func _on_visibile_notifier_screen_exited():
 	death_timer.start(0.8)
@@ -29,3 +30,10 @@ func _on_visibile_notifier_screen_exited():
 
 func _on_death_timer_timeout():
 	queue_free()
+
+
+
+func _on_Bullet_body_entered(body:Node):
+	if body.has_method("handle_hit"):
+		body.handle_hit()
+		queue_free()
