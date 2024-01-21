@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://b1rjgpyrwxlvn"]
 
 [ext_resource type="Script" path="res://scripts/BRG.gd" id="1_ua6xj"]
-[ext_resource type="Resource" uid="uid://hc3eoi1gisaa" path="res://Resources/basic_bullet.tres" id="2_tuff3"]
+[ext_resource type="Resource" uid="uid://bhgu74piv176l" path="res://Resources/peashooter.tres" id="2_beo06"]
 
 [sub_resource type="Gradient" id="Gradient_rdgse"]
 colors = PackedColorArray(0.38251, 0.54281, 0.748529, 1, 1, 1, 1, 1)
@@ -15,8 +15,10 @@ height = 16
 size = Vector2(24, 2)
 
 [node name="Brg" type="CharacterBody2D"]
+collision_layer = 8
+collision_mask = 0
 script = ExtResource("1_ua6xj")
-projectile_resource = ExtResource("2_tuff3")
+projectile_resource = ExtResource("2_beo06")
 
 [node name="Gun" type="Sprite2D" parent="."]
 position = Vector2(12, 0)
@@ -30,6 +32,8 @@ shape = SubResource("RectangleShape2D_5cllg")
 [node name="Timer" type="Timer" parent="."]
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(12, 0)

@@ -26,4 +26,5 @@ func _on_timer_timeout():
 
 func handle_hit():
 	print("Enemy's been hit")
+	queue_free()
 	

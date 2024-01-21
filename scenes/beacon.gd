@@ -18,9 +18,11 @@ func _ready():
 func _process(_delta):
 	pass
 
+func _on_area_2d_body_entered(body):
+	if body.has_method('gunswap'):
+		body.gunswap(weapon_type)
+		
+func _on_area_2d_body_exited(body):
+	if body.has_method('gunswap'):
+		body.gunswap(0)
 
-func _on_area_2d_area_entered(_area):
-		SignalBus.emit_gunswap(Global.bullet_types[weapon_type])
-
-func _on_area_2d_area_exited(_area):
-		SignalBus.emit_gunswap(Global.bullet_types[0])
