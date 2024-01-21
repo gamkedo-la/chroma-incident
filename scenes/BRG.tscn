@@ -28,3 +28,11 @@ position = Vector2(12, 0)
 shape = SubResource("RectangleShape2D_5cllg")
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(12, 0)
+shape = SubResource("RectangleShape2D_5cllg")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

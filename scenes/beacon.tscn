@@ -22,7 +22,7 @@ radius = 245.961
 script = ExtResource("1_8r403")
 weapon_type = 1
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
+[node name="areaShape" type="Polygon2D" parent="."]
 color = Color(0.886275, 0.384314, 0, 0.345098)
 polygon = PackedVector2Array(-1, -250, 60, -242, 123, -215, 171, -177, 210, -127, 233, -71, 245, -18, 239, 53, 211, 122, 170, 176, 122, 213, 59, 241, -2, 247, -62, 239, -125, 214, -177, 174, -216, 122, -239, 64, -245, -2, -237, -68, -219, -133, -173, -185, -125, -218, -68, -239)
 
@@ -43,3 +43,4 @@ shape = SubResource("CircleShape2D_1scsm")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
