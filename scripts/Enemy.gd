@@ -6,6 +6,10 @@ extends CharacterBody2D
 var target = Global.player
 @onready var navigation_agent: NavigationAgent2D = $Navigation/NavigationAgent2D
 
+func _ready():
+	if Global.player:
+		target = Global.player
+
 func _physics_process(_delta):
 	if target:
 		var direction = Vector2.ZERO

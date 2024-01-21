@@ -16,8 +16,8 @@ config/features=PackedStringArray("4.2", "GL Compatibility")
 
 [autoload]
 
-Global="*res://autoloads/Global.gd"
 SignalBus="*res://autoloads/SignalBus.gd"
+Global="*res://autoloads/Global.tscn"
 
 [display]
 

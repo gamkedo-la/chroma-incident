@@ -1,8 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://cuw7kaaihq701"]
+[gd_scene load_steps=8 format=3 uid="uid://cuw7kaaihq701"]
 
 [ext_resource type="PackedScene" uid="uid://c381g8diwgkjs" path="res://scenes/checker.tscn" id="1_dqe58"]
 [ext_resource type="PackedScene" uid="uid://mkymf5bum4dg" path="res://Player/Player.tscn" id="3_uvd7n"]
-[ext_resource type="Script" path="res://Resources/ProjectileBase.gd" id="4_6tyep"]
 [ext_resource type="PackedScene" uid="uid://by7wal4lga0a2" path="res://scenes/Enemy.tscn" id="6_ixea3"]
 [ext_resource type="PackedScene" uid="uid://budcn7nqg0mqx" path="res://scenes/projectile_manager.tscn" id="6_m545h"]
 [ext_resource type="PackedScene" uid="uid://bagqr82ch7qvh" path="res://scenes/beacon.tscn" id="7_qxsht"]
@@ -13,20 +12,6 @@ vertices = PackedVector2Array(4406, -379, 4437, 3775, -709, 3723, -603, -389)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-613, -400, 4416, -389, 4448, 3786, -720, 3733)])
 source_geometry_group_name = &"navigation_polygon_source_group"
-
-[sub_resource type="Gradient" id="Gradient_emw00"]
-colors = PackedColorArray(0.98242, 5.48691e-06, 0.605916, 1, 1, 1, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_wunrl"]
-gradient = SubResource("Gradient_emw00")
-width = 16
-height = 4
-
-[sub_resource type="Resource" id="Resource_7carc"]
-resource_local_to_scene = true
-script = ExtResource("4_6tyep")
-projectile_texture = SubResource("GradientTexture2D_wunrl")
-projectile_speed = 700.0
 
 [node name="main" type="Node2D"]
 
@@ -43,29 +28,19 @@ projectile_speed = 700.0
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Entity_Container"]
 navigation_polygon = SubResource("NavigationPolygon_bm4g4")
 
+[node name="Beacon" parent="Entity_Container/NavigationRegion2D" instance=ExtResource("7_qxsht")]
+position = Vector2(417, 132)
+weapon_type = 2
+
 [node name="Player" parent="Entity_Container/NavigationRegion2D" instance=ExtResource("3_uvd7n")]
-position = Vector2(315, 193)
+position = Vector2(268, 410)
 collision_layer = 16
 
 [node name="Brg2" parent="Entity_Container/NavigationRegion2D/Player" instance=ExtResource("7_sea81")]
 collision_layer = 8
 collision_mask = 0
 
-[node name="Brg3" parent="Entity_Container/NavigationRegion2D/Player" instance=ExtResource("7_sea81")]
-position = Vector2(0, -8)
-rotation = -1.57079
-collision_layer = 8
-collision_mask = 0
-
-[node name="Brg" parent="Entity_Container/NavigationRegion2D" instance=ExtResource("7_sea81")]
-position = Vector2(405, 309)
-slide_on_ceiling = false
-projectile_resource = SubResource("Resource_7carc")
-
 [node name="Enemy" parent="Entity_Container/NavigationRegion2D" instance=ExtResource("6_ixea3")]
 position = Vector2(137, 306)
 
 [node name="Projectile_Container" type="Node2D" parent="."]
-
-[node name="Beacon" parent="." instance=ExtResource("7_qxsht")]
-position = Vector2(417, 132)

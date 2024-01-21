@@ -1,0 +1,10 @@
+[gd_scene load_steps=5 format=3 uid="uid://ckqv7vh6ge1v0"]
+
+[ext_resource type="Script" path="res://autoloads/Global.gd" id="1_a772t"]
+[ext_resource type="Resource" uid="uid://hc3eoi1gisaa" path="res://Resources/basic_bullet.tres" id="2_xf757"]
+[ext_resource type="Resource" uid="uid://d4guyol4i3gth" path="res://Resources/pink_bullet.tres" id="3_q45g2"]
+[ext_resource type="Resource" uid="uid://4my0aydweito" path="res://Resources/whirly-bullet.tres" id="4_lakgh"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_a772t")
+bullet_types = Array[Resource("res://Resources/ProjectileBase.gd")]([ExtResource("2_xf757"), ExtResource("3_q45g2"), ExtResource("4_lakgh")])
