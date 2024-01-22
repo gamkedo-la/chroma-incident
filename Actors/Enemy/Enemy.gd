@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 @export var max_speed = 100
 @export var min_speed = 10
+@export var health = 100
+
 
 var target = Global.player
 @onready var navigation_agent: NavigationAgent2D = $Navigation/NavigationAgent2D

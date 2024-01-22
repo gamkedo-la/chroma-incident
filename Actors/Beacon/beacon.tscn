@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bagqr82ch7qvh"]
 
-[ext_resource type="Script" path="res://scenes/beacon.gd" id="1_8r403"]
+[ext_resource type="Script" path="res://Actors/Beacon/beacon.gd" id="1_8r403"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kmhkm"]
 size = Vector2(63, 63)

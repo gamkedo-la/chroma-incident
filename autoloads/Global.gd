@@ -1,6 +1,6 @@
 extends Node
 
-const PROJECTILE_CONTAINER_PATH = "/root/main/Projectile_Container"
+const PROJECTILE_CONTAINER_PATH = "/root/main/Projectiles"
 
 var player:CharacterBody2D
 

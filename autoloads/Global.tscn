@@ -1,11 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://ckqv7vh6ge1v0"]
+[gd_scene load_steps=6 format=3 uid="uid://byg8tc6bee4at"]
 
 [ext_resource type="Script" path="res://autoloads/Global.gd" id="1_a772t"]
-[ext_resource type="Resource" uid="uid://bhgu74piv176l" path="res://Resources/peashooter.tres" id="2_rwx5g"]
-[ext_resource type="Resource" uid="uid://hc3eoi1gisaa" path="res://Resources/basic_bullet.tres" id="2_xf757"]
-[ext_resource type="Resource" uid="uid://d4guyol4i3gth" path="res://Resources/pink_bullet.tres" id="3_q45g2"]
-[ext_resource type="Resource" uid="uid://4my0aydweito" path="res://Resources/whirly-bullet.tres" id="4_lakgh"]
+[ext_resource type="Resource" uid="uid://bhgu74piv176l" path="res://Resources/Projectiles/peashooter.tres" id="2_w4qwf"]
+[ext_resource type="Resource" uid="uid://hc3eoi1gisaa" path="res://Resources/Projectiles/basic_bullet.tres" id="3_7emr7"]
+[ext_resource type="Resource" uid="uid://d4guyol4i3gth" path="res://Resources/Projectiles/pink_bullet.tres" id="4_1w51p"]
+[ext_resource type="Resource" uid="uid://4my0aydweito" path="res://Resources/Projectiles/whirly-bullet.tres" id="5_lwtsg"]
 
-[node name="Node2D" type="Node2D"]
+[node name="Global" type="Node2D"]
 script = ExtResource("1_a772t")
-bullet_types = Array[Resource("res://Resources/ProjectileBase.gd")]([ExtResource("2_rwx5g"), ExtResource("4_lakgh"), ExtResource("3_q45g2"), ExtResource("2_xf757")])
+bullet_types = Array[Resource("res://Resources/Projectiles/ProjectileBase.gd")]([ExtResource("2_w4qwf"), ExtResource("3_7emr7"), ExtResource("4_1w51p"), ExtResource("5_lwtsg")])

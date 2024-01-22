@@ -1,7 +1,7 @@
 class_name ProjectileManager
 extends Node2D
 
-@onready var base_bullet_scene : PackedScene = preload("res://scenes/Bullet.tscn")
+@onready var base_bullet_scene : PackedScene = preload("res://Actors/Bullet/Bullet.tscn")
 
 func _ready():
 	SignalBus.connect("fire", build_projectile)

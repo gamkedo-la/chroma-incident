@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="ProjectileBase" load_steps=3 format=3 uid="uid://4my0aydweito"]
 
 [ext_resource type="Texture2D" uid="uid://s3my0n06w3ac" path="res://assets/whirly-test.png" id="1_npuqx"]
-[ext_resource type="Script" path="res://Resources/ProjectileBase.gd" id="2_r7284"]
+[ext_resource type="Script" path="res://Resources/Projectiles/ProjectileBase.gd" id="2_r7284"]
 
 [resource]
 resource_local_to_scene = true

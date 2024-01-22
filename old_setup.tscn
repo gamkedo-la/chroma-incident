@@ -3,8 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://dn0udrbxyfodh" path="res://scenes/tiles/tile01.tscn" id="1_o6jar"]
 [ext_resource type="PackedScene" uid="uid://ddrwi16iekn6n" path="res://scenes/tiles/tile02.tscn" id="2_wm64m"]
 [ext_resource type="PackedScene" uid="uid://8fykog2x6ejn" path="res://scenes/tiles/tile03.tscn" id="3_573f5"]
-[ext_resource type="PackedScene" uid="uid://mkymf5bum4dg" path="res://Player/Player.tscn" id="4_t5x4h"]
-[ext_resource type="PackedScene" uid="uid://by7wal4lga0a2" path="res://scenes/Enemy.tscn" id="5_ypf81"]
+[ext_resource type="PackedScene" uid="uid://mkymf5bum4dg" path="res://Actors/Player/Player.tscn" id="4_t5x4h"]
+[ext_resource type="PackedScene" uid="uid://by7wal4lga0a2" path="res://Actors/Enemy/Enemy.tscn" id="5_ypf81"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_iuj3x"]
 vertices = PackedVector2Array(650, 409, 710, 387, 1114, 387, -59, 740, 570, 255, 966, 233, 1018, 233, 618, 263, 442, 263, 666, 233, 966, 197, 1078, 230, 1078, 340, 758, 340, 618, 299, 1238, 365, 1274, 365, 1555, 776, 506, 112, 678, 79, 714, 79, 666, 197, 630, 197, 630, 233, 1579, -114, 1306, 244, 1306, 208, 1274, 329, 282, 255, 282, 219, 406, 87, 406, 453, 1146, 24, 1146, -13, 1162, 109, 614, 409, 442, 453, 1162, 244, 1238, 329, 1162, 299, 650, 373, 710, 351, 570, 219, -78, -94, 38, -13, 38, 24, 714, 43, 982, 24, 982, 197, 678, 43, 506, 76, 470, 76, 442, 299, 614, 373, 758, 351, 246, 255, 534, 219, 470, 112, 1018, 24, 1126, 109, 1162, 208, 1126, 299, 1114, 230, 534, 255, 442, 87, 246, 219)

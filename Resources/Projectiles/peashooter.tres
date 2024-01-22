@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ProjectileBase" load_steps=4 format=3 uid="uid://bhgu74piv176l"]
 
-[ext_resource type="Script" path="res://Resources/ProjectileBase.gd" id="1_2pfy0"]
+[ext_resource type="Script" path="res://Resources/Projectiles/ProjectileBase.gd" id="1_2pfy0"]
 
 [sub_resource type="Gradient" id="Gradient_5ajun"]
 

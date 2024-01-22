@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ProjectileBase" load_steps=4 format=3 uid="uid://d4guyol4i3gth"]
 
-[ext_resource type="Script" path="res://Resources/ProjectileBase.gd" id="1_5sbjg"]
+[ext_resource type="Script" path="res://Resources/Projectiles/ProjectileBase.gd" id="1_5sbjg"]
 
 [sub_resource type="Gradient" id="Gradient_emw00"]
 colors = PackedColorArray(0.98242, 5.48691e-06, 0.605916, 1, 1, 1, 1, 1)
