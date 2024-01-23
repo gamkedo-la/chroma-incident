@@ -4,6 +4,9 @@ extends CharacterBody2D
 @export var min_speed = 10
 @export var health = 100
 
+var alive:bool = true
+
+@onready var animation_player = $AnimationPlayer
 
 var target = Global.player
 @onready var navigation_agent: NavigationAgent2D = $Navigation/NavigationAgent2D
@@ -20,13 +23,15 @@ func _physics_process(_delta):
 	velocity = direction * max(min_speed, max_speed * (distance / 100))
 	
 	look_at(target.global_position)
-	move_and_slide()
-
+	if alive:
+		move_and_slide()
 
 func _on_timer_timeout():
 	navigation_agent.target_position = target.global_position
 
 func handle_hit():
 	print("Enemy's been hit")
-	queue_free()
+	alive = false
+	animation_player.play("die")
+	
 	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://by7wal4lga0a2"]
+[gd_scene load_steps=8 format=3 uid="uid://by7wal4lga0a2"]
 
 [ext_resource type="Script" path="res://Actors/Enemy/Enemy.gd" id="1_uod5a"]
 
@@ -14,6 +14,80 @@ width = 32
 height = 32
 fill = 1
 fill_from = Vector2(0.495413, 0.490826)
+
+[sub_resource type="Animation" id="Animation_f1a2q"]
+resource_name = "die"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 5.58505]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 0)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_6ejic"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gcd7b"]
+_data = {
+"RESET": SubResource("Animation_6ejic"),
+"die": SubResource("Animation_f1a2q")
+}
 
 [node name="Enemy" type="CharacterBody2D"]
 position = Vector2(0, -16)
@@ -36,5 +110,10 @@ debug_enabled = true
 [node name="Timer" type="Timer" parent="Navigation"]
 wait_time = 0.05
 autostart = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_gcd7b")
+}
 
 [connection signal="timeout" from="Navigation/Timer" to="." method="_on_timer_timeout"]

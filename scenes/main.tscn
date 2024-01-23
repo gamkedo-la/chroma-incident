@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://cuw7kaaihq701"]
+[gd_scene load_steps=9 format=3 uid="uid://cuw7kaaihq701"]
 
 [ext_resource type="PackedScene" uid="uid://c381g8diwgkjs" path="res://scenes/checker.tscn" id="1_dqe58"]
 [ext_resource type="PackedScene" uid="uid://mkymf5bum4dg" path="res://Actors/Player/Player.tscn" id="3_uvd7n"]
 [ext_resource type="PackedScene" uid="uid://by7wal4lga0a2" path="res://Actors/Enemy/Enemy.tscn" id="6_ixea3"]
 [ext_resource type="PackedScene" uid="uid://budcn7nqg0mqx" path="res://autoloads/projectile_manager.tscn" id="6_mm50g"]
+[ext_resource type="PackedScene" uid="uid://b5mj7cun77wcv" path="res://Actors/Beacon/aisle_beacon.tscn" id="7_nwf7v"]
 [ext_resource type="PackedScene" uid="uid://bagqr82ch7qvh" path="res://Actors/Beacon/beacon.tscn" id="7_qxsht"]
 [ext_resource type="PackedScene" uid="uid://b1rjgpyrwxlvn" path="res://Actors/BRG/BRG.tscn" id="7_sea81"]
 
@@ -46,3 +47,8 @@ position = Vector2(-250, 606)
 [node name="Projectiles" type="Node2D" parent="."]
 
 [node name="Projectile_Manager" parent="Projectiles" instance=ExtResource("6_mm50g")]
+
+[node name="Beacon" parent="." instance=ExtResource("7_nwf7v")]
+position = Vector2(-544, 681)
+color = Color(0.619608, 0.00392157, 0.835294, 0.25098)
+weapon_type = 3
