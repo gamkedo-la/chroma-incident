@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://by7wal4lga0a2"]
+[gd_scene load_steps=9 format=3 uid="uid://by7wal4lga0a2"]
 
 [ext_resource type="Script" path="res://Actors/Enemy/Enemy.gd" id="1_uod5a"]
+[ext_resource type="Script" path="res://scripts/HealthComponent.gd" id="2_b6kpp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eudii"]
 size = Vector2(32, 32)
@@ -14,6 +15,33 @@ width = 32
 height = 32
 fill = 1
 fill_from = Vector2(0.495413, 0.490826)
+
+[sub_resource type="Animation" id="Animation_6ejic"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_f1a2q"]
 resource_name = "die"
@@ -56,33 +84,6 @@ tracks/2/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_6ejic"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gcd7b"]
 _data = {
 "RESET": SubResource("Animation_6ejic"),
@@ -115,5 +116,8 @@ autostart = true
 libraries = {
 "": SubResource("AnimationLibrary_gcd7b")
 }
+
+[node name="Health" type="Node" parent="."]
+script = ExtResource("2_b6kpp")
 
 [connection signal="timeout" from="Navigation/Timer" to="." method="_on_timer_timeout"]

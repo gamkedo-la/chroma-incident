@@ -24,7 +24,7 @@ source_geometry_group_name = &"navigation_polygon_source_group"
 navigation_polygon = SubResource("NavigationPolygon_bm4g4")
 
 [node name="Beacon2" parent="Actors" instance=ExtResource("7_qxsht")]
-position = Vector2(604, 459)
+position = Vector2(696, 853)
 color = Color(0, 0.545098, 0.694118, 0.25098)
 
 [node name="Beacon" parent="Actors" instance=ExtResource("7_qxsht")]
@@ -40,15 +40,21 @@ collision_layer = 16
 
 [node name="Enemy" parent="Actors" instance=ExtResource("6_ixea3")]
 position = Vector2(137, 306)
+max_speed = 100
+min_speed = 10
+health = 100
 
 [node name="Enemy2" parent="Actors" instance=ExtResource("6_ixea3")]
-position = Vector2(-250, 606)
+position = Vector2(1281, 404)
+max_speed = 100
+min_speed = 10
+health = 100
 
 [node name="Projectiles" type="Node2D" parent="."]
 
 [node name="Projectile_Manager" parent="Projectiles" instance=ExtResource("6_mm50g")]
 
 [node name="Beacon" parent="." instance=ExtResource("7_nwf7v")]
-position = Vector2(-544, 681)
+position = Vector2(-524, 1257)
 color = Color(0.619608, 0.00392157, 0.835294, 0.25098)
 weapon_type = 3
