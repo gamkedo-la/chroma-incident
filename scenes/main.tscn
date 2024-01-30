@@ -37,18 +37,13 @@ position = Vector2(268, 410)
 collision_layer = 16
 
 [node name="Brg2" parent="Actors/Player" instance=ExtResource("7_sea81")]
+fire_rate = null
 
 [node name="Enemy" parent="Actors" instance=ExtResource("6_ixea3")]
 position = Vector2(137, 306)
-max_speed = 100
-min_speed = 10
-health = 100
 
 [node name="Enemy2" parent="Actors" instance=ExtResource("6_ixea3")]
 position = Vector2(1281, 404)
-max_speed = 100
-min_speed = 10
-health = 100
 
 [node name="Projectiles" type="Node2D" parent="."]
 

@@ -108,6 +108,7 @@ aim_down={
 2d_physics/layer_2="Player"
 2d_physics/layer_3="Bullets"
 2d_physics/layer_4="Enemies"
+2d_physics/layer_5="Enemy bullets"
 
 [rendering]
 

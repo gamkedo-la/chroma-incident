@@ -28,7 +28,7 @@ func fire_projectile() -> void:
 		can_fire = false
 		fire_timer.start()
 		SignalBus.emit_fire(projectile_resource, global_position,
-			(get_global_mouse_position() - global_position).normalized())
+			(get_global_mouse_position() - global_position).normalized(), false)
 
 func set_can_fire() -> void:
 	can_fire = true

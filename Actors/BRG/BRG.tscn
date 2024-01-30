@@ -15,7 +15,7 @@ height = 16
 size = Vector2(24, 2)
 
 [node name="Brg" type="CharacterBody2D"]
-collision_layer = 8
+collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_ua6xj")
 projectile_resource = ExtResource("2_beo06")
