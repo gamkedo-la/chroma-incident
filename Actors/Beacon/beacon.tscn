@@ -16,13 +16,14 @@ fill_from = Vector2(0.504274, 0.482906)
 fill_to = Vector2(0.799145, 0.128205)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1scsm"]
-radius = 245.961
+radius = 179.003
 
 [node name="Beacon" type="Node2D"]
 script = ExtResource("1_8r403")
 weapon_type = 1
 
 [node name="areaShape" type="Polygon2D" parent="."]
+scale = Vector2(0.684298, 0.689888)
 color = Color(0.886275, 0.384314, 0, 0.345098)
 polygon = PackedVector2Array(-1, -250, 60, -242, 123, -215, 171, -177, 210, -127, 233, -71, 245, -18, 239, 53, 211, 122, 170, 176, 122, 213, 59, 241, -2, 247, -62, 239, -125, 214, -177, 174, -216, 122, -239, 64, -245, -2, -237, -68, -219, -133, -173, -185, -125, -218, -68, -239)
 

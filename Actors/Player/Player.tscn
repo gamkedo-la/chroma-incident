@@ -2,9 +2,6 @@
 
 [ext_resource type="Script" path="res://pitch/Player.gd" id="1_wnilg"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_egjqc"]
-size = Vector2(16, 16)
-
 [sub_resource type="Gradient" id="Gradient_ak5an"]
 colors = PackedColorArray(0.38251, 0.54281, 0.748529, 1, 1, 1, 1, 1)
 
@@ -13,16 +10,22 @@ gradient = SubResource("Gradient_ak5an")
 width = 16
 height = 16
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_egjqc"]
+size = Vector2(10, 11)
+
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(0, -8)
-collision_layer = 15
-collision_mask = 28
+collision_layer = 14
+collision_mask = 29
 script = ExtResource("1_wnilg")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_egjqc")
-
 [node name="Body" type="Sprite2D" parent="."]
+position = Vector2(0, -0.5)
+scale = Vector2(0.625, 1.6875)
 texture = SubResource("GradientTexture2D_syn6a")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 7.5)
+shape = SubResource("RectangleShape2D_egjqc")

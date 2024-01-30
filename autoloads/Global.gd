@@ -3,7 +3,7 @@ extends Node
 const PROJECTILE_CONTAINER_PATH = "/root/main/Projectiles"
 
 var player:CharacterBody2D
-
+enum {ADD, REMOVE}
 @export var bullet_types:Array[ProjectileBase] = []
 
 const BLACK:int = 0

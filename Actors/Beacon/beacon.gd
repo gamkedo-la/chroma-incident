@@ -19,10 +19,10 @@ func _process(_delta):
 	pass
 
 func _on_area_2d_body_entered(body):
-	if body.has_method('gunswap'):
-		body.gunswap(weapon_type)
+	if body.has_method('gunmod'):
+		body.gunmod(weapon_type)
 		
 func _on_area_2d_body_exited(body):
-	if body.has_method('gunswap'):
-		body.gunswap(0)
+	if body.has_method('gunmod'):
+		body.gunmod(weapon_type)
 

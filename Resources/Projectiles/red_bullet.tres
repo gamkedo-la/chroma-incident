@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ProjectileBase" load_steps=4 format=3 uid="uid://dm4gmwux3px3c"]
+
+[ext_resource type="Script" path="res://Resources/Projectiles/ProjectileBase.gd" id="1_d5big"]
+
+[sub_resource type="Gradient" id="Gradient_tiic3"]
+offsets = PackedFloat32Array(0.00958466, 1)
+colors = PackedColorArray(0.855462, 0, 0.159058, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_3fqfo"]
+gradient = SubResource("Gradient_tiic3")
+width = 24
+height = 4
+
+[resource]
+script = ExtResource("1_d5big")
+projectile_texture = SubResource("GradientTexture2D_3fqfo")
+projectile_speed = 500.0

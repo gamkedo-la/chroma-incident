@@ -37,7 +37,7 @@ func _physics_process(_delta):
 	direction = direction.normalized()
 	velocity = direction * max(min_speed, max_speed * (distance / 100))
 	
-	look_at(target.global_position)
+	#look_at(target.global_position)
 	if alive:
 		move_and_slide()
 	
@@ -52,7 +52,7 @@ func handle_hit():
 	
 func shoot():
 	shoot_timer.start()
-	var projectile_resource:ProjectileBase = Global.bullet_types[3]
+	var projectile_resource:ProjectileBase = Global.bullet_types[1]
 	SignalBus.emit_fire(projectile_resource, global_position,
 		(target.global_position - global_position).normalized(), true)
 	

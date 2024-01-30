@@ -3,7 +3,8 @@
 [ext_resource type="Script" path="res://Resources/Projectiles/ProjectileBase.gd" id="1_5sbjg"]
 
 [sub_resource type="Gradient" id="Gradient_emw00"]
-colors = PackedColorArray(0.98242, 5.48691e-06, 0.605916, 1, 1, 1, 1, 1)
+offsets = PackedFloat32Array(0.00833333, 1)
+colors = PackedColorArray(1, 0.713726, 0, 1, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_wunrl"]
 gradient = SubResource("Gradient_emw00")

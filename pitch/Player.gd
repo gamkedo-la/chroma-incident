@@ -4,7 +4,6 @@ extends CharacterBody2D
 @export var drag = 0.85
 @export var rotation_speed = 0.3
 
-
 var move_vector:Vector2 
 var aim_vector:Vector2
 var rotation_target:float 

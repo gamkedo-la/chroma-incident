@@ -1,11 +1,90 @@
-[gd_scene load_steps=6 format=3 uid="uid://byg8tc6bee4at"]
+[gd_scene load_steps=22 format=3 uid="uid://byg8tc6bee4at"]
 
 [ext_resource type="Script" path="res://autoloads/Global.gd" id="1_a772t"]
 [ext_resource type="Resource" uid="uid://bhgu74piv176l" path="res://Resources/Projectiles/peashooter.tres" id="2_w4qwf"]
-[ext_resource type="Resource" uid="uid://hc3eoi1gisaa" path="res://Resources/Projectiles/basic_bullet.tres" id="3_7emr7"]
-[ext_resource type="Resource" uid="uid://d4guyol4i3gth" path="res://Resources/Projectiles/pink_bullet.tres" id="4_1w51p"]
-[ext_resource type="Resource" uid="uid://4my0aydweito" path="res://Resources/Projectiles/whirly-bullet.tres" id="5_lwtsg"]
+[ext_resource type="Script" path="res://Resources/Projectiles/ProjectileBase.gd" id="5_k0lf0"]
+
+[sub_resource type="Gradient" id="Gradient_1rxv2"]
+colors = PackedColorArray(1, 0, 0, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_wtlut"]
+gradient = SubResource("Gradient_1rxv2")
+width = 16
+height = 8
+
+[sub_resource type="Resource" id="Resource_5rdod"]
+script = ExtResource("5_k0lf0")
+projectile_texture = SubResource("GradientTexture2D_wtlut")
+projectile_speed = 300.0
+
+[sub_resource type="Gradient" id="Gradient_psvbj"]
+offsets = PackedFloat32Array(0, 0.619444, 1)
+colors = PackedColorArray(1, 1, 0, 1, 1, 1, 0.613889, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_mldix"]
+gradient = SubResource("Gradient_psvbj")
+width = 32
+height = 6
+
+[sub_resource type="Resource" id="Resource_q40q4"]
+script = ExtResource("5_k0lf0")
+projectile_texture = SubResource("GradientTexture2D_mldix")
+projectile_speed = 300.0
+
+[sub_resource type="Gradient" id="Gradient_ylcwf"]
+colors = PackedColorArray(1, 0.380392, 0, 1, 1, 0.752941, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1fjrt"]
+gradient = SubResource("Gradient_ylcwf")
+width = 16
+height = 8
+
+[sub_resource type="Resource" id="Resource_yniwq"]
+script = ExtResource("5_k0lf0")
+projectile_texture = SubResource("GradientTexture2D_1fjrt")
+projectile_speed = 300.0
+
+[sub_resource type="Gradient" id="Gradient_7dju0"]
+colors = PackedColorArray(0, 0.196078, 0.815686, 1, 0.486275, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bx1jy"]
+gradient = SubResource("Gradient_7dju0")
+width = 32
+height = 16
+
+[sub_resource type="Resource" id="Resource_cwhyo"]
+script = ExtResource("5_k0lf0")
+projectile_texture = SubResource("GradientTexture2D_bx1jy")
+projectile_speed = 300.0
+
+[sub_resource type="Gradient" id="Gradient_qwbf1"]
+offsets = PackedFloat32Array(0, 0.997222)
+colors = PackedColorArray(0.267988, 0.000890852, 0.508946, 1, 0.776471, 0.027451, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5ik0l"]
+gradient = SubResource("Gradient_qwbf1")
+width = 20
+height = 3
+
+[sub_resource type="Resource" id="Resource_pydi5"]
+script = ExtResource("5_k0lf0")
+projectile_texture = SubResource("GradientTexture2D_5ik0l")
+projectile_speed = 300.0
+
+[sub_resource type="Gradient" id="Gradient_th2eh"]
+offsets = PackedFloat32Array(0.0138889, 0.994444)
+colors = PackedColorArray(0, 0.482353, 0, 1, 0.768627, 1, 0.34902, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_18f4h"]
+gradient = SubResource("Gradient_th2eh")
+width = 12
+height = 12
+
+[sub_resource type="Resource" id="Resource_r3n35"]
+script = ExtResource("5_k0lf0")
+projectile_texture = SubResource("GradientTexture2D_18f4h")
+projectile_speed = 300.0
 
 [node name="Global" type="Node2D"]
 script = ExtResource("1_a772t")
-bullet_types = Array[Resource("res://Resources/Projectiles/ProjectileBase.gd")]([ExtResource("2_w4qwf"), ExtResource("3_7emr7"), ExtResource("4_1w51p"), ExtResource("5_lwtsg")])
+bullet_types = Array[ExtResource("5_k0lf0")]([ExtResource("2_w4qwf"), SubResource("Resource_5rdod"), SubResource("Resource_q40q4"), SubResource("Resource_yniwq"), SubResource("Resource_cwhyo"), SubResource("Resource_pydi5"), SubResource("Resource_r3n35"), null])

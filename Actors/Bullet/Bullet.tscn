@@ -28,7 +28,5 @@ texture = SubResource("GradientTexture2D_onogb")
 
 [node name="DeathTimer" type="Timer" parent="."]
 
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibileNotifier" to="." method="_on_visibile_notifier_screen_exited"]
 [connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]

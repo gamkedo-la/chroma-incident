@@ -5,6 +5,10 @@ extends Area2D
 @onready var death_timer = $DeathTimer as Timer	
 @onready var sprite_texture = $Sprite2D.texture as Texture:
 							set = _set_texture
+							
+func _ready():
+	connect("area_entered", _on_area_entered)
+	connect("body_entered", _on_body_entered)
 
 func _set_texture(value):
 	# If the texture variable is modified externally,
@@ -44,3 +48,10 @@ func _on_body_entered(body):
 	if body.has_method("handle_hit"):
 		body.handle_hit()
 		queue_free()
+		
+func _on_area_entered(area:Area2D):
+	var body = area.get_parent();
+	if body.has_method("handle_hit"):
+		body.handle_hit()
+		queue_free()
+

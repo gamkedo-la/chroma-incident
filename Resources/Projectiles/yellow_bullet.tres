@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ProjectileBase" load_steps=4 format=3 uid="uid://0hum4awt721j"]
+
+[ext_resource type="Script" path="res://Resources/Projectiles/ProjectileBase.gd" id="1_80s50"]
+
+[sub_resource type="Gradient" id="Gradient_6cafe"]
+colors = PackedColorArray(1, 1, 0, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_je54i"]
+gradient = SubResource("Gradient_6cafe")
+width = 16
+height = 4
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_80s50")
+projectile_texture = SubResource("GradientTexture2D_je54i")
+projectile_speed = 700.0
