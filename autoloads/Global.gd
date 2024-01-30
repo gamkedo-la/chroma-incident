@@ -37,4 +37,3 @@ func get_projectile_container() -> Node2D:
 
 func register_player(in_player):
 	player = in_player
-

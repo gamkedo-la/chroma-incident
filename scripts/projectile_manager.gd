@@ -18,8 +18,8 @@ func build_projectile(resource:ProjectileBase, location:Vector2, direction:Vecto
 	
 func spawn_projectile(bullet:Bullet, fired_by_enemy:bool):
 	if fired_by_enemy:
-		# bullet.collision_layer = 0b00000000_00000000_00000000_00010000 #set to layer 5 for enemy bullets
-		bullet.collision_mask = 0b00000000_00000000_00000000_00000111 #remove enemeies from mask, add player bullets
+		bullet.collision_layer = 0b00000000_00000000_00000000_00011111 #set to layer 5 for enemy bullets
+		bullet.collision_mask = 0b00000000_00000000_00000000_00010111 #remove enemeies from mask, add other bullets
 	var projectile_container = Global.get_projectile_container()
 	if projectile_container == null:
 				return

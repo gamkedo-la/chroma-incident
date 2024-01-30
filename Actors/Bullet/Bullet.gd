@@ -31,6 +31,8 @@ func _on_visibile_notifier_screen_exited():
 func _on_death_timer_timeout():
 	queue_free()
 
+func handle_hit():
+	queue_free()
 
 func _on_Bullet_body_entered(body:Node):
 	if body.has_method("handle_hit"):

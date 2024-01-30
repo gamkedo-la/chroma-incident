@@ -22,9 +22,9 @@ func _physics_process(_delta):
 	#rotation = lerp(rotation, rotation_target, rotation_speed)
 	move_and_slide()
 	
-	
 func _process(_delta): 
 	pass
+	
 func _input(event):
 	if event is InputEventMouse or event is InputEventMouseButton or event is InputEventMouseMotion:
 		rotation_target = set_mouse_aim()
@@ -38,4 +38,7 @@ func set_mouse_aim():
 func set_analog_stick_aim():
 	aim_vector = Input.get_vector("aim_left", "aim_right", "aim_up", "aim_down")
 	return atan2(aim_vector.y, aim_vector.x)
+	
+func handle_hit():
+	print("player hit")
 

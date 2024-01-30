@@ -15,6 +15,7 @@ height = 16
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(0, -8)
+collision_layer = 15
 collision_mask = 28
 script = ExtResource("1_wnilg")
 
