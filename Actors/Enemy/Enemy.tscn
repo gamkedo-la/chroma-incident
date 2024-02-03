@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://by7wal4lga0a2"]
+[gd_scene load_steps=13 format=3 uid="uid://by7wal4lga0a2"]
 
 [ext_resource type="Script" path="res://Actors/Enemy/Enemy.gd" id="1_uod5a"]
 [ext_resource type="Script" path="res://scripts/HealthComponent.gd" id="2_b6kpp"]
@@ -93,6 +93,24 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g5gkc"]
 size = Vector2(25, 68)
 
+[sub_resource type="Theme" id="Theme_cytvr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k5ykj"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wcbdy"]
+bg_color = Color(0.219608, 0.862745, 0.203922, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.8, 0.8, 0.8, 0)
+
 [node name="Enemy" type="CharacterBody2D"]
 position = Vector2(0, -16)
 collision_layer = 8
@@ -138,5 +156,16 @@ collision_mask = 15
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
 position = Vector2(0.5, -18)
 shape = SubResource("RectangleShape2D_g5gkc")
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+offset_left = -39.0
+offset_top = -48.0
+offset_right = 39.0
+offset_bottom = -21.0
+theme = SubResource("Theme_cytvr")
+theme_override_styles/background = SubResource("StyleBoxFlat_k5ykj")
+theme_override_styles/fill = SubResource("StyleBoxFlat_wcbdy")
+value = 50.0
+show_percentage = false
 
 [connection signal="timeout" from="Navigation/Timer" to="." method="_on_timer_timeout"]

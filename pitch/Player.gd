@@ -9,6 +9,7 @@ var aim_vector:Vector2
 var rotation_target:float 
 var accelleration:Vector2
 var mouse_in_use:bool = true
+@onready var health_component = get_node("HealthComponent")
 
 func _ready():
 	Global.register_player(self)
@@ -38,6 +39,8 @@ func set_analog_stick_aim():
 	aim_vector = Input.get_vector("aim_left", "aim_right", "aim_up", "aim_down")
 	return atan2(aim_vector.y, aim_vector.x)
 	
+# Todo - Pass in damage from projectile as parameter
 func handle_hit():
 	print("player hit")
+	health_component.take_damage(5)
 

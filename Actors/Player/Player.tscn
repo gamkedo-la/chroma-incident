@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://mkymf5bum4dg"]
+[gd_scene load_steps=9 format=3 uid="uid://mkymf5bum4dg"]
 
 [ext_resource type="Script" path="res://pitch/Player.gd" id="1_wnilg"]
+[ext_resource type="Script" path="res://scripts/HealthComponent.gd" id="2_exsjq"]
 
 [sub_resource type="Gradient" id="Gradient_ak5an"]
 colors = PackedColorArray(0.38251, 0.54281, 0.748529, 1, 1, 1, 1, 1)
@@ -12,6 +13,24 @@ height = 16
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_egjqc"]
 size = Vector2(10, 11)
+
+[sub_resource type="Theme" id="Theme_b2bn2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0klo3"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b5jyd"]
+bg_color = Color(0.219608, 0.862745, 0.203922, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.8, 0.8, 0.8, 0)
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(0, -8)
@@ -29,3 +48,17 @@ texture = SubResource("GradientTexture2D_syn6a")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 7.5)
 shape = SubResource("RectangleShape2D_egjqc")
+
+[node name="HealthComponent" type="Node" parent="."]
+script = ExtResource("2_exsjq")
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+offset_left = -39.0
+offset_top = -48.0
+offset_right = 39.0
+offset_bottom = -21.0
+theme = SubResource("Theme_b2bn2")
+theme_override_styles/background = SubResource("StyleBoxFlat_0klo3")
+theme_override_styles/fill = SubResource("StyleBoxFlat_b5jyd")
+value = 50.0
+show_percentage = false
