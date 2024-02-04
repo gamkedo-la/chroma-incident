@@ -1,8 +1,9 @@
 extends CharacterBody2D
 
-@export var move_speed = 100
-@export var drag = 0.85
-@export var rotation_speed = 0.3
+@export var move_speed:float = 100
+@export var drag:float = 0.85
+@export var rotation_speed:float = 0.3
+@export var spectral_energy:int = 0
 
 var move_vector:Vector2 
 var aim_vector:Vector2
@@ -41,6 +42,5 @@ func set_analog_stick_aim():
 	
 # Todo - Pass in damage from projectile as parameter
 func handle_hit():
-	print("player hit")
 	health_component.take_damage(5)
 

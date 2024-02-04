@@ -20,7 +20,6 @@ func _ready():
 	# Connect the health component signal for health to our handler in enemy
 	child_node_health.healthReachedMinimum.connect(_on_healthReachedMinimum)
 	shoot_timer.connect("timeout", _on_shoot_timer_timeout)
-	print("spawned at " + str(position))
 	shoot_timer.wait_time = 1/fire_rate_per_second
 
 	if Global.player:
