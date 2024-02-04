@@ -95,21 +95,11 @@ size = Vector2(25, 68)
 
 [sub_resource type="Theme" id="Theme_cytvr"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k5ykj"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-border_color = Color(1, 1, 1, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_surkh"]
+bg_color = Color(0.207843, 0.215686, 0.396078, 0.533333)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wcbdy"]
-bg_color = Color(0.219608, 0.862745, 0.203922, 1)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-border_color = Color(0.8, 0.8, 0.8, 0)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_avhmj"]
+bg_color = Color(0.898039, 0.803922, 0.286275, 1)
 
 [node name="Enemy" type="CharacterBody2D"]
 position = Vector2(0, -16)
@@ -158,13 +148,21 @@ position = Vector2(0.5, -18)
 shape = SubResource("RectangleShape2D_g5gkc")
 
 [node name="HealthBar" type="ProgressBar" parent="."]
-offset_left = -39.0
-offset_top = -48.0
-offset_right = 39.0
-offset_bottom = -21.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -71.0
+offset_right = 40.0
+offset_bottom = -60.0
+grow_horizontal = 2
+grow_vertical = 0
 theme = SubResource("Theme_cytvr")
-theme_override_styles/background = SubResource("StyleBoxFlat_k5ykj")
-theme_override_styles/fill = SubResource("StyleBoxFlat_wcbdy")
+theme_override_constants/outline_size = 1
+theme_override_styles/background = SubResource("StyleBoxFlat_surkh")
+theme_override_styles/fill = SubResource("StyleBoxFlat_avhmj")
 value = 50.0
 show_percentage = false
 

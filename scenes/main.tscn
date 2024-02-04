@@ -3,11 +3,11 @@
 [ext_resource type="PackedScene" uid="uid://c381g8diwgkjs" path="res://scenes/checker.tscn" id="1_dqe58"]
 [ext_resource type="PackedScene" uid="uid://dn0udrbxyfodh" path="res://scenes/tiles/tile01.tscn" id="2_87g25"]
 [ext_resource type="PackedScene" uid="uid://mkymf5bum4dg" path="res://Actors/Player/Player.tscn" id="3_uvd7n"]
-[ext_resource type="PackedScene" uid="uid://by7wal4lga0a2" path="res://Actors/Enemy/Enemy.tscn" id="6_ixea3"]
 [ext_resource type="PackedScene" uid="uid://budcn7nqg0mqx" path="res://autoloads/projectile_manager.tscn" id="6_mm50g"]
 [ext_resource type="PackedScene" uid="uid://b5mj7cun77wcv" path="res://Actors/Beacon/aisle_beacon.tscn" id="7_nwf7v"]
 [ext_resource type="PackedScene" uid="uid://bagqr82ch7qvh" path="res://Actors/Beacon/beacon.tscn" id="7_qxsht"]
 [ext_resource type="PackedScene" uid="uid://b1rjgpyrwxlvn" path="res://Actors/BRG/BRG.tscn" id="7_sea81"]
+[ext_resource type="PackedScene" uid="uid://bftljsjqxrys8" path="res://Actors/EnemySpawner/EnemySpawner.tscn" id="9_o80m0"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_bm4g4"]
 vertices = PackedVector2Array(2167, -982, 2167, 1707, 1962, 1482, 1962, -266, -354, 1707, -202, 1482, -425, -993, -202, -266, -150, -214, -10, -214, -10, -138, -42, -138, -42, -106, -74, -106, -150, 1430, -74, -22, -22, -22, -22, -54, -10, -54, -10, 522, 42, 522, 42, 490, 278, 490, 278, 1034, 406, 1034, 406, 1258, 1162, 1206, 458, 1206, 458, 1034, 1098, 1034, 1098, 746, 1354, 746, 1270, 1206, 1354, 694, 1034, 694, 1034, 342, 982, 342, 982, 438, 630, 438, 630, 490, 982, 490, 982, 746, 330, 982, 1046, 746, 1046, 982, 330, 490, 522, 490, 982, 266, 522, 438, 982, -694, 42, 438, 42, -694, 1034, 266, 1034, 170, 1750, 170, 1750, 694, 1430, 694, 1430, 746, 1622, 746, 1622, 1206, 1162, 1258, 1270, 1258, 1674, 1258, 1674, 746, 1834, 746, 1910, 1430, 1834, 694, 1802, 694, 1802, 118, -10, -746, -10, -266, 1034, -746, 1302, -266, 1034, 118, 1302, -214, 1910, -214)
@@ -75,11 +75,8 @@ move_speed = 40
 
 [node name="Brg2" parent="Actors/Player" instance=ExtResource("7_sea81")]
 
-[node name="Enemy" parent="Actors" instance=ExtResource("6_ixea3")]
-position = Vector2(137, 306)
-max_speed = 35
-min_speed = 15
-health = 15
+[node name="EnemySpawner" parent="Actors" instance=ExtResource("9_o80m0")]
+position = Vector2(-948, 700)
 
 [node name="Projectiles" type="Node2D" parent="."]
 

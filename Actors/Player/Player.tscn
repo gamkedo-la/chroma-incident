@@ -18,18 +18,19 @@ size = Vector2(10, 11)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0klo3"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-border_color = Color(1, 1, 1, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.317647, 0.266667, 0.305882, 1)
+corner_detail = 1
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b5jyd"]
 bg_color = Color(0.219608, 0.862745, 0.203922, 1)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
 border_color = Color(0.8, 0.8, 0.8, 0)
 
 [node name="Player" type="CharacterBody2D"]
@@ -53,10 +54,10 @@ shape = SubResource("RectangleShape2D_egjqc")
 script = ExtResource("2_exsjq")
 
 [node name="HealthBar" type="ProgressBar" parent="."]
-offset_left = -39.0
-offset_top = -48.0
-offset_right = 39.0
-offset_bottom = -21.0
+offset_left = -20.0
+offset_top = -22.0
+offset_right = 19.0
+offset_bottom = -17.0
 theme = SubResource("Theme_b2bn2")
 theme_override_styles/background = SubResource("StyleBoxFlat_0klo3")
 theme_override_styles/fill = SubResource("StyleBoxFlat_b5jyd")

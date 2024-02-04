@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://bftljsjqxrys8"]
+
+[ext_resource type="Script" path="res://Actors/EnemySpawner/EnemySpawner.gd" id="1_t2gem"]
+[ext_resource type="PackedScene" uid="uid://by7wal4lga0a2" path="res://Actors/Enemy/Enemy.tscn" id="2_w0g6c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8rs4c"]
+
+[node name="EnemySpawner" type="Node2D"]
+script = ExtResource("1_t2gem")
+actor_to_spawn = ExtResource("2_w0g6c")
+time_between_spawns = 10.0
+quantity_per_spawn = 1
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_8rs4c")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(-10, 10, -6, -10, 6, -10, 10, 10, 6, 10, 4, -5, -4, -5, -6, 10)
+
+[node name="spawnDelay" type="Timer" parent="."]
+autostart = true

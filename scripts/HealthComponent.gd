@@ -6,11 +6,9 @@ var min_health : float = 0
 
 signal healthReachedMinimum()
 
-var health_bar
-
+@onready var health_bar = $"../HealthBar"
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	health_bar = get_parent().get_node("HealthBar")
 	var percent_health = (current_health / max_health) * 100
 	health_bar.value = percent_health
 

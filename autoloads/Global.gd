@@ -1,9 +1,9 @@
 extends Node
 
 const PROJECTILE_CONTAINER_PATH = "/root/main/Projectiles"
-
+const ACTOR_CONTAINER_PATH = "/root/main/Actors"
 var player:CharacterBody2D
-enum {ADD, REMOVE}
+
 @export var bullet_types:Array[ProjectileBase] = []
 
 const BLACK:int = 0
@@ -23,17 +23,11 @@ const GREEN:int = 6
 #0000 0101 = purple
 const PURPLE:int = 5
 
-var beacon_colors:Array[Dictionary] = [
-	{
-		
-	}
-]
-
-
-
-
 func get_projectile_container() -> Node2D:
 	return get_node(PROJECTILE_CONTAINER_PATH)
 
+func get_actor_container() -> Node2D:
+	return get_node(ACTOR_CONTAINER_PATH)
+	
 func register_player(in_player):
 	player = in_player
