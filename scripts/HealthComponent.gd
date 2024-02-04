@@ -18,14 +18,14 @@ func _process(_delta):
 
 func take_damage(damage: int) -> void:
 	var percent_health = (current_health / max_health) * 100
-	print("Previous health: %d%, %f" % [current_health, percent_health])
+
 	current_health -= damage
 	current_health = max(current_health, min_health)
 	if (current_health == min_health):
 		emit_signal("healthReachedMinimum")
 	percent_health = (current_health / max_health) * 100
 	health_bar.value = percent_health
-	print("New health: %d%% , %f" % [current_health, percent_health])
+
 		
 func is_alive() -> bool:
 	return current_health > min_health

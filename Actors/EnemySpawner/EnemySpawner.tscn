@@ -21,3 +21,6 @@ polygon = PackedVector2Array(-10, 10, -6, -10, 6, -10, 10, 10, 6, 10, 4, -5, -4,
 
 [node name="spawnDelay" type="Timer" parent="."]
 autostart = true
+
+[node name="spawnLocation" type="Marker2D" parent="."]
+position = Vector2(0, 23)

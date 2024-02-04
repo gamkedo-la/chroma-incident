@@ -76,7 +76,7 @@ move_speed = 40
 [node name="Brg2" parent="Actors/Player" instance=ExtResource("7_sea81")]
 
 [node name="EnemySpawner" parent="Actors" instance=ExtResource("9_o80m0")]
-position = Vector2(-948, 700)
+position = Vector2(789, -584)
 
 [node name="Projectiles" type="Node2D" parent="."]
 
