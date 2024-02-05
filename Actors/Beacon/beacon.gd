@@ -1,3 +1,4 @@
+class_name Beacon
 extends Node2D
 
 var player = Global.player

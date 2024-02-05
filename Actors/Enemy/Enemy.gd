@@ -1,8 +1,10 @@
+class_name Enemy
 extends CharacterBody2D
 
-@export var max_speed = 50
-@export var min_speed = 10
-@export var health = 30
+@export var max_speed:int = 50
+@export var min_speed:int = 10
+@export var health:int = 30
+@export var energy_value:int =  1
 
 var alive:bool = true
 
@@ -17,6 +19,7 @@ var target = Global.player
 @export var fire_rate_per_second:float = 4
 
 func _ready():
+	add_to_group("Enemies")
 	# Connect the health component signal for health to our handler in enemy
 	child_node_health.healthReachedMinimum.connect(_on_healthReachedMinimum)
 	shoot_timer.connect("timeout", _on_shoot_timer_timeout)
@@ -28,6 +31,7 @@ func _ready():
 func _on_healthReachedMinimum():
 	alive = false
 	animation_player.play("die")
+	SignalBus.emit_spawn_energy_drops(energy_value, 5, global_position)
 
 func _physics_process(_delta):
 	var direction = Vector2.ZERO
@@ -48,7 +52,7 @@ func _on_shoot_timer_timeout():
 
 func handle_hit():
 	$Health.take_damage(5)
-	
+	SignalBus.emit_spawn_energy_drops(energy_value, 1, global_position)
 func shoot():
 	shoot_timer.start()
 	var projectile_resource:ProjectileBase = Global.bullet_types[1]

@@ -1,6 +1,7 @@
+class_name Player
 extends CharacterBody2D
 
-@export var move_speed:float = 100
+@export var move_speed:float = 50
 @export var drag:float = 0.85
 @export var rotation_speed:float = 0.3
 @export var spectral_energy:int = 0
@@ -14,7 +15,7 @@ var mouse_in_use:bool = true
 
 func _ready():
 	Global.register_player(self)
-
+	SignalBus.connect("collected", _collected_something)
 func _physics_process(_delta):
 	move_vector = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	accelleration = move_vector * move_speed
@@ -43,4 +44,9 @@ func set_analog_stick_aim():
 # Todo - Pass in damage from projectile as parameter
 func handle_hit():
 	health_component.take_damage(5)
-
+	
+func _collected_something(item:String, value:float):
+	#for now there's just the energy drops. function signature may change,
+	#not doing anything with 'item' for now
+	spectral_energy += value
+	print("spectral energy collected: " +str(spectral_energy))
