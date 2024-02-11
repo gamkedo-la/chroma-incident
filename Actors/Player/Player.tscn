@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://mkymf5bum4dg"]
+[gd_scene load_steps=12 format=3 uid="uid://mkymf5bum4dg"]
 
 [ext_resource type="Script" path="res://Actors/Player/Player.gd" id="1_6hl1c"]
 [ext_resource type="Script" path="res://scripts/HealthComponent.gd" id="2_exsjq"]
+[ext_resource type="Texture2D" uid="uid://dno8jx2gxiw42" path="res://Actors/Player/Player.tres" id="2_puqxw"]
 [ext_resource type="PackedScene" uid="uid://b1rjgpyrwxlvn" path="res://Actors/BRG/BRG.tscn" id="3_kd1dj"]
 
 [sub_resource type="Gradient" id="Gradient_ak5an"]
@@ -34,16 +35,25 @@ border_width_right = 1
 border_width_bottom = 1
 border_color = Color(0.8, 0.8, 0.8, 0)
 
-[node name="Player" type="CharacterBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ryi84"]
+size = Vector2(14, 32)
+
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 position = Vector2(0, -8)
 collision_layer = 2
-collision_mask = 25
+collision_mask = 27
 script = ExtResource("1_6hl1c")
 
 [node name="Body" type="Sprite2D" parent="."]
-position = Vector2(0, -0.5)
-scale = Vector2(0.625, 1.6875)
+position = Vector2(0, -11.5)
+scale = Vector2(0.625, 3.0625)
 texture = SubResource("GradientTexture2D_syn6a")
+
+[node name="Polygon2D" type="Polygon2D" parent="Body"]
+position = Vector2(0, -0.489796)
+scale = Vector2(0.854875, 0.827097)
+texture = ExtResource("2_puqxw")
+polygon = PackedVector2Array(-16.8446, -9.86978, -17.6, -3.7551, -9.6, -2.77551, -0.844116, -2.77551, 11.2, -2.77551, 16, -3.7551, 22.4594, -5.92187, 16.8446, -9.08019, 3.74324, -9.86978)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -56,9 +66,9 @@ script = ExtResource("2_exsjq")
 
 [node name="HealthBar" type="ProgressBar" parent="."]
 offset_left = -20.0
-offset_top = -22.0
+offset_top = -45.0
 offset_right = 19.0
-offset_bottom = -17.0
+offset_bottom = -40.0
 theme = SubResource("Theme_b2bn2")
 theme_override_styles/background = SubResource("StyleBoxFlat_0klo3")
 theme_override_styles/fill = SubResource("StyleBoxFlat_b5jyd")
@@ -66,3 +76,11 @@ value = 50.0
 show_percentage = false
 
 [node name="BRG_Gun" parent="." groups=["Player"] instance=ExtResource("3_kd1dj")]
+position = Vector2(2, -11)
+
+[node name="effectArea" type="Area2D" parent="." groups=["Player"]]
+collision_layer = 32
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="effectArea"]
+shape = SubResource("RectangleShape2D_ryi84")

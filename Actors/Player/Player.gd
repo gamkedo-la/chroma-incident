@@ -4,7 +4,7 @@ extends CharacterBody2D
 @export var move_speed:float = 50
 @export var drag:float = 0.85
 @export var rotation_speed:float = 0.3
-@export var spectral_energy:int = 0
+@export var spectral_energy:float = 0
 
 var move_vector:Vector2 
 var aim_vector:Vector2
@@ -49,4 +49,4 @@ func _collected_something(item:String, value:float):
 	#for now there's just the energy drops. function signature may change,
 	#not doing anything with 'item' for now
 	spectral_energy += value
-	print("spectral energy collected: " +str(spectral_energy))
+

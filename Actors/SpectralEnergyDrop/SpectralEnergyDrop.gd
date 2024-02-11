@@ -9,7 +9,7 @@ func _ready():
 	life_timer.wait_time = life
 	life_timer.start()
 	life_timer.connect("timeout", _die)
-	connect("body_entered", _on_body_entered)
+	connect("area_entered", _on_area_entered)
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -18,9 +18,7 @@ func _process(_delta):
 func _die():
 	queue_free()
 
-func _on_body_entered(body:Node2D):
-	print(body)
-	if body.is_in_group("Player"):
-		#basically only want to collect if body is Player. 
+func _on_area_entered(area:Area2D):
+	if area.is_in_group("Player"):
 		SignalBus.emit_collected("SpectralEnergyDrop", energy_value)
 		_die()

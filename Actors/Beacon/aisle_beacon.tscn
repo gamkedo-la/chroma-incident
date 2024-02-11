@@ -22,10 +22,6 @@ size = Vector2(2821, 264)
 script = ExtResource("1_jlc38")
 weapon_type = 1
 
-[node name="areaShape" type="Polygon2D" parent="."]
-color = Color(0.886275, 0.384314, 0, 0.345098)
-polygon = PackedVector2Array(-15, -131, 2822, -140, 2817, 141, -18, 141)
-
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
@@ -43,6 +39,10 @@ collision_mask = 9
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(1395.5, 0)
 shape = SubResource("RectangleShape2D_n40ib")
+
+[node name="areaShape" type="Polygon2D" parent="Area2D"]
+color = Color(0.886275, 0.384314, 0, 0.345098)
+polygon = PackedVector2Array(-15, -131, 2822, -140, 2817, 141, -18, 141)
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

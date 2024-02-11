@@ -24,7 +24,7 @@ func spawn_projectile(bullet:Bullet, fired_by_enemy:bool):
 	var projectile_container = Global.get_projectile_container()
 	if projectile_container == null:
 				return
-	projectile_container.add_child(bullet)
+	projectile_container.call_deferred("add_child", bullet)
 	
 func spawn_energy_drops(value:int, amount:int, location:Vector2):
 	for n in amount:

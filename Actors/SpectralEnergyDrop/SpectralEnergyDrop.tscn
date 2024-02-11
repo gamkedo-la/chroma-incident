@@ -42,7 +42,7 @@ fill_from = Vector2(0.5, 0.495726)
 [node name="SpectralEnergyDrop" type="Area2D"]
 y_sort_enabled = true
 collision_layer = 3
-collision_mask = 3
+collision_mask = 35
 script = ExtResource("1_6vi14")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
@@ -52,6 +52,7 @@ scale = Vector2(1.71875, 1.69643)
 polygon = PackedVector2Array(-4, 3, 0, -4, 4, 3)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+visible = false
 y_sort_enabled = true
 process_material = SubResource("ParticleProcessMaterial_cw2d0")
 texture = SubResource("GradientTexture2D_flwgu")

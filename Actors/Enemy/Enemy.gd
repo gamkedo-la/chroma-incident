@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 @export var max_speed:int = 50
 @export var min_speed:int = 10
-@export var health:int = 30
+@export var health:int = 1
 @export var energy_value:int =  1
 
 var alive:bool = true

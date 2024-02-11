@@ -1,10 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://cuw7kaaihq701"]
+[gd_scene load_steps=11 format=3 uid="uid://cuw7kaaihq701"]
 
 [ext_resource type="PackedScene" uid="uid://c381g8diwgkjs" path="res://scenes/checker.tscn" id="1_dqe58"]
 [ext_resource type="PackedScene" uid="uid://dn0udrbxyfodh" path="res://scenes/tiles/tile01.tscn" id="2_87g25"]
 [ext_resource type="PackedScene" uid="uid://mkymf5bum4dg" path="res://Actors/Player/Player.tscn" id="3_uvd7n"]
 [ext_resource type="PackedScene" uid="uid://budcn7nqg0mqx" path="res://autoloads/projectile_manager.tscn" id="6_mm50g"]
-[ext_resource type="PackedScene" uid="uid://b5mj7cun77wcv" path="res://Actors/Beacon/aisle_beacon.tscn" id="7_nwf7v"]
 [ext_resource type="PackedScene" uid="uid://bagqr82ch7qvh" path="res://Actors/Beacon/beacon.tscn" id="7_qxsht"]
 [ext_resource type="PackedScene" uid="uid://tfdj1xmw5itg" path="res://Actors/SpectralEnergyDrop/SpectralEnergyDrop.tscn" id="8_dvl73"]
 [ext_resource type="PackedScene" uid="uid://bftljsjqxrys8" path="res://Actors/EnemySpawner/EnemySpawner.tscn" id="9_o80m0"]
@@ -32,6 +31,7 @@ z_index = -1
 y_sort_enabled = true
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Actors"]
+y_sort_enabled = true
 navigation_polygon = SubResource("NavigationPolygon_bm4g4")
 
 [node name="TileMap" type="TileMap" parent="Actors/NavigationRegion2D"]
@@ -73,21 +73,20 @@ position = Vector2(540, -134)
 color = Color(0, 0.435294, 0.858824, 0.25098)
 weapon_type = 4
 
-[node name="Player" parent="Actors" groups=["Player"] instance=ExtResource("3_uvd7n")]
+[node name="Player" parent="Actors" instance=ExtResource("3_uvd7n")]
+y_sort_enabled = true
 position = Vector2(887, -576)
 collision_layer = 16
 
 [node name="Projectiles" type="Node2D" parent="."]
+y_sort_enabled = true
 
 [node name="Projectile_Manager" parent="Projectiles" instance=ExtResource("6_mm50g")]
-
-[node name="Beacon" parent="." groups=["Beacons"] instance=ExtResource("7_nwf7v")]
-position = Vector2(8, 1336)
-color = Color(0.619608, 0.00392157, 0.835294, 0.25098)
-weapon_type = 3
+y_sort_enabled = true
 
 [node name="SpectralEnergyDrop" parent="." instance=ExtResource("8_dvl73")]
 position = Vector2(834, -488)
 
 [node name="EnemySpawner" parent="." instance=ExtResource("9_o80m0")]
+y_sort_enabled = true
 position = Vector2(763, -603)

@@ -102,6 +102,7 @@ bg_color = Color(0.207843, 0.215686, 0.396078, 0.533333)
 bg_color = Color(0.898039, 0.803922, 0.286275, 1)
 
 [node name="Enemy" type="CharacterBody2D"]
+y_sort_enabled = true
 position = Vector2(0, -16)
 collision_layer = 8
 collision_mask = 15
@@ -114,6 +115,7 @@ position = Vector2(0.5, 6.5)
 shape = SubResource("RectangleShape2D_eudii")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+y_sort_enabled = true
 position = Vector2(0.5, -17)
 scale = Vector2(0.65625, 2.0625)
 texture = SubResource("GradientTexture2D_hodmx")
