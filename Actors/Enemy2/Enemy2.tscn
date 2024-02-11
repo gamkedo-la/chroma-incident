@@ -1,0 +1,161 @@
+[gd_scene load_steps=11 format=3 uid="uid://c84v3wyuf0onm"]
+
+[ext_resource type="Script" path="res://Actors/Enemy2/Enemy2.gd" id="1_f81o0"]
+[ext_resource type="Script" path="res://scripts/HealthComponent.gd" id="2_rk6hk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eudii"]
+size = Vector2(15, 16)
+
+[sub_resource type="Animation" id="Animation_6ejic"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_f1a2q"]
+resource_name = "die"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 5.58505]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 0)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gcd7b"]
+_data = {
+"RESET": SubResource("Animation_6ejic"),
+"die": SubResource("Animation_f1a2q")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g5gkc"]
+size = Vector2(13, 14)
+
+[sub_resource type="Theme" id="Theme_cytvr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_surkh"]
+bg_color = Color(0.207843, 0.215686, 0.396078, 0.533333)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_avhmj"]
+bg_color = Color(0.898039, 0.803922, 0.286275, 1)
+
+[node name="Enemy2" type="CharacterBody2D"]
+y_sort_enabled = true
+position = Vector2(0, -16)
+collision_layer = 8
+collision_mask = 15
+floor_block_on_wall = false
+floor_max_angle = 0.18326
+script = ExtResource("1_f81o0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 8)
+shape = SubResource("RectangleShape2D_eudii")
+
+[node name="Navigation" type="Node2D" parent="."]
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="Navigation"]
+radius = 50.4
+
+[node name="Timer" type="Timer" parent="Navigation"]
+wait_time = 0.05
+autostart = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_gcd7b")
+}
+
+[node name="Health" type="Node" parent="."]
+script = ExtResource("2_rk6hk")
+
+[node name="shootTimer" type="Timer" parent="."]
+wait_time = 0.3
+autostart = true
+
+[node name="hitbox" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 15
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(-0.5, 8)
+shape = SubResource("RectangleShape2D_g5gkc")
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -71.0
+offset_right = 40.0
+offset_bottom = -60.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_cytvr")
+theme_override_constants/outline_size = 1
+theme_override_styles/background = SubResource("StyleBoxFlat_surkh")
+theme_override_styles/fill = SubResource("StyleBoxFlat_avhmj")
+value = 50.0
+show_percentage = false
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(4.76837e-07, 2)
+scale = Vector2(0.615385, 0.72093)
+polygon = PackedVector2Array(-2.875, 0.741936, 0.375, -27, 2, -27, 3.625, 0.741936, 10.125, 6.29032, 10.125, 11.8387, 8.5, 14.6129, 5.25, 16, -1.25, 17.3871, -7.75, 14.6129, -11, 9.06452, -9.375, 4.90323)
+
+[connection signal="timeout" from="Navigation/Timer" to="." method="_on_timer_timeout"]

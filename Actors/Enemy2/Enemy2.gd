@@ -1,9 +1,9 @@
-class_name Enemy
+class_name Enemy2
 extends CharacterBody2D
 
-@export var max_speed:int = 50
-@export var min_speed:int = 10
-@export var health:int = 20
+@export var max_speed:int = 100
+@export var min_speed:int = 40
+@export var health:int = 1
 @export var energy_value:int =  1
 
 var alive:bool = true
@@ -16,7 +16,7 @@ var target = Global.player
 @onready var shoot_timer = $shootTimer
 @onready var child_node_health = $Health
 
-@export var fire_rate_per_second:float = 4
+@export var fire_rate_per_second:float = 0
 
 func _ready():
 	add_to_group("Enemies")
@@ -48,9 +48,10 @@ func _physics_process(_delta):
 	
 func _on_timer_timeout():
 	navigation_agent.target_position = target.global_position
+	
 
 func _on_shoot_timer_timeout():
-	shoot()
+	pass
 
 func handle_hit():
 	$Health.take_damage(5)
