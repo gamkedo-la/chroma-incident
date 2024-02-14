@@ -1,8 +1,8 @@
 class_name Enemy2
 extends CharacterBody2D
 
-@export var max_speed:int = 100
-@export var min_speed:int = 40
+@export var max_speed:int = 160
+@export var min_speed:int = 100
 @export var health:int = 1
 @export var energy_value:int =  1
 

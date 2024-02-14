@@ -61,6 +61,11 @@ position = Vector2(537, -508)
 color = Color(0.968627, 1, 0.0156863, 0.25098)
 weapon_type = 2
 
+[node name="Beacon11" parent="Actors" groups=["Beacons"] instance=ExtResource("7_qxsht")]
+position = Vector2(2274, 1625)
+color = Color(0.968627, 1, 0.0156863, 0.25098)
+weapon_type = 2
+
 [node name="Beacon5" parent="Actors" groups=["Beacons"] instance=ExtResource("7_qxsht")]
 position = Vector2(539, 246)
 color = Color(0.968627, 1, 0.0156863, 0.25098)
@@ -68,6 +73,11 @@ weapon_type = 2
 
 [node name="Beacon8" parent="Actors" groups=["Beacons"] instance=ExtResource("7_qxsht")]
 position = Vector2(1297, 472)
+color = Color(0.968627, 1, 0.0156863, 0.25098)
+weapon_type = 2
+
+[node name="Beacon10" parent="Actors" groups=["Beacons"] instance=ExtResource("7_qxsht")]
+position = Vector2(2085, 1780)
 color = Color(0.968627, 1, 0.0156863, 0.25098)
 weapon_type = 2
 

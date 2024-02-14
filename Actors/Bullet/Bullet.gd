@@ -5,6 +5,7 @@ extends Area2D
 @onready var death_timer = $DeathTimer as Timer	
 @onready var sprite_texture = $Sprite2D.texture as Texture:
 							set = _set_texture
+var sparks:PackedScene = preload("res://scenes/splode.tscn")
 							
 func _ready():
 	connect("area_entered", _on_area_entered)
@@ -36,17 +37,25 @@ func _on_death_timer_timeout():
 	queue_free()
 
 func handle_hit():
+	sparks.emitting = true
 	queue_free()
 
 func _on_Bullet_body_entered(body:Node):
 	if body.has_method("handle_hit"):
 		body.handle_hit()
+		
 		queue_free()
 
 
 func _on_body_entered(body):
 	if body.has_method("handle_hit"):
 		body.handle_hit()
+	var spark_effect = sparks.instantiate()
+	spark_effect.position = position
+	spark_effect.emitting = true
+	spark_effect.rotation = rotation + PI
+	spark_effect.scale = Vector2(0.5, 0.5)
+	get_parent().add_child(spark_effect)
 	queue_free()
 		
 func _on_area_entered(area:Area2D):

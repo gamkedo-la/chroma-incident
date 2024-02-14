@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://ckdbd4du28n3t"]
+[gd_scene load_steps=7 format=3 uid="uid://ckdbd4du28n3t"]
 
 [ext_resource type="Script" path="res://Actors/Bullet/Bullet.gd" id="1_6sxr8"]
+[ext_resource type="PackedScene" uid="uid://dg676h23b1ab8" path="res://scenes/splode.tscn" id="2_hit6m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bye8p"]
 size = Vector2(18, 6)
@@ -12,6 +13,8 @@ colors = PackedColorArray(0.102089, 0.639354, 5.77569e-07, 1, 1, 1, 1, 1)
 gradient = SubResource("Gradient_wikvu")
 width = 16
 height = 4
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vl2l4"]
 
 [node name="Bullet" type="Area2D"]
 collision_layer = 4
@@ -27,6 +30,11 @@ texture = SubResource("GradientTexture2D_onogb")
 [node name="VisibileNotifier" type="VisibleOnScreenNotifier2D" parent="."]
 
 [node name="DeathTimer" type="Timer" parent="."]
+
+[node name="sparks" parent="." instance=ExtResource("2_hit6m")]
+material = SubResource("CanvasItemMaterial_vl2l4")
+position = Vector2(8, 0)
+rotation = 3.14159
 
 [connection signal="screen_exited" from="VisibileNotifier" to="." method="_on_visibile_notifier_screen_exited"]
 [connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]
