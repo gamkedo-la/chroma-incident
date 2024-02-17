@@ -8,9 +8,25 @@ extends CharacterBody2D
 
 var move_vector:Vector2 
 var aim_vector:Vector2
-var rotation_target:float 
+var rotation_target:float
+var body_rotation_target:float
 var accelleration:Vector2
 var mouse_in_use:bool = true
+
+@onready var head = $PlayerGraphic/Head
+@onready var shoulders = $PlayerGraphic/Shoulders
+@onready var torso = $PlayerGraphic/Torso
+@onready var left_leg = $PlayerGraphic/leftLeg
+@onready var right_leg = $PlayerGraphic/rightLeg
+@onready var feet = $PlayerGraphic/Feet
+@onready var left_foot_marker = $PlayerGraphic/Feet/leftFootMarker
+@onready var right_foot_marker = $PlayerGraphic/Feet/rightFootMarker
+@onready var left_foot = $PlayerGraphic/Feet/leftFootMarker/leftFoot
+@onready var right_foot = $PlayerGraphic/Feet/rightFootMarker/rightFoot
+
+
+
+
 @onready var health_component = get_node("HealthComponent")
 
 func _ready():
@@ -21,10 +37,17 @@ func _physics_process(_delta):
 	accelleration = move_vector * move_speed
 	velocity += accelleration 
 	velocity *= drag
-	#rotation = lerp(rotation, rotation_target, rotation_speed)
+	body_rotation_target = atan2(move_vector.y, move_vector.x) - PI/2
+	
 	move_and_slide()
 	
 func _process(_delta): 
+	head.rotation = rotation_target
+	shoulders.rotation = body_rotation_target
+	torso.rotation = body_rotation_target
+	feet.rotation = body_rotation_target
+	left_leg.global_position = left_foot_marker.global_position
+	right_leg.global_position = right_foot_marker.global_position
 	pass
 	
 func _input(event):

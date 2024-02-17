@@ -1,3 +1,4 @@
+class_name HealthComponent
 extends Node
 
 var current_health : float = 100

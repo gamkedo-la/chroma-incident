@@ -5,7 +5,7 @@ extends Area2D
 @onready var death_timer = $DeathTimer as Timer	
 @onready var sprite_texture = $Sprite2D.texture as Texture:
 							set = _set_texture
-var sparks:PackedScene = preload("res://scenes/splode.tscn")
+var sparks:PackedScene = preload("res://scenes/particles/splode.tscn")
 							
 func _ready():
 	connect("area_entered", _on_area_entered)

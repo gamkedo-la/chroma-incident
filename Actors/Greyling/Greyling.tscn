@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://c84v3wyuf0onm"]
 
-[ext_resource type="Script" path="res://Actors/Enemy2/Enemy2.gd" id="1_f81o0"]
+[ext_resource type="Script" path="res://Actors/Greyling/Greyling.gd" id="1_f81o0"]
 [ext_resource type="Script" path="res://scripts/HealthComponent.gd" id="2_rk6hk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eudii"]
@@ -81,7 +81,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g5gkc"]
-size = Vector2(13, 14)
+size = Vector2(19, 20)
 
 [sub_resource type="Theme" id="Theme_cytvr"]
 
@@ -91,9 +91,9 @@ bg_color = Color(0.207843, 0.215686, 0.396078, 0.533333)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_avhmj"]
 bg_color = Color(0.898039, 0.803922, 0.286275, 1)
 
-[node name="Enemy2" type="CharacterBody2D"]
+[node name="Greyling" type="CharacterBody2D"]
 y_sort_enabled = true
-position = Vector2(0, -16)
+position = Vector2(0, -8)
 collision_layer = 8
 collision_mask = 15
 floor_block_on_wall = false
@@ -153,9 +153,11 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_avhmj")
 value = 50.0
 show_percentage = false
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
-position = Vector2(4.76837e-07, 2)
+[node name="spriteShape" type="Polygon2D" parent="."]
+position = Vector2(0, 8)
 scale = Vector2(0.615385, 0.72093)
-polygon = PackedVector2Array(-2.875, 0.741936, 0.375, -27, 2, -27, 3.625, 0.741936, 10.125, 6.29032, 10.125, 11.8387, 8.5, 14.6129, 5.25, 16, -1.25, 17.3871, -7.75, 14.6129, -11, 9.06452, -9.375, 4.90323)
+color = Color(0.560784, 0.560784, 0.560784, 1)
+offset = Vector2(7.15256e-07, -8.32258)
+polygon = PackedVector2Array(-2.875, 0.741936, -1.625, -1.3871, 1.625, -12.4839, 3.625, 0.741936, 10.125, 6.29032, 10.125, 11.8387, 16.25, 20.8065, 5.25, 16, -1.25, 17.3871, -7.75, 14.6129, -11, 9.06452, -9.375, 4.90323)
 
 [connection signal="timeout" from="Navigation/Timer" to="." method="_on_timer_timeout"]
