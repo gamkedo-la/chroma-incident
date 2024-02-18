@@ -116,7 +116,6 @@ position = Vector2(834, -488)
 [node name="EnemySpawner" parent="." instance=ExtResource("9_o80m0")]
 y_sort_enabled = true
 position = Vector2(763, -603)
-time_between_spawns = 5.0
 
 [node name="EnemySpawner4" parent="." instance=ExtResource("9_o80m0")]
 y_sort_enabled = true

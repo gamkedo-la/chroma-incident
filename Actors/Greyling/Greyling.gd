@@ -15,13 +15,15 @@ extends CharacterBody2D
 @onready var animation_player = $AnimationPlayer
 @onready var avoid_timer = $avoidTimer
 
+
 var target = Global.player
 var alive:bool = true
-
+var fleeing:bool = false
 
 func _ready():
 	add_to_group("Enemies")
 	hitbox.connect("area_entered", handle_hit)
+	avoid_timer.connect("timeout", _on_avoid_timer_timeout)
 	child_node_health.current_health = health
 	child_node_health.max_health = health
 	
@@ -40,12 +42,13 @@ func _on_healthReachedMinimum():
 
 func _physics_process(_delta):
 	var direction = Vector2.ZERO
-	var player_position = Global.player.position
-	var player_aim_vector = Global.player.aim_vector
+	var player_position = target.position
+	var player_aim_vector = target.aim_vector
 	var to_enemy_vector = position - player_position
 	
 	if player_aim_vector.angle_to(to_enemy_vector.normalized()) < deg_to_rad(20):
-		if avoid_timer.time_left == 0:
+		if !fleeing:
+			fleeing = true;
 			avoid_timer.start()
 			#calculate a perpendicular vector to player aim
 			var perpendicular_vector = player_aim_vector.rotated(PI / 2)
@@ -71,6 +74,9 @@ func _on_timer_timeout():
 
 func _on_shoot_timer_timeout():
 	pass
+
+func _on_avoid_timer_timeout():
+	fleeing = false;
 
 func handle_hit():
 	$Health.take_damage(5)

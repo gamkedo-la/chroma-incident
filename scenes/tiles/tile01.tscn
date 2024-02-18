@@ -13,24 +13,47 @@ script = ExtResource("1_huerf")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("RectangleShape2D_xtxk5")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="outline_bottom" type="ColorRect" parent="."]
+offset_left = -17.0
+offset_top = -17.0
+offset_right = 15.0
+offset_bottom = 15.0
+scale = Vector2(1.08, 1.08)
+color = Color(0.231373, 0.231373, 0.231373, 1)
+
+[node name="outline_top" type="ColorRect" parent="."]
+offset_left = -17.0
+offset_top = -31.0
+offset_right = 15.0
+offset_bottom = 1.0
+scale = Vector2(1.08, 1.08)
+color = Color(0.231373, 0.231373, 0.231373, 1)
+
+[node name="base" type="ColorRect" parent="."]
 offset_left = -16.0
 offset_top = -16.0
 offset_right = 16.0
 offset_bottom = 16.0
+color = Color(0.407843, 0.407843, 0.407843, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="."]
+offset_left = -16.0
+offset_top = -30.0
+offset_right = 16.0
+offset_bottom = 2.0
 color = Color(0.490196, 0.490196, 0.490196, 1)
 
 [node name="ColorRect2" type="ColorRect" parent="."]
 offset_left = -12.0
-offset_top = -13.0
+offset_top = -27.0
 offset_right = 12.0
-offset_bottom = 12.0
+offset_bottom = -2.0
 color = Color(0.392157, 0.392157, 0.392157, 1)
 
 [node name="ColorRect3" type="ColorRect" parent="."]
 offset_left = -6.0
-offset_top = -9.0
+offset_top = -23.0
 offset_right = 5.0
-offset_bottom = 8.0
+offset_bottom = -6.0
 scale = Vector2(1.14815, 0.975047)
 color = Color(0.321569, 0.321569, 0.321569, 1)
