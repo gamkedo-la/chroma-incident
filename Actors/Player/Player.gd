@@ -24,9 +24,6 @@ var mouse_in_use:bool = true
 @onready var left_foot = $PlayerGraphic/Feet/leftFootMarker/leftFoot
 @onready var right_foot = $PlayerGraphic/Feet/rightFootMarker/rightFoot
 
-
-
-
 @onready var health_component = get_node("HealthComponent")
 
 func _ready():

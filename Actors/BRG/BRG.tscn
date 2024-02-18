@@ -14,7 +14,7 @@ height = 16
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5cllg"]
 size = Vector2(3, 2)
 
-[node name="Brg" type="CharacterBody2D"]
+[node name="Brg" type="CharacterBody2D" groups=["Player"]]
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_ua6xj")

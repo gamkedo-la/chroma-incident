@@ -17,9 +17,15 @@ func _ready():
 func _process(_delta):
 	pass
 
-func take_damage(damage: int) -> void:
+func gain_health(amount: float):
 	var percent_health = (current_health / max_health) * 100
-
+	current_health += amount
+	current_health = min(current_health, max_health)
+	percent_health = (current_health / max_health) * 100
+	health_bar.value = percent_health
+	
+func take_damage(damage: float) -> void:
+	var percent_health = (current_health / max_health) * 100
 	current_health -= damage
 	current_health = max(current_health, min_health)
 	if (current_health == min_health):

@@ -7,7 +7,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var y = randf_range(0,16)
+	var y = randf_range(0, 10)
 	color_rect_4.position.y -= y
 	color_rect_2.position.y -= y
 	color_rect_3.position.y -= y

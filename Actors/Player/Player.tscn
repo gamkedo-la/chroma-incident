@@ -136,7 +136,7 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_b5jyd")
 value = 50.0
 show_percentage = false
 
-[node name="BRG_Gun" parent="." groups=["Player"] instance=ExtResource("3_kd1dj")]
+[node name="BRG_Gun" parent="." instance=ExtResource("3_kd1dj")]
 position = Vector2(7, -4)
 
 [node name="effectArea" type="Area2D" parent="." groups=["Player"]]
