@@ -5,18 +5,17 @@ extends CharacterBody2D
 @export var min_speed:int = 10
 @export var health:int = 20
 @export var energy_value:int =  1
-
-var alive:bool = true
-
-@onready var animation_player = $AnimationPlayer
+@export var fire_rate_per_second:float = 4
 
 var target = Global.player
-
+var alive:bool = true
+var direction:Vector2 = Vector2.ZERO
 @onready var navigation_agent: NavigationAgent2D = $Navigation/NavigationAgent2D
 @onready var shoot_timer = $shootTimer
 @onready var child_node_health = $Health
+@onready var enemy_graphic = $EnemyGraphic
+@onready var animation_player = $AnimationPlayer
 
-@export var fire_rate_per_second:float = 4
 
 func _ready():
 	add_to_group("Enemies")
@@ -36,7 +35,6 @@ func _on_healthReachedMinimum():
 	SignalBus.emit_spawn_energy_drops(energy_value, 5, global_position)
 
 func _physics_process(_delta):
-	var direction = Vector2.ZERO
 	direction = navigation_agent.get_next_path_position() - global_position
 	var distance = global_position.distance_to(target.global_position)
 	direction = direction.normalized()
@@ -45,6 +43,11 @@ func _physics_process(_delta):
 	#look_at(target.global_position)
 	if alive:
 		move_and_slide()
+		
+func _process(_delta):
+	var graphic_parts = enemy_graphic.get_children()
+	for part in graphic_parts:
+		part.rotation = atan2(direction.y, direction.x) - PI/2
 	
 func _on_timer_timeout():
 	navigation_agent.target_position = target.global_position
@@ -55,6 +58,7 @@ func _on_shoot_timer_timeout():
 func handle_hit():
 	$Health.take_damage(5)
 	SignalBus.emit_spawn_energy_drops(energy_value, 1, global_position)
+	
 func shoot():
 	shoot_timer.start()
 	var projectile_resource:ProjectileBase = Global.bullet_types[1]

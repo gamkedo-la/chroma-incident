@@ -1,9 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://dn0udrbxyfodh"]
+[gd_scene load_steps=3 format=3 uid="uid://dn0udrbxyfodh"]
+
+[ext_resource type="Script" path="res://scenes/tiles/tile01.gd" id="1_huerf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xtxk5"]
 size = Vector2(32, 32)
 
-[node name="Node2D" type="Node2D"]
+[node name="Tile01" type="Node2D"]
+script = ExtResource("1_huerf")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -15,3 +18,18 @@ offset_left = -16.0
 offset_top = -16.0
 offset_right = 16.0
 offset_bottom = 16.0
+color = Color(0.490196, 0.490196, 0.490196, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_left = -14.0
+offset_top = -15.0
+offset_right = 15.0
+offset_bottom = 13.0
+color = Color(0.392157, 0.392157, 0.392157, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+offset_left = -12.0
+offset_top = -9.0
+offset_right = -1.0
+offset_bottom = 8.0
+color = Color(0.321569, 0.321569, 0.321569, 1)

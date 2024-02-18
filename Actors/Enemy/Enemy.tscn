@@ -3,11 +3,8 @@
 [ext_resource type="Script" path="res://Actors/Enemy/Enemy.gd" id="1_uod5a"]
 [ext_resource type="Script" path="res://scripts/HealthComponent.gd" id="2_b6kpp"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_eudii"]
-size = Vector2(21, 19)
-
 [sub_resource type="Gradient" id="Gradient_qe4c1"]
-colors = PackedColorArray(0, 0, 0, 1, 1, 0, 0, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.560955, 0.560955, 0.560955, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_hodmx"]
 gradient = SubResource("Gradient_qe4c1")
@@ -91,7 +88,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g5gkc"]
-size = Vector2(25, 68)
+size = Vector2(61, 51)
 
 [sub_resource type="Theme" id="Theme_cytvr"]
 
@@ -100,6 +97,9 @@ bg_color = Color(0.207843, 0.215686, 0.396078, 0.533333)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_avhmj"]
 bg_color = Color(0.898039, 0.803922, 0.286275, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eudii"]
+size = Vector2(52, 20)
 
 [node name="Enemy" type="CharacterBody2D"]
 y_sort_enabled = true
@@ -110,14 +110,123 @@ floor_block_on_wall = false
 floor_max_angle = 0.18326
 script = ExtResource("1_uod5a")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 6.5)
-shape = SubResource("RectangleShape2D_eudii")
+[node name="EnemyGraphic" type="Node2D" parent="."]
+scale = Vector2(1, 0.75)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="EnemyGraphic"]
 y_sort_enabled = true
-position = Vector2(0.5, -17)
-scale = Vector2(0.65625, 2.0625)
+position = Vector2(0, -46.6667)
+scale = Vector2(1.6875, 0.3125)
+texture = SubResource("GradientTexture2D_hodmx")
+
+[node name="Node2D" type="Node2D" parent="EnemyGraphic"]
+z_index = -1
+y_sort_enabled = true
+position = Vector2(0, -38.6667)
+
+[node name="Sprite2D2" type="Sprite2D" parent="EnemyGraphic/Node2D"]
+y_sort_enabled = true
+position = Vector2(-21.25, -2.99999)
+scale = Vector2(0.359375, 0.375)
+texture = SubResource("GradientTexture2D_hodmx")
+
+[node name="Sprite2D3" type="Sprite2D" parent="EnemyGraphic/Node2D"]
+y_sort_enabled = true
+position = Vector2(20.75, -2.99999)
+scale = Vector2(0.359375, 0.375)
+texture = SubResource("GradientTexture2D_hodmx")
+
+[node name="Node2D6" type="Node2D" parent="EnemyGraphic"]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(0, -50.6667)
+scale = Vector2(0.48, 1)
+
+[node name="Sprite2D2" type="Sprite2D" parent="EnemyGraphic/Node2D6"]
+y_sort_enabled = true
+position = Vector2(-21.25, -2.99999)
+scale = Vector2(0.359375, 0.375)
+texture = SubResource("GradientTexture2D_hodmx")
+
+[node name="Sprite2D3" type="Sprite2D" parent="EnemyGraphic/Node2D6"]
+y_sort_enabled = true
+position = Vector2(20.75, -2.99999)
+scale = Vector2(0.359375, 0.375)
+texture = SubResource("GradientTexture2D_hodmx")
+
+[node name="Node2D2" type="Node2D" parent="EnemyGraphic"]
+z_index = -2
+y_sort_enabled = true
+position = Vector2(0, -32)
+
+[node name="Sprite2D2" type="Sprite2D" parent="EnemyGraphic/Node2D2"]
+y_sort_enabled = true
+position = Vector2(-21.25, -2.99999)
+scale = Vector2(0.359375, 0.375)
+texture = SubResource("GradientTexture2D_hodmx")
+
+[node name="Sprite2D3" type="Sprite2D" parent="EnemyGraphic/Node2D2"]
+y_sort_enabled = true
+position = Vector2(20.75, -2.99999)
+scale = Vector2(0.359375, 0.375)
+texture = SubResource("GradientTexture2D_hodmx")
+
+[node name="Node2D3" type="Node2D" parent="EnemyGraphic"]
+z_index = -3
+y_sort_enabled = true
+position = Vector2(0, -24)
+
+[node name="Sprite2D2" type="Sprite2D" parent="EnemyGraphic/Node2D3"]
+y_sort_enabled = true
+position = Vector2(-21.25, -2.99999)
+scale = Vector2(0.359375, 0.375)
+texture = SubResource("GradientTexture2D_hodmx")
+
+[node name="Sprite2D3" type="Sprite2D" parent="EnemyGraphic/Node2D3"]
+y_sort_enabled = true
+position = Vector2(20.75, -2.99999)
+scale = Vector2(0.359375, 0.375)
+texture = SubResource("GradientTexture2D_hodmx")
+
+[node name="Node2D4" type="Node2D" parent="EnemyGraphic"]
+z_index = -4
+y_sort_enabled = true
+position = Vector2(0, -16)
+
+[node name="Sprite2D2" type="Sprite2D" parent="EnemyGraphic/Node2D4"]
+y_sort_enabled = true
+position = Vector2(-21.25, -2.99999)
+scale = Vector2(0.359375, 0.375)
+texture = SubResource("GradientTexture2D_hodmx")
+
+[node name="Sprite2D3" type="Sprite2D" parent="EnemyGraphic/Node2D4"]
+y_sort_enabled = true
+position = Vector2(20.75, -2.99999)
+scale = Vector2(0.359375, 0.375)
+texture = SubResource("GradientTexture2D_hodmx")
+
+[node name="Node2D5" type="Node2D" parent="EnemyGraphic"]
+z_index = -5
+y_sort_enabled = true
+position = Vector2(0, -8)
+
+[node name="Sprite2D2" type="Sprite2D" parent="EnemyGraphic/Node2D5"]
+y_sort_enabled = true
+position = Vector2(-21.25, -2.99999)
+scale = Vector2(0.359375, 0.375)
+texture = SubResource("GradientTexture2D_hodmx")
+
+[node name="Sprite2D3" type="Sprite2D" parent="EnemyGraphic/Node2D5"]
+y_sort_enabled = true
+position = Vector2(20.75, -2.99999)
+scale = Vector2(0.359375, 0.375)
+texture = SubResource("GradientTexture2D_hodmx")
+
+[node name="Sprite2D2" type="Sprite2D" parent="EnemyGraphic"]
+z_index = -6
+y_sort_enabled = true
+position = Vector2(-1, -4)
+scale = Vector2(1.6875, 0.3125)
 texture = SubResource("GradientTexture2D_hodmx")
 
 [node name="Navigation" type="Node2D" parent="."]
@@ -146,7 +255,7 @@ collision_layer = 8
 collision_mask = 15
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
-position = Vector2(0.5, -18)
+position = Vector2(-0.5, -19.5)
 shape = SubResource("RectangleShape2D_g5gkc")
 
 [node name="HealthBar" type="ProgressBar" parent="."]
@@ -167,5 +276,9 @@ theme_override_styles/background = SubResource("StyleBoxFlat_surkh")
 theme_override_styles/fill = SubResource("StyleBoxFlat_avhmj")
 value = 50.0
 show_percentage = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 6)
+shape = SubResource("RectangleShape2D_eudii")
 
 [connection signal="timeout" from="Navigation/Timer" to="." method="_on_timer_timeout"]

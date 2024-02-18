@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bagqr82ch7qvh"]
+[gd_scene load_steps=16 format=3 uid="uid://bagqr82ch7qvh"]
 
 [ext_resource type="Script" path="res://Actors/Beacon/beacon.gd" id="1_8r403"]
 
@@ -39,6 +39,36 @@ border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
 border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ubi2a"]
+blend_mode = 1
+
+[sub_resource type="Curve" id="Curve_mdqn8"]
+_data = [Vector2(0, 0.646831), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_hpivt"]
+curve = SubResource("Curve_mdqn8")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qbt3u"]
+lifetime_randomness = 0.06
+particle_flag_disable_z = true
+spread = 65.357
+initial_velocity_max = 35.71
+gravity = Vector3(0, -100, 0)
+scale_min = 0.0
+scale_curve = SubResource("CurveTexture_hpivt")
+hue_variation_min = -1.0
+hue_variation_max = 1.0
+
+[sub_resource type="Gradient" id="Gradient_qjyhp"]
+offsets = PackedFloat32Array(0.476038, 0.488818)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_mu8fe"]
+gradient = SubResource("Gradient_qjyhp")
+fill = 1
+fill_from = Vector2(0.491453, 0.5)
 
 [node name="Beacon" type="AnimatableBody2D"]
 y_sort_enabled = true
@@ -114,3 +144,10 @@ theme_override_styles/background = SubResource("StyleBoxFlat_jqyj3")
 theme_override_styles/fill = SubResource("StyleBoxFlat_0apm1")
 value = 50.0
 show_percentage = false
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_ubi2a")
+position = Vector2(0, -149)
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_qbt3u")
+texture = SubResource("GradientTexture2D_mu8fe")

@@ -3,7 +3,7 @@ extends Area2D
 @onready var life_timer = $Life
 
 @export var energy_value = 1
-@export var life:float = 10
+@export var life:float = 3
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	life_timer.wait_time = life
