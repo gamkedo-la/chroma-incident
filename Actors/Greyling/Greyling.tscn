@@ -160,4 +160,7 @@ color = Color(0.560784, 0.560784, 0.560784, 1)
 offset = Vector2(7.15256e-07, -8.32258)
 polygon = PackedVector2Array(-2.875, 0.741936, -1.625, -1.3871, 1.625, -12.4839, 3.625, 0.741936, 10.125, 6.29032, 10.125, 11.8387, 16.25, 20.8065, 5.25, 16, -1.25, 17.3871, -7.75, 14.6129, -11, 9.06452, -9.375, 4.90323)
 
+[node name="avoidTimer" type="Timer" parent="."]
+wait_time = 0.4
+
 [connection signal="timeout" from="Navigation/Timer" to="." method="_on_timer_timeout"]

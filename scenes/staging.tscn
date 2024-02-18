@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://dkgta8kyc0qye"]
+[gd_scene load_steps=5 format=3 uid="uid://dkgta8kyc0qye"]
 
 [ext_resource type="Script" path="res://scripts/checker.gd" id="1_xmh5k"]
 [ext_resource type="PackedScene" uid="uid://mkymf5bum4dg" path="res://Actors/Player/Player.tscn" id="2_ax0l0"]
+[ext_resource type="PackedScene" uid="uid://bftljsjqxrys8" path="res://Actors/EnemySpawner/EnemySpawner.tscn" id="2_djxls"]
+[ext_resource type="PackedScene" uid="uid://c84v3wyuf0onm" path="res://Actors/Greyling/Greyling.tscn" id="3_orqsg"]
 
-[node name="Node2D" type="Node2D"]
+[node name="main" type="Node2D"]
 
 [node name="Checkerboard" type="Node2D" parent="."]
 z_index = -1000
@@ -12,5 +14,13 @@ script = ExtResource("1_xmh5k")
 color_1 = Color(0.462745, 0.462745, 0.462745, 1)
 color_2 = Color(0.321569, 0.321569, 0.321569, 1)
 
+[node name="EnemySpawner" parent="Checkerboard" instance=ExtResource("2_djxls")]
+y_sort_enabled = true
+position = Vector2(72, 99)
+actor_to_spawn = ExtResource("3_orqsg")
+time_between_spawns = 5.0
+
 [node name="Player" parent="." instance=ExtResource("2_ax0l0")]
 position = Vector2(239, 186)
+
+[node name="Actors" type="Node2D" parent="."]

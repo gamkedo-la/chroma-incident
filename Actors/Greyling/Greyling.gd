@@ -13,9 +13,11 @@ extends CharacterBody2D
 @onready var shoot_timer = $shootTimer
 @onready var child_node_health = $Health
 @onready var animation_player = $AnimationPlayer
+@onready var avoid_timer = $avoidTimer
 
 var target = Global.player
 var alive:bool = true
+
 
 func _ready():
 	add_to_group("Enemies")
@@ -38,10 +40,27 @@ func _on_healthReachedMinimum():
 
 func _physics_process(_delta):
 	var direction = Vector2.ZERO
-	direction = navigation_agent.get_next_path_position() - global_position
-	var distance = global_position.distance_to(target.global_position)
-	direction = direction.normalized()
-	velocity = direction * max(min_speed, max_speed * (distance / 100))
+	var player_position = Global.player.position
+	var player_aim_vector = Global.player.aim_vector
+	var to_enemy_vector = position - player_position
+	
+	if player_aim_vector.angle_to(to_enemy_vector.normalized()) < deg_to_rad(20):
+		if avoid_timer.time_left == 0:
+			avoid_timer.start()
+			#calculate a perpendicular vector to player aim
+			var perpendicular_vector = player_aim_vector.rotated(PI / 2)
+			#choose direction (just random for now)
+			if randi() % 2 == 0:
+				#flip it
+				perpendicular_vector = perpendicular_vector.rotated(PI)
+			direction = perpendicular_vector.normalized() * max_speed
+			velocity = direction
+			move_and_slide()
+	else:
+		direction = navigation_agent.get_next_path_position() - global_position
+		var distance = global_position.distance_to(target.global_position)
+		direction = direction.normalized()
+		velocity = direction * max(min_speed, max_speed * (distance / 100))
 	sprite_shape.rotation = randf_range(0.0, PI * 2)
 	#look_at(target.global_position)
 	if alive:

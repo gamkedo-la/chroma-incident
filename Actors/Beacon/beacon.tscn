@@ -1,6 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://bagqr82ch7qvh"]
+[gd_scene load_steps=17 format=3 uid="uid://bagqr82ch7qvh"]
 
 [ext_resource type="Script" path="res://Actors/Beacon/beacon.gd" id="1_8r403"]
+[ext_resource type="Script" path="res://scripts/HealthComponent.gd" id="2_katex"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eh0t8"]
 size = Vector2(76, 76)
@@ -151,3 +152,6 @@ position = Vector2(0, -149)
 amount = 20
 process_material = SubResource("ParticleProcessMaterial_qbt3u")
 texture = SubResource("GradientTexture2D_mu8fe")
+
+[node name="HealthComponent" type="Node" parent="."]
+script = ExtResource("2_katex")

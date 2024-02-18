@@ -1,7 +1,7 @@
 class_name HealthComponent
 extends Node
 
-var current_health : float = 100
+var current_health : float = 0
 var max_health : float = 100
 var min_health : float = 0
 
