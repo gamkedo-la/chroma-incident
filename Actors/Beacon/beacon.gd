@@ -46,7 +46,7 @@ func _process(_delta):
 	
 	if Global.player:
 		player = Global.player
-		if moveable and Input.is_action_pressed("Move Beacon"):
+		if moveable and Input.is_action_pressed("Move Beacon") and not player.holding_beacon:
 			player.grab_beacon(self)
 		if Input.is_action_just_released("Move Beacon"):
 			player.drop_beacon()

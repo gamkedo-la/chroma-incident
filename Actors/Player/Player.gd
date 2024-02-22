@@ -12,6 +12,7 @@ var rotation_target:float
 var body_rotation_target:float
 var accelleration:Vector2
 var mouse_in_use:bool = true
+var holding_beacon:bool = false
 @onready var beacon_transform:RemoteTransform2D = $BeaconTransform
 
 @onready var head = $PlayerGraphic/Head
@@ -73,11 +74,14 @@ func _collected_something(item:String, value:float):
 	spectral_energy += value
 	
 func grab_beacon(beacon:Beacon):
-	var offset = global_position - beacon.global_position
-	beacon_transform.position = -offset
+	holding_beacon = true
+	if Input.is_action_just_pressed("Move Beacon"):
+		var offset = global_position - beacon.global_position
+		beacon_transform.position = -offset
 	beacon_transform.set_remote_node(beacon.get_path())
 	beacon_transform.update_position = true
 
 func drop_beacon():
+	holding_beacon = false
 	beacon_transform.update_position = false
 
