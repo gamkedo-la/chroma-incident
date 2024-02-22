@@ -146,3 +146,6 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="effectArea"]
 shape = SubResource("RectangleShape2D_ryi84")
+
+[node name="BeaconTransform" type="RemoteTransform2D" parent="."]
+position = Vector2(-47, -6)

@@ -3,6 +3,8 @@ extends Node2D
 
 var player = Global.player
 var bullet_types = Global.bullet_types
+var moveable:bool = false
+
 @export var color:Color = Color(1,1,1,0.25)
 @export var weapon_type: int
 @export var energy_needed:float = 50
@@ -28,6 +30,7 @@ func _ready():
 	beacon_halo.connect("body_entered", _on_halo_body_entered)
 	beacon_halo.connect("body_exited", _on_halo_body_exited)
 	hitbox.connect("area_entered", _on_hitbox_touched)
+	hitbox.connect("area_exited", _on_hitbox_exited)
 	visible_shape.color = color
 
 
@@ -40,6 +43,13 @@ func _process(_delta):
 	else:
 		visible_shape.visible = false
 		halo_shape.disabled = true
+	
+	if Global.player:
+		player = Global.player
+		if moveable and Input.is_action_pressed("Move Beacon"):
+			player.grab_beacon(self)
+		if Input.is_action_just_released("Move Beacon"):
+			player.drop_beacon()
 		
 		
 func _physics_process(_delta):
@@ -48,7 +58,7 @@ func _physics_process(_delta):
 func _on_halo_body_entered(body):
 	if body.is_in_group("Player"):
 		body.gunmod(weapon_type)
-		
+				
 func _on_halo_body_exited(body):
 	if body.is_in_group("Player"):
 		body.gunmod(weapon_type)
@@ -59,6 +69,7 @@ func _on_hitbox_touched(area):
 		var power_needed = health_component.max_health - health_component.current_health
 		if Global.player:
 			player = Global.player
+			moveable = true;
 			print("player touched a beacon")
 			if player.spectral_energy > power_needed:
 				player.spectral_energy -= power_needed
@@ -67,4 +78,6 @@ func _on_hitbox_touched(area):
 			else:
 				health_component.gain_health(player.spectral_energy)
 				player.spectral_energy = 0
-
+func _on_hitbox_exited(area):
+	if area.is_in_group("Player"):
+		moveable = false

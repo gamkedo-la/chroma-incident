@@ -12,6 +12,7 @@ var rotation_target:float
 var body_rotation_target:float
 var accelleration:Vector2
 var mouse_in_use:bool = true
+@onready var beacon_transform:RemoteTransform2D = $BeaconTransform
 
 @onready var head = $PlayerGraphic/Head
 @onready var shoulders = $PlayerGraphic/Shoulders
@@ -23,6 +24,7 @@ var mouse_in_use:bool = true
 @onready var right_foot_marker = $PlayerGraphic/Feet/rightFootMarker
 @onready var left_foot = $PlayerGraphic/Feet/leftFootMarker/leftFoot
 @onready var right_foot = $PlayerGraphic/Feet/rightFootMarker/rightFoot
+
 
 @onready var health_component = get_node("HealthComponent")
 
@@ -69,4 +71,13 @@ func _collected_something(item:String, value:float):
 	#for now there's just the energy drops. function signature may change,
 	#not doing anything with 'item' for now
 	spectral_energy += value
+	
+func grab_beacon(beacon:Beacon):
+	var offset = global_position - beacon.global_position
+	beacon_transform.position = -offset
+	beacon_transform.set_remote_node(beacon.get_path())
+	beacon_transform.update_position = true
+
+func drop_beacon():
+	beacon_transform.update_position = false
 
