@@ -14,11 +14,12 @@ var moveable:bool = false
 @onready var beacon_halo = $beacon_halo
 @onready var halo_shape = $beacon_halo/haloShape
 @onready var health_component = $HealthComponent
+@onready var visible_on_screen_notifier_2d = $VisibleOnScreenNotifier2D
 
 @onready var hitbox = $hitbox
 @onready var powered: bool = false
 
-# Called when the node enters the scene tree for the first time.
+# Called when the node enters the scene tree for the first time.s
 func _ready():
 	if Global.player:
 		player = Global.player
@@ -36,6 +37,10 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
+	if visible_on_screen_notifier_2d.is_on_screen():
+		visible = true
+	if not visible_on_screen_notifier_2d.is_on_screen():
+		visible = false
 	if powered:
 		visible_shape.visible = true
 		halo_shape.disabled = false

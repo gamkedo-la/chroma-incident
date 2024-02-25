@@ -281,4 +281,12 @@ show_percentage = false
 position = Vector2(-1, 6)
 shape = SubResource("RectangleShape2D_eudii")
 
+[node name="CanFireVisualNotifier" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(-4.29153e-06, -13.5)
+scale = Vector2(3.8, 3.75)
+
+[node name="CanMoveVisualNotifier" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(-1440, -810)
+rect = Rect2(0, 0, 2880, 1620)
+
 [connection signal="timeout" from="Navigation/Timer" to="." method="_on_timer_timeout"]

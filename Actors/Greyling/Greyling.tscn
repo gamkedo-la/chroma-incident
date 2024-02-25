@@ -163,4 +163,9 @@ polygon = PackedVector2Array(-2.875, 0.741936, -1.625, -1.3871, 1.625, -12.4839,
 [node name="avoidTimer" type="Timer" parent="."]
 wait_time = 0.4
 
+[node name="CanMoveVisualNotifier" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(-964, -569)
+scale = Vector2(0.669444, 0.702469)
+rect = Rect2(0, 0, 2880, 1620)
+
 [connection signal="timeout" from="Navigation/Timer" to="." method="_on_timer_timeout"]

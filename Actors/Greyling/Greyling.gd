@@ -14,6 +14,7 @@ extends CharacterBody2D
 @onready var child_node_health = $Health
 @onready var animation_player = $AnimationPlayer
 @onready var avoid_timer = $avoidTimer
+@onready var can_move_visual_notifier = $CanMoveVisualNotifier
 
 
 var target = Global.player
@@ -41,6 +42,8 @@ func _on_healthReachedMinimum():
 	SignalBus.emit_spawn_energy_drops(energy_value, 5, global_position)
 
 func _physics_process(_delta):
+	if not can_move_visual_notifier.is_on_screen():
+		return
 	var direction = Vector2.ZERO
 	var player_position = target.position
 	var player_aim_vector = target.aim_vector

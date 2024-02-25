@@ -15,6 +15,8 @@ var direction:Vector2 = Vector2.ZERO
 @onready var child_node_health = $Health
 @onready var enemy_graphic = $EnemyGraphic
 @onready var animation_player = $AnimationPlayer
+@onready var can_fire_visual_notifier = $CanFireVisualNotifier
+@onready var can_move_visual_notifier = $CanMoveVisualNotifier
 
 
 func _ready():
@@ -35,6 +37,8 @@ func _on_healthReachedMinimum():
 	SignalBus.emit_spawn_energy_drops(energy_value, 5, global_position)
 
 func _physics_process(_delta):
+	if not can_move_visual_notifier.is_on_screen():
+		return
 	direction = navigation_agent.get_next_path_position() - global_position
 	var distance = global_position.distance_to(target.global_position)
 	direction = direction.normalized()
@@ -53,7 +57,8 @@ func _on_timer_timeout():
 	navigation_agent.target_position = target.global_position
 
 func _on_shoot_timer_timeout():
-	shoot()
+	if can_fire_visual_notifier.is_on_screen():
+		shoot()
 
 func handle_hit():
 	$Health.take_damage(5)
