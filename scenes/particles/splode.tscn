@@ -1,4 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://dg676h23b1ab8"]
+[gd_scene load_steps=12 format=3 uid="uid://dg676h23b1ab8"]
+
+[ext_resource type="Script" path="res://scenes/particles/sparksAnim.gd" id="1_khn4e"]
 
 [sub_resource type="Curve" id="Curve_dj40f"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.831715, 0), -0.515051, 0.0, 0, 0]
@@ -33,6 +35,66 @@ gradient = SubResource("Gradient_5s7ll")
 width = 8
 height = 8
 
+[sub_resource type="Gradient" id="Gradient_5v5yx"]
+offsets = PackedFloat32Array(0, 0.483871, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.787919, 0.391084, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ukl4o"]
+gradient = SubResource("Gradient_5v5yx")
+fill = 1
+fill_from = Vector2(0.482906, 0.461538)
+fill_to = Vector2(0.790598, 0.136752)
+
+[sub_resource type="Animation" id="Animation_ne8i1"]
+resource_name = "light-fade"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PointLight2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [3.0, 0.0]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.8),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_lkyox"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PointLight2D:energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [3.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bk0b4"]
+_data = {
+"RESET": SubResource("Animation_lkyox"),
+"light-fade": SubResource("Animation_ne8i1")
+}
+
 [node name="sparks" type="GPUParticles2D"]
 rotation = 0.0299134
 emitting = false
@@ -42,3 +104,16 @@ texture = SubResource("GradientTexture2D_eindv")
 lifetime = 0.5
 one_shot = true
 explosiveness = 1.0
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+scale = Vector2(4.97015, 4.81423)
+energy = 3.0
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_ukl4o")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_bk0b4")
+}
+movie_quit_on_finish = true
+script = ExtResource("1_khn4e")
