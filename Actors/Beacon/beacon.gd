@@ -37,10 +37,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	if visible_on_screen_notifier_2d.is_on_screen():
-		visible = true
-	if not visible_on_screen_notifier_2d.is_on_screen():
-		visible = false
 	if powered:
 		visible_shape.visible = true
 		halo_shape.disabled = false

@@ -23,6 +23,7 @@ tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetScenesCollectionSource_ugdli")
 
 [node name="main" type="Node2D"]
+modulate = Color(0.313726, 0.313726, 0.313726, 1)
 
 [node name="Checker" parent="." instance=ExtResource("1_dqe58")]
 show_behind_parent = true

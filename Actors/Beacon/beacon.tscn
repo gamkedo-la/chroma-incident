@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bagqr82ch7qvh"]
+[gd_scene load_steps=19 format=3 uid="uid://bagqr82ch7qvh"]
 
 [ext_resource type="Script" path="res://Actors/Beacon/beacon.gd" id="1_8r403"]
 [ext_resource type="Script" path="res://scripts/HealthComponent.gd" id="2_katex"]
@@ -70,6 +70,15 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 gradient = SubResource("Gradient_qjyhp")
 fill = 1
 fill_from = Vector2(0.491453, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_7ff1f"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_t6ntj"]
+gradient = SubResource("Gradient_7ff1f")
+fill = 1
+fill_from = Vector2(0.521368, 0.5)
+fill_to = Vector2(0.782051, 0.162393)
 
 [node name="Beacon" type="AnimatableBody2D"]
 y_sort_enabled = true
@@ -159,3 +168,8 @@ script = ExtResource("2_katex")
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 position = Vector2(-0.5, 0.5)
 scale = Vector2(3.55, 3.65)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+scale = Vector2(8.17294, 7.45762)
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_t6ntj")
