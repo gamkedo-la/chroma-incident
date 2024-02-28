@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="EnemyBase" load_steps=2 format=3 uid="uid://7r6p738au23f"]
+
+[ext_resource type="Script" path="res://Resources/Enemies/EnemyBase.gd" id="1_4fdaq"]
+
+[resource]
+script = ExtResource("1_4fdaq")
+max_speed = 50
+min_speed = 10
+health = 20
+energy_value = 1
+fire_rate_per_second = 4.0

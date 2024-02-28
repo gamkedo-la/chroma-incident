@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://by7wal4lga0a2"]
+[gd_scene load_steps=14 format=3 uid="uid://by7wal4lga0a2"]
 
 [ext_resource type="Script" path="res://Actors/Enemy/Enemy.gd" id="1_uod5a"]
 [ext_resource type="Script" path="res://scripts/HealthComponent.gd" id="2_b6kpp"]
+[ext_resource type="Resource" uid="uid://7r6p738au23f" path="res://Resources/Enemies/enemy.tres" id="2_j6ivr"]
 
 [sub_resource type="Gradient" id="Gradient_qe4c1"]
 colors = PackedColorArray(0, 0, 0, 1, 0.560955, 0.560955, 0.560955, 1)
@@ -109,6 +110,7 @@ collision_mask = 15
 floor_block_on_wall = false
 floor_max_angle = 0.18326
 script = ExtResource("1_uod5a")
+data = ExtResource("2_j6ivr")
 
 [node name="EnemyGraphic" type="Node2D" parent="."]
 scale = Vector2(1, 0.75)

@@ -1,11 +1,8 @@
 class_name Enemy
 extends CharacterBody2D
 
-@export var max_speed:int = 50
-@export var min_speed:int = 10
-@export var health:int = 20
-@export var energy_value:int =  1
-@export var fire_rate_per_second:float = 4
+@export var data : EnemyBase
+@onready var health : int = data.health
 
 var target = Global.player
 var alive:bool = true
@@ -26,7 +23,7 @@ func _ready():
 	# Connect the health component signal for health to our handler in enemy
 	child_node_health.healthReachedMinimum.connect(_on_healthReachedMinimum)
 	shoot_timer.connect("timeout", _on_shoot_timer_timeout)
-	shoot_timer.wait_time = 1/fire_rate_per_second
+	shoot_timer.wait_time = 1/data.fire_rate_per_second
 
 	if Global.player:
 		target = Global.player
@@ -34,7 +31,7 @@ func _ready():
 func _on_healthReachedMinimum():
 	alive = false
 	animation_player.play("die")
-	SignalBus.emit_spawn_energy_drops(energy_value, 5, global_position)
+	SignalBus.emit_spawn_energy_drops(data.energy_value, 5, global_position)
 
 func _physics_process(_delta):
 	if not can_move_visual_notifier.is_on_screen():
@@ -42,7 +39,7 @@ func _physics_process(_delta):
 	direction = navigation_agent.get_next_path_position() - global_position
 	var distance = global_position.distance_to(target.global_position)
 	direction = direction.normalized()
-	velocity = direction * max(min_speed, max_speed * (distance / 100))
+	velocity = direction * max(data.min_speed, data.max_speed * (distance / 100))
 	
 	#look_at(target.global_position)
 	if alive:
@@ -62,7 +59,7 @@ func _on_shoot_timer_timeout():
 
 func handle_hit():
 	$Health.take_damage(5)
-	SignalBus.emit_spawn_energy_drops(energy_value, 1, global_position)
+	SignalBus.emit_spawn_energy_drops(data.energy_value, 1, global_position)
 	
 func shoot():
 	shoot_timer.start()
