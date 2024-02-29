@@ -17,7 +17,10 @@ func _process(_delta):
 
 func _on_spawn_delay_timeout():
 	var actor_container:Node = Global.get_actor_container()
-	for n in quantity_per_spawn:
-		var actor:Node2D = actor_to_spawn.instantiate()
-		actor.position = spawn_location.global_position
-		actor_container.add_child(actor)
+	var enemyCount = get_tree().get_nodes_in_group("Enemies").size()
+	print('there are ' + str(enemyCount) + ' enemies in the tree')
+	if Global.enemy_limit > enemyCount:
+		for n in quantity_per_spawn:
+			var actor:Node2D = actor_to_spawn.instantiate()
+			actor.position = spawn_location.global_position
+			actor_container.add_child(actor)

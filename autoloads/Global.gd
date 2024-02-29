@@ -2,9 +2,11 @@ extends Node
 
 const PROJECTILE_CONTAINER_PATH = "/root/main/Projectiles"
 const ACTOR_CONTAINER_PATH = "/root/main/Actors"
+
 var player:CharacterBody2D
 
 @export var bullet_types:Array[ProjectileBase] = []
+@export var enemy_limit:int = 40
 
 const BLACK:int = 0
 const RED:int = 1
