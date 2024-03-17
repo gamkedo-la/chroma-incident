@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://bjipsqfegx0er"]
+
+[ext_resource type="Script" path="res://Actors/Bullet/Bullet.gd" id="1_dmiy1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bye8p"]
+size = Vector2(18, 6)
+
+[sub_resource type="Gradient" id="Gradient_wikvu"]
+colors = PackedColorArray(0.102089, 0.639354, 5.77569e-07, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_onogb"]
+gradient = SubResource("Gradient_wikvu")
+width = 16
+height = 4
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_4ggbd"]
+blend_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_b8b8v"]
+offsets = PackedFloat32Array(0, 0.623656)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0h22u"]
+gradient = SubResource("Gradient_b8b8v")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="Bullet" type="Area2D"]
+collision_layer = 4
+collision_mask = 13
+script = ExtResource("1_dmiy1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_bye8p")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("GradientTexture2D_onogb")
+
+[node name="VisibileNotifier" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="DeathTimer" type="Timer" parent="."]
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_4ggbd")
+texture = SubResource("GradientTexture2D_0h22u")
+
+[connection signal="screen_exited" from="VisibileNotifier" to="." method="_on_visibile_notifier_screen_exited"]
+[connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]

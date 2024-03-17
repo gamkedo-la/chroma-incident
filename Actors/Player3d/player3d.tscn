@@ -1,0 +1,63 @@
+[gd_scene load_steps=9 format=3 uid="uid://oxcxhq2uu33a"]
+
+[ext_resource type="Script" path="res://Actors/Player3d/Player3d.gd" id="1_v3j4o"]
+[ext_resource type="Texture2D" uid="uid://c5gf6ibonfdj6" path="res://assets/Prototype-textures/Light/texture_03.png" id="2_gk4tc"]
+[ext_resource type="Script" path="res://scripts/HealthComponent.gd" id="3_0qlyj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nymxm"]
+albedo_color = Color(0.741176, 0.705882, 0.776471, 1)
+albedo_texture = ExtResource("2_gk4tc")
+ao_enabled = true
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dtxn7"]
+radius = 0.502661
+height = 1.58097
+
+[sub_resource type="Theme" id="Theme_51wyc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t74oh"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.317647, 0.266667, 0.305882, 1)
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dvtme"]
+bg_color = Color(0.219608, 0.862745, 0.203922, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[node name="Player" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7229, 0)
+script = ExtResource("1_v3j4o")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1.6, 0, 0, 0, 1, 0, -0.799358, 0)
+material = SubResource("StandardMaterial3D_nymxm")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.828609, 0)
+shape = SubResource("CapsuleShape3D_dtxn7")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.468408, 0.883512, 0, -0.883512, 0.468408, 0, 26.0353, 12.7137)
+fov = 32.4
+
+[node name="HealthComponent" type="Node" parent="."]
+script = ExtResource("3_0qlyj")
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+offset_left = -20.0
+offset_top = -45.0
+offset_right = 19.0
+offset_bottom = -40.0
+theme = SubResource("Theme_51wyc")
+theme_override_styles/background = SubResource("StyleBoxFlat_t74oh")
+theme_override_styles/fill = SubResource("StyleBoxFlat_dvtme")
+value = 50.0
+show_percentage = false
