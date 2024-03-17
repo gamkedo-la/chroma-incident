@@ -13,18 +13,11 @@ var body_rotation_target:float
 var accelleration:Vector3
 var mouse_in_use:bool = true
 var holding_beacon:bool = false
-@onready var beacon_transform:RemoteTransform2D = $BeaconTransform
+#@onready var beacon_transform:RemoteTransform2D = $BeaconTransform
+@onready var aim_cursor = $"aim cursor"
+@onready var player_body = $PlayerBody
 
-#@onready var head = $PlayerGraphic/Head
-#@onready var shoulders = $PlayerGraphic/Shoulders
-#@onready var torso = $PlayerGraphic/Torso
-#@onready var left_leg = $PlayerGraphic/leftLeg
-#@onready var right_leg = $PlayerGraphic/rightLeg
-#@onready var feet = $PlayerGraphic/Feet
-#@onready var left_foot_marker = $PlayerGraphic/Feet/leftFootMarker
-#@onready var right_foot_marker = $PlayerGraphic/Feet/rightFootMarker
-#@onready var left_foot = $PlayerGraphic/Feet/leftFootMarker/leftFoot
-#@onready var right_foot = $PlayerGraphic/Feet/rightFootMarker/rightFoot
+
 
 
 #@onready var health_component = get_node("HealthComponent")
@@ -39,7 +32,8 @@ func _physics_process(_delta):
 	velocity += Vector3(accelleration.x, 0.0, accelleration.z) 
 	velocity *= drag
 	body_rotation_target = atan2(move_vector.z, move_vector.x) - PI/2
-	#rotation.y = body_rotation_target
+	player_body.rotation.y = body_rotation_target
+	aim_cursor.rotation.y = rotation_target
 	move_and_slide()
 	
 func _process(_delta): 
@@ -59,8 +53,11 @@ func _input(event):
 
 func set_mouse_aim():
 	var mousepos = get_viewport().get_mouse_position()
-	aim_vector = global_position.direction_to(Vector3(mousepos.x, 0.0, mousepos.y))
-	return atan2(aim_vector.y, aim_vector.x)
+	var center = get_viewport().size / 2
+	aim_vector = center.direction_to(Vector3(mousepos.x, 0.0, mousepos.y))
+	var angle = atan2(aim_vector.y, aim_vector.x)
+	#print(angle)
+	return angle
 
 func set_analog_stick_aim():
 	var xz =  Input.get_vector("aim_left", "aim_right", "aim_up", "aim_down")
@@ -87,5 +84,5 @@ func grab_beacon(beacon:Beacon):
 
 func drop_beacon():
 	holding_beacon = false
-	beacon_transform.update_position = false
+	#beacon_transform.update_position = false
 
