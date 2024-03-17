@@ -1,7 +1,7 @@
 class_name Player3D
 extends CharacterBody3D
 
-@export var move_speed:float = 50
+@export var move_speed:float = 2
 @export var drag:float = 0.85
 @export var rotation_speed:float = 0.3
 @export var spectral_energy:float = 0
@@ -27,7 +27,7 @@ var holding_beacon:bool = false
 #@onready var right_foot = $PlayerGraphic/Feet/rightFootMarker/rightFoot
 
 
-@onready var health_component = get_node("HealthComponent")
+#@onready var health_component = get_node("HealthComponent")
 
 func _ready():
 	Global.register_player(self)
@@ -36,10 +36,10 @@ func _physics_process(_delta):
 	var xz_vector =  Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	move_vector = Vector3(xz_vector.x, 0.0, xz_vector.y)
 	accelleration = move_vector * move_speed
-	velocity += Vector3(accelleration.x, 0.0, accelleration.y) 
+	velocity += Vector3(accelleration.x, 0.0, accelleration.z) 
 	velocity *= drag
-	body_rotation_target = atan2(move_vector.y, move_vector.x) - PI/2
-	
+	body_rotation_target = atan2(move_vector.z, move_vector.x) - PI/2
+	#rotation.y = body_rotation_target
 	move_and_slide()
 	
 func _process(_delta): 
@@ -69,7 +69,8 @@ func set_analog_stick_aim():
 	
 # Todo - Pass in damage from projectile as parameter
 func handle_hit():
-	health_component.take_damage(5)
+	pass
+	#health_component.take_damage(5)
 	
 func _collected_something(item:String, value:float):
 	#for now there's just the energy drops. function signature may change,

@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://ctmgjeo8fj0ss"]
+[gd_scene load_steps=5 format=3 uid="uid://ctmgjeo8fj0ss"]
 
 [ext_resource type="PackedScene" uid="uid://oxcxhq2uu33a" path="res://Actors/Player3d/player3d.tscn" id="1_8p4lk"]
 [ext_resource type="Texture2D" uid="uid://bvgnmew7534k6" path="res://assets/Prototype-textures/Dark/texture_01.png" id="1_ikfjj"]
+[ext_resource type="Texture2D" uid="uid://bu8okxutxqg6v" path="res://assets/greeble-block.png" id="3_ifo8h"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_55qbu"]
 albedo_texture = ExtResource("1_ikfjj")
@@ -48,7 +49,6 @@ material = SubResource("StandardMaterial3D_55qbu")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Lights"]
 transform = Transform3D(0.359867, 0.843707, -0.398314, 0, 0.426916, 0.904291, 0.933004, -0.325424, 0.153633, -11.0087, 5.97183, -6.88743)
 light_color = Color(0.470588, 0.490196, 0.6, 1)
-light_energy = 2.426
 light_indirect_energy = 2.584
 shadow_enabled = true
 shadow_bias = 0.496
@@ -56,25 +56,119 @@ shadow_normal_bias = 1.505
 shadow_blur = 5.059
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Lights"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.4412, 0.22997, -0.136915)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.4412, 4.04354, -0.136915)
 light_color = Color(0.831373, 0.145098, 0.266667, 1)
-light_energy = 2.267
-omni_range = 9.81936
+light_energy = 9.554
+shadow_enabled = true
+omni_range = 9.254
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="Lights"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14775, 0.22997, 12.1208)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14775, 4.04354, 12.1208)
 light_color = Color(0.0901961, 0.498039, 0.698039, 1)
-light_energy = 2.267
-omni_range = 9.81936
+light_energy = 9.554
+shadow_enabled = true
+omni_range = 9.254
 
 [node name="OmniLight3D4" type="OmniLight3D" parent="Lights"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.1277, 0.22997, -0.151445)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.1277, 4.04354, -0.151445)
 light_color = Color(0.909804, 0.372549, 0.0156863, 1)
-light_energy = 2.267
-omni_range = 9.81936
+light_energy = 9.554
+shadow_enabled = true
+omni_range = 9.254
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="Lights"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.636913, 0.22997, -10.3681)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.636913, 4.04354, -10.3681)
 light_color = Color(0.235294, 0.533333, 0.341176, 1)
-light_energy = 2.267
-omni_range = 9.81936
+light_energy = 9.554
+shadow_enabled = true
+omni_range = 9.254
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(3.2, 0, 0, 0, -1.39876e-07, 1, 0, -3.2, -4.37114e-08, 0, 0, 0)
+modulate = Color(0.333333, 0.333333, 0.333333, 1)
+shaded = true
+texture = ExtResource("3_ifo8h")
+
+[node name="Sprite3D2" type="Sprite3D" parent="."]
+transform = Transform3D(-0.0224519, 3.19992, -2.77556e-17, 1.39873e-07, 9.81396e-10, 1, 3.19992, 0.0224519, -4.37114e-08, 6.88191, 1.42109e-14, -4.76042)
+modulate = Color(0.333333, 0.333333, 0.333333, 1)
+shaded = true
+texture = ExtResource("3_ifo8h")
+
+[node name="Sprite3D3" type="Sprite3D" parent="."]
+transform = Transform3D(5.73817, 0, 0, 0, -2.34941e-07, 1, 0, -5.37483, -4.37114e-08, -8.21691, 0, -7.19237)
+modulate = Color(0.333333, 0.333333, 0.333333, 1)
+shaded = true
+texture = ExtResource("3_ifo8h")
+
+[node name="Sprite3D6" type="Sprite3D" parent="."]
+transform = Transform3D(5.73817, 0, 0, 0, -2.34941e-07, 1, 0, -5.37483, -4.37114e-08, 10.01, 0, 4.63698)
+modulate = Color(0.333333, 0.333333, 0.333333, 1)
+shaded = true
+texture = ExtResource("3_ifo8h")
+
+[node name="Sprite3D7" type="Sprite3D" parent="."]
+transform = Transform3D(-2.50823e-07, 5.37483, 0, 2.50823e-07, -1.42109e-14, 1, 5.73817, 2.34941e-07, -4.37114e-08, -13.4677, 0, 10.612)
+modulate = Color(0.333333, 0.333333, 0.333333, 1)
+shaded = true
+texture = ExtResource("3_ifo8h")
+
+[node name="Sprite3D9" type="Sprite3D" parent="."]
+transform = Transform3D(-2.50823e-07, 5.37483, 0, 2.50823e-07, -1.42109e-14, 1, 5.73817, 2.34941e-07, -4.37114e-08, -5.17451, 0, 5.9317)
+modulate = Color(0.333333, 0.333333, 0.333333, 1)
+shaded = true
+texture = ExtResource("3_ifo8h")
+
+[node name="Sprite3D4" type="Sprite3D" parent="."]
+transform = Transform3D(-3.2, -2.79753e-07, 4.37114e-08, 1.39876e-07, -8.09666e-15, 1, -2.79753e-07, 3.2, 3.55271e-15, 2.15446, -1.58327e-08, -9.61639)
+modulate = Color(0.333333, 0.333333, 0.333333, 1)
+shaded = true
+texture = ExtResource("3_ifo8h")
+
+[node name="Sprite3D10" type="Sprite3D" parent="."]
+transform = Transform3D(-3.2, -2.79753e-07, 4.37114e-08, 1.39876e-07, -8.09666e-15, 1, -2.79753e-07, 3.2, 3.55271e-15, 12.2541, -1.58327e-08, -14.2146)
+modulate = Color(0.333333, 0.333333, 0.333333, 1)
+shaded = true
+texture = ExtResource("3_ifo8h")
+
+[node name="Sprite3D11" type="Sprite3D" parent="."]
+transform = Transform3D(-2.54881, -6.95547e-08, 4.37114e-08, 1.11412e-07, -2.01307e-15, 1, -2.22824e-07, 0.795613, 3.55271e-15, -13.036, -1.58327e-08, -16.5137)
+modulate = Color(0.333333, 0.333333, 0.333333, 1)
+shaded = true
+texture = ExtResource("3_ifo8h")
+
+[node name="Sprite3D12" type="Sprite3D" parent="."]
+transform = Transform3D(-2.54881, -6.95547e-08, 4.37114e-08, 1.11412e-07, -2.01307e-15, 1, -2.22824e-07, 0.795613, 3.55271e-15, 13.8142, -1.58327e-08, 16.577)
+modulate = Color(0.333333, 0.333333, 0.333333, 1)
+shaded = true
+texture = ExtResource("3_ifo8h")
+
+[node name="Sprite3D13" type="Sprite3D" parent="."]
+transform = Transform3D(-2.54881, -6.95547e-08, 4.37114e-08, 1.11412e-07, -2.01307e-15, 1, -2.22824e-07, 0.795613, 3.55271e-15, 6.42422, -1.58327e-08, 13.621)
+modulate = Color(0.333333, 0.333333, 0.333333, 1)
+shaded = true
+texture = ExtResource("3_ifo8h")
+
+[node name="Sprite3D14" type="Sprite3D" parent="."]
+transform = Transform3D(3.34236e-07, -0.795613, 4.37114e-08, 1.86818e-14, 3.47773e-08, 1, -2.54881, -1.04332e-07, 3.55271e-15, 12.9931, -1.58327e-08, 11.0755)
+modulate = Color(0.333333, 0.333333, 0.333333, 1)
+shaded = true
+texture = ExtResource("3_ifo8h")
+
+[node name="Sprite3D15" type="Sprite3D" parent="."]
+transform = Transform3D(3.34236e-07, -0.795613, 4.37114e-08, 1.86818e-14, 3.47773e-08, 1, -2.54881, -1.04332e-07, 3.55271e-15, -6.54928, -1.58327e-08, -12.7366)
+modulate = Color(0.333333, 0.333333, 0.333333, 1)
+shaded = true
+texture = ExtResource("3_ifo8h")
+
+[node name="Sprite3D8" type="Sprite3D" parent="."]
+transform = Transform3D(-1.39876e-07, 3.2, 4.37114e-08, 0, -1.39876e-07, 1, 3.2, 1.39876e-07, 1.91069e-15, 12.8137, -1.58327e-08, -4.33853)
+modulate = Color(0.333333, 0.333333, 0.333333, 1)
+shaded = true
+texture = ExtResource("3_ifo8h")
+
+[node name="Sprite3D5" type="Sprite3D" parent="."]
+transform = Transform3D(-1.39876e-07, 3.2, 4.37114e-08, -4.96941e-22, -1.39876e-07, 1, 3.2, 1.39876e-07, 1.91069e-15, 0.498306, 0, 8.13168)
+modulate = Color(0.333333, 0.333333, 0.333333, 1)
+shaded = true
+texture = ExtResource("3_ifo8h")

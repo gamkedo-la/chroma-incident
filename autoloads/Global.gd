@@ -3,7 +3,7 @@ extends Node
 const PROJECTILE_CONTAINER_PATH = "/root/main/Projectiles"
 const ACTOR_CONTAINER_PATH = "/root/main/Actors"
 
-var player:CharacterBody2D
+var player:CharacterBody3D
 
 @export var bullet_types:Array[ProjectileBase] = []
 @export var enemy_limit:int = 40
