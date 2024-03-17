@@ -54,7 +54,7 @@ func _input(event):
 func set_mouse_aim():
 	var mousepos = get_viewport().get_mouse_position()
 	var center = get_viewport().size / 2
-	aim_vector = center.direction_to(Vector3(mousepos.x, 0.0, mousepos.y))
+	aim_vector = global_position.direction_to(Vector3(mousepos.x, 0.0, mousepos.y))
 	var angle = atan2(aim_vector.y, aim_vector.x)
 	#print(angle)
 	return angle
