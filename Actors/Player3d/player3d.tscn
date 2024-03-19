@@ -36,6 +36,8 @@ border_color = Color(0.8, 0.8, 0.8, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7229, 0)
 script = ExtResource("1_v3j4o")
 
+[node name="Marker3D" type="Marker3D" parent="."]
+
 [node name="PlayerBody" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1.6, 0, 0, 0, 1, 0, -0.259856, 0)
 size = Vector3(1, 1.67438, 1)
@@ -67,7 +69,7 @@ show_percentage = false
 transform = Transform3D(1.00382, 0, 0, 0, 1.00382, 0, 0, 0, 1.00382, 0, 0, 0)
 
 [node name="CSGPolygon3D" type="CSGPolygon3D" parent="aim cursor"]
-transform = Transform3D(0.478042, 0, 0, 0, -2.08959e-08, 0.478042, 0, -0.478042, -2.08959e-08, 0.515947, 0.34269, -0.305384)
+transform = Transform3D(0.239021, 0.413997, 0, 1.80964e-08, -1.0448e-08, 0.478042, 0.413997, -0.239021, -2.08959e-08, 0.947826, 0.342691, -0.0169742)
 polygon = PackedVector2Array(0.720636, 1.09522, 0, 1, 1.29356, 2.0891, 1.05805, 0.507549)
 depth = 0.23
 

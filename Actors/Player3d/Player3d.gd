@@ -15,7 +15,9 @@ var mouse_in_use:bool = true
 var holding_beacon:bool = false
 #@onready var beacon_transform:RemoteTransform2D = $BeaconTransform
 @onready var aim_cursor = $"aim cursor"
+@onready var camera = $Camera3D
 @onready var player_body = $PlayerBody
+@onready var marker_3d = $Marker3D
 
 
 
@@ -37,25 +39,24 @@ func _physics_process(_delta):
 	move_and_slide()
 	
 func _process(_delta): 
-	#head.rotation = rotation_target
-	#shoulders.rotation = body_rotation_target
-	#torso.rotation = body_rotation_target
-	#feet.rotation = body_rotation_target
-	#left_leg.global_position = left_foot_marker.global_position
-	#right_leg.global_position = right_foot_marker.global_position
 	pass
 	
 func _input(event):
 	if event is InputEventMouse or event is InputEventMouseButton or event is InputEventMouseMotion:
-		rotation_target = set_mouse_aim()
+		rotation_target = set_mouse_aim(event)
 	if event is InputEventJoypadButton or event is InputEventJoypadMotion:
 		rotation_target = set_analog_stick_aim()
 
-func set_mouse_aim():
-	var mousepos = get_viewport().get_mouse_position()
-	var center = get_viewport().size / 2
-	aim_vector = global_position.direction_to(Vector3(mousepos.x, 0.0, mousepos.y))
-	var angle = atan2(aim_vector.y, aim_vector.x)
+func set_mouse_aim(event):
+	var space_state = get_world_3d().direct_space_state
+	var from = camera.project_ray_origin(event.position)
+	var to = from + camera.project_ray_normal(event.position) * 3000
+	var ray_query = PhysicsRayQueryParameters3D.create(from, to)
+	var intersection = space_state.intersect_ray(ray_query)
+	var angle = 0
+	if not intersection.is_empty():
+		marker_3d.look_at(intersection.position)
+		angle = marker_3d.rotation.y
 	#print(angle)
 	return angle
 
