@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://bo13xijbet8vg"]
+
+[ext_resource type="Script" path="res://Actors/SpectralEnergyDrop3D/SpectralEnergyDrop3D.gd" id="1_ai7t3"]
+
+[node name="SpectralEnergyDrop" type="Area3D"]
+collision_layer = 3
+collision_mask = 35
+script = ExtResource("1_ai7t3")
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="."]
+transform = Transform3D(1.71875, 0, 0, 0, 1.69643, 0, 0, 0, 0, -2.84217e-14, -1, 0)
+polygon = PackedVector2Array(-4, 3, 0, -4, 4, 3)
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+y_sort_enabled = true
+polygon = PackedVector2Array(-3, 2, 0, -4, 3, 2)
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Polygon2D"]
+transform = Transform3D(0.996494, 0, 0, 0, 0.996494, 0, 0, 0, 0.996494, 0, 0, 0)
+polygon = PackedVector2Array(0, 0, 0.0633843, 0.375518, 0.299808, 0.473569, 0.318893, 0.203576)
+depth = 0.1
+
+[node name="Life" type="Timer" parent="."]
+process_callback = 0

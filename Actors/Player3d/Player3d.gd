@@ -35,7 +35,7 @@ func _physics_process(_delta):
 	velocity *= drag
 	body_rotation_target = atan2(move_vector.z, move_vector.x) - PI/2
 	player_body.rotation.y = body_rotation_target
-	aim_cursor.rotation.y = rotation_target
+	aim_cursor.rotation.y = rotation_target + PI/2
 	move_and_slide()
 	
 func _process(_delta): 

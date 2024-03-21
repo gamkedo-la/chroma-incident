@@ -1,5 +1,5 @@
-class_name SpectralEnergyDrop3D
-extends Area2D
+class_name SpectralEnergyDrop
+extends Area3D
 @onready var life_timer = $Life
 
 @export var energy_value = 1
@@ -18,7 +18,7 @@ func _process(_delta):
 func _die():
 	queue_free()
 
-func _on_area_entered(area:Area2D):
+func _on_area_entered(area:Area3D):
 	if area.is_in_group("Player"):
 		SignalBus.emit_collected("SpectralEnergyDrop", energy_value)
 		_die()

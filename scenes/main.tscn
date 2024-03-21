@@ -109,7 +109,6 @@ collision_layer = 16
 y_sort_enabled = true
 
 [node name="Projectile_Manager" parent="Projectiles" instance=ExtResource("6_mm50g")]
-y_sort_enabled = true
 
 [node name="SpectralEnergyDrop" parent="." instance=ExtResource("8_dvl73")]
 position = Vector2(834, -488)

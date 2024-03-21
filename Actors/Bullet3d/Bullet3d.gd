@@ -1,5 +1,5 @@
 class_name Bullet
-extends Area2D
+extends Area3D
 
 @onready var visibile_notifier = $VisibileNotifier as VisibleOnScreenNotifier2D
 @onready var death_timer = $DeathTimer as Timer	
@@ -16,7 +16,7 @@ func _set_texture(value):
 	# this callback is called.
 	sprite_texture = value  # Texture was changed.
 	$Sprite2D.set_texture(value) # tell godot to adjust the sprite
-	queue_redraw()  # Trigger a redraw of the node.
+	#queue_redraw()  # Trigger a redraw of the node.
 
 var direction = Vector2.RIGHT
 var speed:float = 0.0
@@ -50,12 +50,7 @@ func _on_Bullet_body_entered(body:Node):
 func _on_body_entered(body):
 	if body.has_method("handle_hit"):
 		body.handle_hit()
-	var spark_effect = sparks.instantiate()
-	spark_effect.position = position
-	spark_effect.emitting = true
-	spark_effect.rotation = rotation + PI
-	spark_effect.scale = Vector2(0.5, 0.5)
-	get_parent().add_child(spark_effect)
+# TODO create new particle effects with 3D particles
 	queue_free()
 		
 func _on_area_entered(area:Area2D):

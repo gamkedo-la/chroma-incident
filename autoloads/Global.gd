@@ -1,7 +1,7 @@
 extends Node
 
-const PROJECTILE_CONTAINER_PATH = "/root/main/Projectiles"
-const ACTOR_CONTAINER_PATH = "/root/main/Actors"
+const PROJECTILE_CONTAINER_PATH = "/root/main3D/Projectiles"
+const ACTOR_CONTAINER_PATH = "/root/main3D/Actors"
 
 var player:CharacterBody3D
 
@@ -25,10 +25,10 @@ const GREEN:int = 6
 #0000 0101 = purple
 const PURPLE:int = 5
 
-func get_projectile_container() -> Node2D:
+func get_projectile_container() -> Node3D:
 	return get_node(PROJECTILE_CONTAINER_PATH)
 
-func get_actor_container() -> Node2D:
+func get_actor_container() -> Node3D:
 	return get_node(ACTOR_CONTAINER_PATH)
 	
 func register_player(in_player):

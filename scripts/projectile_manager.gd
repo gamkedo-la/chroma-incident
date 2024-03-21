@@ -1,13 +1,13 @@
 class_name ProjectileManager
-extends Node2D
+extends Node3D
 
-@onready var base_bullet_scene : PackedScene = preload("res://Actors/Bullet/Bullet.tscn")
+@onready var base_bullet_scene : PackedScene = preload("res://Actors/Bullet3d/Bullet.tscn")
 @onready var base_spectral_drop_scene : PackedScene = preload("res://Actors/SpectralEnergyDrop/SpectralEnergyDrop.tscn")
 func _ready():
 	SignalBus.connect("fire", build_projectile)
 	SignalBus.connect("spawn_energy_drops", spawn_energy_drops)
 	
-func build_projectile(resource:ProjectileBase, location:Vector2, direction:Vector2, fired_by_enemy:bool) -> void:
+func build_projectile(resource:ProjectileBase, location:Vector3, direction:Vector3, fired_by_enemy:bool) -> void:
 	var new_bullet = base_bullet_scene.instantiate() as Bullet
 	#this doesn't throw an error, but doesn't affect change
 	new_bullet.sprite_texture = resource.projectile_texture
@@ -28,10 +28,10 @@ func spawn_projectile(bullet:Bullet, fired_by_enemy:bool):
 				return
 	projectile_container.call_deferred("add_child", bullet)
 	
-func spawn_energy_drops(value:int, amount:int, location:Vector2):
+func spawn_energy_drops(value:int, amount:int, location:Vector3):
 	for n in amount:
-		var drop:Node2D = base_spectral_drop_scene.instantiate()
-		drop.position = location + Vector2(randf_range(-10, 10), randf_range(-10, 10))
+		var drop:Node3D = base_spectral_drop_scene.instantiate()
+		drop.position = location + Vector3(randf_range(-10, 10), 0.1, randf_range(-10, 10))
 		drop.energy_value = value
 		var container = Global.get_projectile_container()
 		if container == null:
