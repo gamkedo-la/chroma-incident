@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Actors/Player3d/Player3d.gd" id="1_v3j4o"]
 [ext_resource type="Texture2D" uid="uid://c5gf6ibonfdj6" path="res://assets/Prototype-textures/Light/texture_03.png" id="2_gk4tc"]
 [ext_resource type="Script" path="res://scripts/HealthComponent.gd" id="3_0qlyj"]
-[ext_resource type="PackedScene" uid="uid://bqlv5h2d2x7uw" path="res://Actors/BRG3d/BRG.tscn" id="4_0oq13"]
+[ext_resource type="PackedScene" uid="uid://bqlv5h2d2x7uw" path="res://Actors/BRG3d/BRG3d.tscn" id="4_4rfi1"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nymxm"]
 albedo_color = Color(0.741176, 0.705882, 0.776471, 1)
@@ -66,4 +66,4 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_dvtme")
 value = 50.0
 show_percentage = false
 
-[node name="Brg" parent="." instance=ExtResource("4_0oq13")]
+[node name="Brg" parent="." instance=ExtResource("4_4rfi1")]

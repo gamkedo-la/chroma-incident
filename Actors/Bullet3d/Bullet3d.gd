@@ -5,7 +5,7 @@ extends Area3D
 @onready var death_timer = $DeathTimer as Timer	
 @onready var sprite_texture = $Sprite3D.texture as Texture:
 							set = _set_texture
-var sparks:PackedScene = preload("res://scenes/particles/splode.tscn")
+#var sparks:PackedScene = preload("res://scenes/particles/splode.tscn")
 							
 func _ready():
 	connect("area_entered", _on_area_entered)
@@ -18,16 +18,14 @@ func _set_texture(value):
 	$Sprite3D.set_texture(value) # tell godot to adjust the sprite
 	#queue_redraw()  # Trigger a redraw of the node.
 
-var direction = Vector2.RIGHT
+var direction = Vector3.ZERO
 var speed:float = 0.0
 
 func _physics_process(delta):
 	move(delta)
 
 func move(delta:float):
-	#var collision = move_and_collide(direction * speed * delta)
-	look_at(global_transform.origin + direction, Vector3.UP)
-	global_transform.origin -= direction * speed * delta
+	translate(direction * speed * delta)
 		
 
 func _on_visibile_notifier_screen_exited():
@@ -38,7 +36,7 @@ func _on_death_timer_timeout():
 	queue_free()
 
 func handle_hit():
-	sparks.emitting = true
+	#sparks.emitting = true
 	queue_free()
 
 func _on_Bullet_body_entered(body:Node):

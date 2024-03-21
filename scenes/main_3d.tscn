@@ -17,6 +17,7 @@ light_color = Color(0.745098, 0.87451, 1, 1)
 light_energy = 0.252
 
 [node name="Player" parent="." instance=ExtResource("1_8p4lk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.52285, 1.7229, -8.42667)
 
 [node name="env blocks" type="Node3D" parent="."]
 

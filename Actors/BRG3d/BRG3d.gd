@@ -1,4 +1,4 @@
-class_name BRG
+class_name BRG3d
 extends CharacterBody3D
 
 
@@ -35,7 +35,8 @@ func fire_projectile() -> void:
 	if Input.is_action_pressed("shoot") and can_fire:
 		can_fire = false
 		fire_timer.start()
-		var direction = (position - Global.get_mouse_position()).normalized()
+		
+		var direction = (Global.get_mouse_position() - global_position).normalized() * Vector3(1,0,1)
 		SignalBus.emit_fire(projectile_resource, bullet_emit.global_position,
 			direction, false)
 
