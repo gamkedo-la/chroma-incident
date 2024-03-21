@@ -26,8 +26,8 @@ func _physics_process(delta):
 
 func move(delta:float):
 	#var collision = move_and_collide(direction * speed * delta)
-	rotation.y = atan2(direction.z, direction.x)
-	translate(direction * speed * delta)
+	look_at(global_transform.origin + direction, Vector3.UP)
+	global_transform.origin -= direction * speed * delta
 		
 
 func _on_visibile_notifier_screen_exited():
