@@ -11,7 +11,7 @@ func build_projectile(resource:ProjectileBase, location:Vector3, direction:Vecto
 	#this doesn't throw an error, but doesn't affect change
 	new_bullet.sprite_texture = resource.projectile_texture
 	new_bullet.position = location
-	new_bullet.direction = (direction - global_position).normalized()
+	new_bullet.direction = direction
 	new_bullet.rotation.y = atan2(new_bullet.direction.z, new_bullet.direction.x)
 	new_bullet.speed = resource.projectile_speed
 	spawn_projectile(new_bullet, fired_by_enemy)
