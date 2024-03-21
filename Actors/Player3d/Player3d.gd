@@ -14,7 +14,7 @@ var accelleration:Vector3
 var mouse_in_use:bool = true
 var holding_beacon:bool = false
 #@onready var beacon_transform:RemoteTransform2D = $BeaconTransform
-@onready var aim_cursor = $"aim cursor"
+#@onready var aim_cursor = $"aim cursor"
 @onready var camera = $Camera3D
 @onready var player_body = $PlayerBody
 @onready var marker_3d = $Marker3D
@@ -35,7 +35,7 @@ func _physics_process(_delta):
 	velocity *= drag
 	body_rotation_target = atan2(move_vector.z, move_vector.x) - PI/2
 	player_body.rotation.y = body_rotation_target
-	aim_cursor.rotation.y = rotation_target + PI/2
+	#aim_cursor.rotation.y = rotation_target + PI/2
 	move_and_slide()
 	
 func _process(_delta): 

@@ -3,7 +3,7 @@ extends Area3D
 
 @onready var visibile_notifier = $VisibileNotifier as VisibleOnScreenNotifier2D
 @onready var death_timer = $DeathTimer as Timer	
-@onready var sprite_texture = $Sprite2D.texture as Texture:
+@onready var sprite_texture = $Sprite3D.texture as Texture:
 							set = _set_texture
 var sparks:PackedScene = preload("res://scenes/particles/splode.tscn")
 							
@@ -15,7 +15,7 @@ func _set_texture(value):
 	# If the texture variable is modified externally,
 	# this callback is called.
 	sprite_texture = value  # Texture was changed.
-	$Sprite2D.set_texture(value) # tell godot to adjust the sprite
+	$Sprite3D.set_texture(value) # tell godot to adjust the sprite
 	#queue_redraw()  # Trigger a redraw of the node.
 
 var direction = Vector2.RIGHT

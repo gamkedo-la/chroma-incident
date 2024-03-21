@@ -1,5 +1,5 @@
-class_name BRG3d
-extends CharacterBody2D
+class_name BRG
+extends CharacterBody3D
 
 
 @export var fire_rate: float = 0.2
@@ -22,7 +22,9 @@ func _ready():
 	fire_timer.wait_time = fire_rate
 	
 func _process(_delta):
-	look_at(get_global_mouse_position())
+	#TODO generalize mouse raycast and put in global for things that need to get 3d mouse pos
+	
+	look_at(Global.get_mouse_position())
 	fire_projectile()
 	
 func gunmod(effectType:int) -> void:
@@ -34,7 +36,7 @@ func fire_projectile() -> void:
 		can_fire = false
 		fire_timer.start()
 		SignalBus.emit_fire(projectile_resource, bullet_emit.global_position,
-			(get_global_mouse_position() - global_position).normalized(), false)
+			(Global.get_mouse_position() - global_position).normalized(), false)
 
 func set_can_fire() -> void:
 	can_fire = true

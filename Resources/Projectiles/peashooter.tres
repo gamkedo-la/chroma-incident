@@ -12,4 +12,4 @@ height = 6
 [resource]
 script = ExtResource("1_2pfy0")
 projectile_texture = SubResource("GradientTexture2D_t6bnm")
-projectile_speed = 150.0
+projectile_speed = 10.0

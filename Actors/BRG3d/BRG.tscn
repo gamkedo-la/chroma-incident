@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://bqlv5h2d2x7uw"]
+
+[ext_resource type="Script" path="res://Actors/BRG3d/BRG3d.gd" id="1_utlkv"]
+[ext_resource type="Resource" uid="uid://bhgu74piv176l" path="res://Resources/Projectiles/peashooter.tres" id="2_q8mre"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vish5"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_768qv"]
+
+[node name="Brg" type="CharacterBody3D" groups=["Player"]]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_utlkv")
+projectile_resource = ExtResource("2_q8mre")
+
+[node name="CollisionShape2D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_vish5")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Area2D" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 15
+
+[node name="CollisionShape2D" type="CollisionShape3D" parent="Area2D"]
+shape = SubResource("CapsuleShape3D_768qv")
+
+[node name="bulletEmit" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.19379, 0.281595, 0)
+
+[node name="aim cursor" type="Node3D" parent="."]
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="aim cursor"]
+transform = Transform3D(0.239021, 0.413997, 0, 1.80964e-08, -1.0448e-08, 0.478042, 0.413997, -0.239021, -2.08959e-08, 0.947826, 0.342691, -0.0169742)
+polygon = PackedVector2Array(0.720636, 1.09522, 0, 1, 1.29356, 2.0891, 1.05805, 0.507549)
+depth = 0.23
+
+[node name="OmniLight3D" type="OmniLight3D" parent="aim cursor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.70796, 1.41088, 0.0448081)
+light_color = Color(1, 1, 0.345098, 1)
+light_energy = 0.841
+omni_range = 2.021
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

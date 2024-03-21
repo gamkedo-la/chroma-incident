@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://oxcxhq2uu33a"]
+[gd_scene load_steps=10 format=3 uid="uid://oxcxhq2uu33a"]
 
 [ext_resource type="Script" path="res://Actors/Player3d/Player3d.gd" id="1_v3j4o"]
 [ext_resource type="Texture2D" uid="uid://c5gf6ibonfdj6" path="res://assets/Prototype-textures/Light/texture_03.png" id="2_gk4tc"]
 [ext_resource type="Script" path="res://scripts/HealthComponent.gd" id="3_0qlyj"]
+[ext_resource type="PackedScene" uid="uid://bqlv5h2d2x7uw" path="res://Actors/BRG3d/BRG.tscn" id="4_0oq13"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nymxm"]
 albedo_color = Color(0.741176, 0.705882, 0.776471, 1)
@@ -65,15 +66,4 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_dvtme")
 value = 50.0
 show_percentage = false
 
-[node name="aim cursor" type="Node3D" parent="."]
-
-[node name="CSGPolygon3D" type="CSGPolygon3D" parent="aim cursor"]
-transform = Transform3D(0.239021, 0.413997, 0, 1.80964e-08, -1.0448e-08, 0.478042, 0.413997, -0.239021, -2.08959e-08, 0.947826, 0.342691, -0.0169742)
-polygon = PackedVector2Array(0.720636, 1.09522, 0, 1, 1.29356, 2.0891, 1.05805, 0.507549)
-depth = 0.23
-
-[node name="OmniLight3D" type="OmniLight3D" parent="aim cursor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.925966, 1.41088, -0.959433)
-light_color = Color(1, 1, 0.345098, 1)
-light_energy = 0.841
-omni_range = 2.021
+[node name="Brg" parent="." instance=ExtResource("4_0oq13")]

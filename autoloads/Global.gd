@@ -1,9 +1,10 @@
-extends Node
+extends Node3D
 
-const PROJECTILE_CONTAINER_PATH = "/root/main3D/Projectiles"
-const ACTOR_CONTAINER_PATH = "/root/main3D/Actors"
+const PROJECTILE_CONTAINER_PATH = "/root/main3d/Projectiles"
+const ACTOR_CONTAINER_PATH = "/root/main3d/Actors"
 
 var player:CharacterBody3D
+var camera:Camera3D
 
 @export var bullet_types:Array[ProjectileBase] = []
 @export var enemy_limit:int = 40
@@ -33,3 +34,15 @@ func get_actor_container() -> Node3D:
 	
 func register_player(in_player):
 	player = in_player
+	camera = in_player.camera
+
+func get_mouse_position() -> Vector3:
+	var mouse_position = get_viewport().get_mouse_position()
+	var space_state = get_world_3d().direct_space_state
+	var from = camera.project_ray_origin(mouse_position)
+	var to = from + camera.project_ray_normal(mouse_position) * 3000
+	var ray_query = PhysicsRayQueryParameters3D.create(from, to)
+	var intersection = space_state.intersect_ray(ray_query)
+	if not intersection.is_empty():
+		return intersection.position
+	return Vector3.ZERO
