@@ -1,11 +1,46 @@
-[gd_scene load_steps=2 format=3 uid="uid://ccfvi7usr51yn"]
+[gd_scene load_steps=6 format=3 uid="uid://ccfvi7usr51yn"]
+
+[ext_resource type="Script" path="res://Actors/Beacon3d/beacon3d.gd" id="1_u3ikh"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m1kde"]
 albedo_color = Color(0.0745098, 0.0745098, 0.0745098, 1)
 
-[node name="Node3D" type="Node3D"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ioc2o"]
+transparency = 1
+albedo_color = Color(0.780392, 0.321569, 0, 0.223529)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_kv4qj"]
+height = 8.56129
+radius = 4.11841
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dybqb"]
+size = Vector3(1.18353, 2.59122, 1.26373)
+
+[node name="Beacon" type="Node3D"]
+script = ExtResource("1_u3ikh")
+color = Color(0, 0.396078, 0.352941, 0.25098)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00416231, 1.25141, 0.00401902)
-size = Vector3(1, 2.54797, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00416231, 5.38499, 0.00401902)
+size = Vector3(1, 10.8151, 1)
 material = SubResource("StandardMaterial3D_m1kde")
+
+[node name="beacon_halo" type="Area3D" parent="."]
+
+[node name="visible_shape" type="CSGCylinder3D" parent="beacon_halo"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.34226, 0)
+radius = 4.15384
+height = 5.81839
+sides = 15
+material = SubResource("StandardMaterial3D_ioc2o")
+
+[node name="halo_shape" type="CollisionShape3D" parent="beacon_halo"]
+shape = SubResource("CylinderShape3D_kv4qj")
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="."]
+
+[node name="hitbox" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="hitbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0264587, 1.2693, -0.00576782)
+shape = SubResource("BoxShape3D_dybqb")

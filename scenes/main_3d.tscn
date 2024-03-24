@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://ctmgjeo8fj0ss"]
+[gd_scene load_steps=7 format=3 uid="uid://ctmgjeo8fj0ss"]
 
 [ext_resource type="PackedScene" uid="uid://oxcxhq2uu33a" path="res://Actors/Player3d/player3d.tscn" id="1_8p4lk"]
 [ext_resource type="Texture2D" uid="uid://bvgnmew7534k6" path="res://assets/Prototype-textures/Dark/texture_01.png" id="1_ikfjj"]
 [ext_resource type="Texture2D" uid="uid://bu8okxutxqg6v" path="res://assets/greeble-block.png" id="3_ifo8h"]
 [ext_resource type="PackedScene" uid="uid://budcn7nqg0mqx" path="res://autoloads/projectile_manager.tscn" id="4_xxs08"]
+[ext_resource type="PackedScene" uid="uid://ccfvi7usr51yn" path="res://Actors/Beacon3d/beacon3d.tscn" id="5_4eb5g"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_55qbu"]
 albedo_texture = ExtResource("1_ikfjj")
@@ -82,6 +83,7 @@ shadow_enabled = true
 omni_range = 9.254
 
 [node name="billboard_decor" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.288368, 0)
 
 [node name="Sprite3D6" type="Sprite3D" parent="billboard_decor"]
 transform = Transform3D(5.73817, 0, 0, 0, -2.34941e-07, 1, 0, -5.37483, -4.37114e-08, 10.01, 0, 4.63698)
@@ -176,3 +178,8 @@ texture = ExtResource("3_ifo8h")
 [node name="Projectiles" type="Node3D" parent="."]
 
 [node name="Projectile_Manager" parent="Projectiles" instance=ExtResource("4_xxs08")]
+visible = false
+
+[node name="Beacon" parent="." instance=ExtResource("5_4eb5g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.13809, -0.31586, -3.03847)
+color = Color(0, 0.635294, 0.301961, 0.25098)
